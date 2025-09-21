@@ -3,6 +3,7 @@ import os
 import warnings
 import numpy as np
 import pandas as pd
+import time
 
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
@@ -58,7 +59,7 @@ def definir_modelos():
         'xgboost': {
             'model': XGBRegressor(
                 random_state=42,
-                verbosity=2,
+                verbosity=1,
                 tree_method='gpu_hist',
                 predictor='gpu_predictor'
             ),
@@ -90,7 +91,7 @@ def procesar_dataset(name, path, models, scoring):
             scoring=scoring,
             refit='rmse',
             cv=5,
-            verbose=2,
+            verbose=1,
             n_jobs=-1,
             return_train_score=False
         )
@@ -113,6 +114,7 @@ def procesar_dataset(name, path, models, scoring):
                 'best_r2': cv['mean_test_r2'][grid.best_index_] if 'mean_test_r2' in cv else None,
                 'best_params': grid.best_params_
             })
+            time.sleep(1)
         except Exception as e:
             print(f"Error al entrenar modelo '{model_name}' con dataset '{name}': {e}")
             continue
