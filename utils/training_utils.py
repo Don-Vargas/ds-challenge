@@ -27,7 +27,8 @@ def definir_metricas():
 # 2. Cargar datasets
 def obtener_csvs(path):
     csv_files = glob.glob(os.path.join(path, '*.csv'))
-    return csv_files
+    csvs_dict =  {os.path.basename(ruta): ruta for ruta in csv_files}
+    return csvs_dict
 
 # 3. Modelos y grids
 def definir_modelos():
@@ -60,8 +61,7 @@ def definir_modelos():
             'model': XGBRegressor(
                 random_state=42,
                 verbosity=1,
-                tree_method='gpu_hist',
-                predictor='gpu_predictor'
+                tree_method='hist'
             ),
             'params': {
                 'model__n_estimators': [100, 200],
@@ -92,7 +92,7 @@ def procesar_dataset(name, path, models, scoring):
             refit='rmse',
             cv=5,
             verbose=1,
-            n_jobs=-1,
+            n_jobs=30,
             return_train_score=False
         )
         try:
