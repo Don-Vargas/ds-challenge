@@ -3,8 +3,6 @@ import os
 import warnings
 import numpy as np
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
@@ -26,24 +24,9 @@ def definir_metricas():
     }
 
 # 2. Cargar datasets
-def obtener_csvs(root_dir, excluded_file):
-    csv_files = glob.glob(os.path.join(root_dir, '**', '*.csv'), recursive=True)
-    dataset_dirs = {}
-
-    excluded_file = os.path.normpath(excluded_file)
-    excluded_name = os.path.basename(excluded_file)
-
-    for file_path in csv_files:
-        file_path_norm = os.path.normpath(file_path)
-        file_name = os.path.basename(file_path_norm)
-
-        if file_path_norm == excluded_file or file_name == excluded_name:
-            continue
-
-        key = os.path.splitext(file_name)[0]
-        dataset_dirs[key] = file_path_norm
-
-    return dataset_dirs
+def obtener_csvs(path):
+    csv_files = glob.glob(os.path.join(path, '*.csv'))
+    return csv_files
 
 # 3. Modelos y grids
 def definir_modelos():
@@ -134,27 +117,3 @@ def procesar_dataset(name, path, models, scoring):
             print(f"Error al entrenar modelo '{model_name}' con dataset '{name}': {e}")
             continue
     return resultados
-
-# 5. Visualización
-def visualizar_resultados(results_df):
-    sns.set_theme(style="whitegrid")
-    fig, axes = plt.subplots(2, 2, figsize=(18, 12))
-    fig.suptitle("Análisis de Resultados de Modelos", fontsize=18)
-
-    avg_rmse = results_df.groupby('model')['best_rmse'].mean().sort_values()
-    sns.barplot(x=avg_rmse.values, y=avg_rmse.index, ax=axes[0, 0], palette="viridis", hue=avg_rmse.index, legend=False)
-    axes[0, 0].set_title("Promedio RMSE por Modelo")
-
-    pivot_rmse = results_df.pivot(index='dataset', columns='model', values='best_rmse')
-    sns.heatmap(pivot_rmse, annot=True, fmt=".2f", cmap="coolwarm", ax=axes[0, 1])
-
-    sns.scatterplot(data=results_df, x='best_rmse', y='best_r2', hue='model', style='model', s=100, ax=axes[1, 0])
-    axes[1, 0].set_title("RMSE vs R²")
-
-    sns.boxplot(data=results_df, x='model', y='best_mae', ax=axes[1, 1], palette="pastel", hue='model', legend=False)
-    axes[1, 1].set_title("Distribución de MAE por Modelo")
-    axes[1, 1].tick_params(axis='x', rotation=15)
-
-    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-    plt.savefig("data/grid_search/visualizaciones_resultados_modelos.png")
-    plt.close()

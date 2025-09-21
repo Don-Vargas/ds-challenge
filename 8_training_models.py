@@ -1,14 +1,12 @@
-import os
 import pandas as pd
 from utils.storage import path_validate
 from utils.training_utils import definir_metricas, obtener_csvs, definir_modelos, procesar_dataset
 
 if __name__ == "__main__":
-    root_dir = 'data/data_for_models'
-    excluded_file = os.path.join(root_dir, 'blind_test_data.csv')
+    path = 'data/data_for_models/split_datasets/training/'
 
     scoring = definir_metricas()
-    datasets = obtener_csvs(root_dir, excluded_file)
+    datasets = obtener_csvs(path)
     models = definir_modelos()
 
     resultados_totales = []

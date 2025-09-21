@@ -1,5 +1,5 @@
 import pandas as pd
-from utils.training_utils import visualizar_resultados
+from utils.vis_utils import visualizar_resultados
 
 if __name__ == "__main__":
     gridsearch_path = 'data/grid_search/resultados_gridsearch.csv'
