@@ -4,46 +4,8 @@
             "transformer_type": "None",
             "params": {}
         },
-        "columns": [
-            "feature_0",
-            "feature_1",
-            "feature_2",
-            "feature_3",
-            "feature_4",
-            "feature_5",
-            "feature_6",
-            "feature_7",
-            "feature_8",
-            "feature_9",
-            "feature_10",
-            "feature_11",
-            "feature_12",
-            "feature_13",
-            "feature_14",
-            "feature_15",
-            "feature_16",
-            "feature_17",
-            "feature_18",
-            "feature_19",
-            "target"
-        ],
         "scaler_pickle_path": null,
-        "output_csv_path": "data/data_for_models/transformed_data/training_data_original.csv",
-        "eda_report_path": "data/eda/eda_training_data_original.csv",
-        "correlation_csv_path": "data/correlation_matrices/correlation_training_data_original.csv",
-        "importance": {
-            "features_csv_path": "data/variable_importance/feature_importance_training_data_original.csv",
-            "metrics_csv_path": "data/variable_importance/metrics_training_data_original.csv"
-        },
-        "most_important_csv_path": "data/data_for_models/most_important_features/important_training_data_original.csv",
-        "pca": {
-            "pca_data_csv_path": "data/data_for_models/pca_data/pca_training_data_original.csv",
-            "pca_model_pkl_path": "data/pca_models/pca_model_training_data_original.pkl"
-        },
-        "train_hold": {
-            "train_data_csv_path": "data/data_for_models/split_datasets/training/training_data_original.csv",
-            "hold_out_data_csv_path": "data/data_for_models/split_datasets/holdout/training_data_original.csv"
-        }
+        "output_csv_path": "data/data_for_models/transformed_data/training_data_original.csv"
     },
     "training_data_minmax": {
         "transformation": {
@@ -57,46 +19,11 @@
                 ]
             }
         },
-        "columns": [
-            "feature_0",
-            "feature_1",
-            "feature_2",
-            "feature_3",
-            "feature_4",
-            "feature_5",
-            "feature_6",
-            "feature_7",
-            "feature_8",
-            "feature_9",
-            "feature_10",
-            "feature_11",
-            "feature_12",
-            "feature_13",
-            "feature_14",
-            "feature_15",
-            "feature_16",
-            "feature_17",
-            "feature_18",
-            "feature_19",
-            "target"
-        ],
-        "scaler_pickle_path": "data/scaler_models/scaler_training_data_minmax.pkl",
-        "output_csv_path": "data/data_for_models/transformed_data/training_data_minmax.csv",
-        "eda_report_path": "data/eda/eda_training_data_minmax.csv",
-        "correlation_csv_path": "data/correlation_matrices/correlation_training_data_minmax.csv",
-        "importance": {
-            "features_csv_path": "data/variable_importance/feature_importance_training_data_minmax.csv",
-            "metrics_csv_path": "data/variable_importance/metrics_training_data_minmax.csv"
+        "scaler_pickle_path": {
+            "X": "data/scaler_models/scaler_X_training_data_minmax.pkl",
+            "y": "data/scaler_models/scaler_y_training_data_minmax.pkl"
         },
-        "most_important_csv_path": "data/data_for_models/most_important_features/important_training_data_minmax.csv",
-        "pca": {
-            "pca_data_csv_path": "data/data_for_models/pca_data/pca_training_data_minmax.csv",
-            "pca_model_pkl_path": "data/pca_models/pca_model_training_data_minmax.pkl"
-        },
-        "train_hold": {
-            "train_data_csv_path": "data/data_for_models/split_datasets/training/training_data_minmax.csv",
-            "hold_out_data_csv_path": "data/data_for_models/split_datasets/holdout/training_data_minmax.csv"
-        }
+        "output_csv_path": "data/data_for_models/transformed_data/training_data_minmax.csv"
     },
     "training_data_standard": {
         "transformation": {
@@ -107,46 +34,11 @@
                 "with_std": true
             }
         },
-        "columns": [
-            "feature_0",
-            "feature_1",
-            "feature_2",
-            "feature_3",
-            "feature_4",
-            "feature_5",
-            "feature_6",
-            "feature_7",
-            "feature_8",
-            "feature_9",
-            "feature_10",
-            "feature_11",
-            "feature_12",
-            "feature_13",
-            "feature_14",
-            "feature_15",
-            "feature_16",
-            "feature_17",
-            "feature_18",
-            "feature_19",
-            "target"
-        ],
-        "scaler_pickle_path": "data/scaler_models/scaler_training_data_standard.pkl",
-        "output_csv_path": "data/data_for_models/transformed_data/training_data_standard.csv",
-        "eda_report_path": "data/eda/eda_training_data_standard.csv",
-        "correlation_csv_path": "data/correlation_matrices/correlation_training_data_standard.csv",
-        "importance": {
-            "features_csv_path": "data/variable_importance/feature_importance_training_data_standard.csv",
-            "metrics_csv_path": "data/variable_importance/metrics_training_data_standard.csv"
+        "scaler_pickle_path": {
+            "X": "data/scaler_models/scaler_X_training_data_standard.pkl",
+            "y": "data/scaler_models/scaler_y_training_data_standard.pkl"
         },
-        "most_important_csv_path": "data/data_for_models/most_important_features/important_training_data_standard.csv",
-        "pca": {
-            "pca_data_csv_path": "data/data_for_models/pca_data/pca_training_data_standard.csv",
-            "pca_model_pkl_path": "data/pca_models/pca_model_training_data_standard.pkl"
-        },
-        "train_hold": {
-            "train_data_csv_path": "data/data_for_models/split_datasets/training/training_data_standard.csv",
-            "hold_out_data_csv_path": "data/data_for_models/split_datasets/holdout/training_data_standard.csv"
-        }
+        "output_csv_path": "data/data_for_models/transformed_data/training_data_standard.csv"
     },
     "training_data_boxcox": {
         "transformation": {
@@ -157,46 +49,11 @@
                 "standardize": true
             }
         },
-        "columns": [
-            "feature_0",
-            "feature_1",
-            "feature_2",
-            "feature_3",
-            "feature_4",
-            "feature_5",
-            "feature_6",
-            "feature_7",
-            "feature_8",
-            "feature_9",
-            "feature_10",
-            "feature_11",
-            "feature_12",
-            "feature_13",
-            "feature_14",
-            "feature_15",
-            "feature_16",
-            "feature_17",
-            "feature_18",
-            "feature_19",
-            "target"
-        ],
-        "scaler_pickle_path": "data/scaler_models/scaler_training_data_boxcox.pkl",
-        "output_csv_path": "data/data_for_models/transformed_data/training_data_boxcox.csv",
-        "eda_report_path": "data/eda/eda_training_data_boxcox.csv",
-        "correlation_csv_path": "data/correlation_matrices/correlation_training_data_boxcox.csv",
-        "importance": {
-            "features_csv_path": "data/variable_importance/feature_importance_training_data_boxcox.csv",
-            "metrics_csv_path": "data/variable_importance/metrics_training_data_boxcox.csv"
+        "scaler_pickle_path": {
+            "X": "data/scaler_models/scaler_X_training_data_boxcox.pkl",
+            "y": "data/scaler_models/scaler_y_training_data_boxcox.pkl"
         },
-        "most_important_csv_path": "data/data_for_models/most_important_features/important_training_data_boxcox.csv",
-        "pca": {
-            "pca_data_csv_path": "data/data_for_models/pca_data/pca_training_data_boxcox.csv",
-            "pca_model_pkl_path": "data/pca_models/pca_model_training_data_boxcox.pkl"
-        },
-        "train_hold": {
-            "train_data_csv_path": "data/data_for_models/split_datasets/training/training_data_boxcox.csv",
-            "hold_out_data_csv_path": "data/data_for_models/split_datasets/holdout/training_data_boxcox.csv"
-        }
+        "output_csv_path": "data/data_for_models/transformed_data/training_data_boxcox.csv"
     },
     "training_data_yeojohnson": {
         "transformation": {
@@ -207,45 +64,10 @@
                 "standardize": true
             }
         },
-        "columns": [
-            "feature_0",
-            "feature_1",
-            "feature_2",
-            "feature_3",
-            "feature_4",
-            "feature_5",
-            "feature_6",
-            "feature_7",
-            "feature_8",
-            "feature_9",
-            "feature_10",
-            "feature_11",
-            "feature_12",
-            "feature_13",
-            "feature_14",
-            "feature_15",
-            "feature_16",
-            "feature_17",
-            "feature_18",
-            "feature_19",
-            "target"
-        ],
-        "scaler_pickle_path": "data/scaler_models/scaler_training_data_yeojohnson.pkl",
-        "output_csv_path": "data/data_for_models/transformed_data/training_data_yeojohnson.csv",
-        "eda_report_path": "data/eda/eda_training_data_yeojohnson.csv",
-        "correlation_csv_path": "data/correlation_matrices/correlation_training_data_yeojohnson.csv",
-        "importance": {
-            "features_csv_path": "data/variable_importance/feature_importance_training_data_yeojohnson.csv",
-            "metrics_csv_path": "data/variable_importance/metrics_training_data_yeojohnson.csv"
+        "scaler_pickle_path": {
+            "X": "data/scaler_models/scaler_X_training_data_yeojohnson.pkl",
+            "y": "data/scaler_models/scaler_y_training_data_yeojohnson.pkl"
         },
-        "most_important_csv_path": "data/data_for_models/most_important_features/important_training_data_yeojohnson.csv",
-        "pca": {
-            "pca_data_csv_path": "data/data_for_models/pca_data/pca_training_data_yeojohnson.csv",
-            "pca_model_pkl_path": "data/pca_models/pca_model_training_data_yeojohnson.pkl"
-        },
-        "train_hold": {
-            "train_data_csv_path": "data/data_for_models/split_datasets/training/training_data_yeojohnson.csv",
-            "hold_out_data_csv_path": "data/data_for_models/split_datasets/holdout/training_data_yeojohnson.csv"
-        }
+        "output_csv_path": "data/data_for_models/transformed_data/training_data_yeojohnson.csv"
     }
 }

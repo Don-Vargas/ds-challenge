@@ -1,932 +1,4 @@
 {
-    "linear_regression_training_data_original.csv": {
-        "model_name": "linear_regression",
-        "dataset_name": "training_data_original.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_original.csv_linear_regression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 4.343213551946109,
-            "best_mae": 3.573886801572751,
-            "best_r2": 0.2917415097033939
-        }
-    },
-    "ridge_training_data_original.csv": {
-        "model_name": "ridge",
-        "dataset_name": "training_data_original.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_original.csv_ridge.pkl",
-        "training_info": {
-            "best_params": {
-                "model__alpha": 0.1,
-                "model__fit_intercept": true,
-                "model__solver": "saga",
-                "model__tol": 0.001
-            },
-            "best_rmse": 4.343064358028004,
-            "best_mae": 3.5735526327947533,
-            "best_r2": 0.29179107358441114
-        }
-    },
-    "random_forest_training_data_original.csv": {
-        "model_name": "random_forest",
-        "dataset_name": "training_data_original.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_original.csv_random_forest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__bootstrap": true,
-                "model__max_depth": null,
-                "model__max_features": "sqrt",
-                "model__min_samples_leaf": 4,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 4.437130265993661,
-            "best_mae": 3.613190265312098,
-            "best_r2": 0.26024549775729183
-        }
-    },
-    "xgboost_training_data_original.csv": {
-        "model_name": "xgboost",
-        "dataset_name": "training_data_original.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_original.csv_xgboost.pkl",
-        "training_info": {
-            "best_params": {
-                "model__learning_rate": 0.05,
-                "model__max_depth": 3,
-                "model__n_estimators": 100
-            },
-            "best_rmse": 4.46124247673289,
-            "best_mae": 3.655985328473558,
-            "best_r2": 0.2524556199986834
-        }
-    },
-    "linear_regression_training_data_minmax.csv": {
-        "model_name": "linear_regression",
-        "dataset_name": "training_data_minmax.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_minmax.csv_linear_regression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.12250763171526313,
-            "best_mae": 0.098037811208648,
-            "best_r2": 0.5870802420701852
-        }
-    },
-    "ridge_training_data_minmax.csv": {
-        "model_name": "ridge",
-        "dataset_name": "training_data_minmax.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_minmax.csv_ridge.pkl",
-        "training_info": {
-            "best_params": {
-                "model__alpha": 0.1,
-                "model__fit_intercept": true,
-                "model__solver": "sparse_cg",
-                "model__tol": 0.001
-            },
-            "best_rmse": 0.12250264168134595,
-            "best_mae": 0.09804865352938574,
-            "best_r2": 0.5871159715676161
-        }
-    },
-    "random_forest_training_data_minmax.csv": {
-        "model_name": "random_forest",
-        "dataset_name": "training_data_minmax.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_minmax.csv_random_forest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__bootstrap": false,
-                "model__max_depth": null,
-                "model__max_features": "sqrt",
-                "model__min_samples_leaf": 2,
-                "model__min_samples_split": 5,
-                "model__n_estimators": 100
-            },
-            "best_rmse": 0.14422594771181935,
-            "best_mae": 0.11886576952197973,
-            "best_r2": 0.42736557960870736
-        }
-    },
-    "xgboost_training_data_minmax.csv": {
-        "model_name": "xgboost",
-        "dataset_name": "training_data_minmax.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_minmax.csv_xgboost.pkl",
-        "training_info": {
-            "best_params": {
-                "model__learning_rate": 0.1,
-                "model__max_depth": 3,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.13415851131269382,
-            "best_mae": 0.10752902049189643,
-            "best_r2": 0.502737821450922
-        }
-    },
-    "linear_regression_training_data_standard.csv": {
-        "model_name": "linear_regression",
-        "dataset_name": "training_data_standard.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_standard.csv_linear_regression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.6576868479583786,
-            "best_mae": 0.5229628902752366,
-            "best_r2": 0.5798977495146315
-        }
-    },
-    "ridge_training_data_standard.csv": {
-        "model_name": "ridge",
-        "dataset_name": "training_data_standard.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_standard.csv_ridge.pkl",
-        "training_info": {
-            "best_params": {
-                "model__alpha": 0.1,
-                "model__fit_intercept": false,
-                "model__solver": "saga",
-                "model__tol": 0.001
-            },
-            "best_rmse": 0.6569733392178374,
-            "best_mae": 0.5227574769768639,
-            "best_r2": 0.5808191590967219
-        }
-    },
-    "random_forest_training_data_standard.csv": {
-        "model_name": "random_forest",
-        "dataset_name": "training_data_standard.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_standard.csv_random_forest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__bootstrap": false,
-                "model__max_depth": null,
-                "model__max_features": "sqrt",
-                "model__min_samples_leaf": 1,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.7749140380518285,
-            "best_mae": 0.643486420965844,
-            "best_r2": 0.4167542106225877
-        }
-    },
-    "xgboost_training_data_standard.csv": {
-        "model_name": "xgboost",
-        "dataset_name": "training_data_standard.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_standard.csv_xgboost.pkl",
-        "training_info": {
-            "best_params": {
-                "model__learning_rate": 0.1,
-                "model__max_depth": 3,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.7332913502662074,
-            "best_mae": 0.5942210728620262,
-            "best_r2": 0.477397554900395
-        }
-    },
-    "linear_regression_training_data_boxcox.csv": {
-        "model_name": "linear_regression",
-        "dataset_name": "training_data_boxcox.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_boxcox.csv_linear_regression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.6407996089890496,
-            "best_mae": 0.506646689456692,
-            "best_r2": 0.6010508739788316
-        }
-    },
-    "ridge_training_data_boxcox.csv": {
-        "model_name": "ridge",
-        "dataset_name": "training_data_boxcox.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_boxcox.csv_ridge.pkl",
-        "training_info": {
-            "best_params": {
-                "model__alpha": 1,
-                "model__fit_intercept": false,
-                "model__solver": "saga",
-                "model__tol": 0.001
-            },
-            "best_rmse": 0.6400055369592244,
-            "best_mae": 0.5063611165232571,
-            "best_r2": 0.6020354917905765
-        }
-    },
-    "random_forest_training_data_boxcox.csv": {
-        "model_name": "random_forest",
-        "dataset_name": "training_data_boxcox.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_boxcox.csv_random_forest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__bootstrap": true,
-                "model__max_depth": 20,
-                "model__max_features": "sqrt",
-                "model__min_samples_leaf": 1,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 100
-            },
-            "best_rmse": 0.7779312477225602,
-            "best_mae": 0.6448858183506225,
-            "best_r2": 0.41265258522141995
-        }
-    },
-    "xgboost_training_data_boxcox.csv": {
-        "model_name": "xgboost",
-        "dataset_name": "training_data_boxcox.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_boxcox.csv_xgboost.pkl",
-        "training_info": {
-            "best_params": {
-                "model__learning_rate": 0.1,
-                "model__max_depth": 3,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.7449043336234797,
-            "best_mae": 0.6081137734860007,
-            "best_r2": 0.4588301549240482
-        }
-    },
-    "linear_regression_training_data_yeojohnson.csv": {
-        "model_name": "linear_regression",
-        "dataset_name": "training_data_yeojohnson.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_yeojohnson.csv_linear_regression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.6384325120506023,
-            "best_mae": 0.5042424553108635,
-            "best_r2": 0.6039550229457454
-        }
-    },
-    "ridge_training_data_yeojohnson.csv": {
-        "model_name": "ridge",
-        "dataset_name": "training_data_yeojohnson.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_yeojohnson.csv_ridge.pkl",
-        "training_info": {
-            "best_params": {
-                "model__alpha": 1,
-                "model__fit_intercept": false,
-                "model__solver": "sparse_cg",
-                "model__tol": 0.0001
-            },
-            "best_rmse": 0.6376423489847578,
-            "best_mae": 0.503970419190209,
-            "best_r2": 0.6049328440660532
-        }
-    },
-    "random_forest_training_data_yeojohnson.csv": {
-        "model_name": "random_forest",
-        "dataset_name": "training_data_yeojohnson.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_yeojohnson.csv_random_forest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__bootstrap": true,
-                "model__max_depth": 20,
-                "model__max_features": "sqrt",
-                "model__min_samples_leaf": 2,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.7776876816121543,
-            "best_mae": 0.6449244309849337,
-            "best_r2": 0.4123365190432084
-        }
-    },
-    "xgboost_training_data_yeojohnson.csv": {
-        "model_name": "xgboost",
-        "dataset_name": "training_data_yeojohnson.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_yeojohnson.csv_xgboost.pkl",
-        "training_info": {
-            "best_params": {
-                "model__learning_rate": 0.1,
-                "model__max_depth": 3,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.738297746754025,
-            "best_mae": 0.6033663713486657,
-            "best_r2": 0.4693830445230837
-        }
-    },
-    "linear_regression_training_data_original_output_csv_path.csv": {
-        "model_name": "linear_regression",
-        "dataset_name": "training_data_original_output_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_original_output_csv_path.csv_linear_regression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 2.8836096587560793,
-            "best_mae": 2.220217544749409,
-            "best_r2": 0.6863701153208052
-        }
-    },
-    "ridge_training_data_original_output_csv_path.csv": {
-        "model_name": "ridge",
-        "dataset_name": "training_data_original_output_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_original_output_csv_path.csv_ridge.pkl",
-        "training_info": {
-            "best_params": {
-                "model__alpha": 10,
-                "model__fit_intercept": false,
-                "model__solver": "auto",
-                "model__tol": 0.001
-            },
-            "best_rmse": 2.8827762133762938,
-            "best_mae": 2.2204816678919714,
-            "best_r2": 0.686570615638613
-        }
-    },
-    "random_forest_training_data_original_output_csv_path.csv": {
-        "model_name": "random_forest",
-        "dataset_name": "training_data_original_output_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_original_output_csv_path.csv_random_forest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__bootstrap": false,
-                "model__max_depth": null,
-                "model__max_features": "sqrt",
-                "model__min_samples_leaf": 1,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 300
-            },
-            "best_rmse": 2.830754249661967,
-            "best_mae": 2.299667180106935,
-            "best_r2": 0.6989465760707393
-        }
-    },
-    "xgboost_training_data_original_output_csv_path.csv": {
-        "model_name": "xgboost",
-        "dataset_name": "training_data_original_output_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_original_output_csv_path.csv_xgboost.pkl",
-        "training_info": {
-            "best_params": {
-                "model__learning_rate": 0.1,
-                "model__max_depth": 3,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 2.149265493314605,
-            "best_mae": 1.7047751661481674,
-            "best_r2": 0.8251162428606186
-        }
-    },
-    "linear_regression_training_data_boxcox_most_important_csv_path.csv": {
-        "model_name": "linear_regression",
-        "dataset_name": "training_data_boxcox_most_important_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_boxcox_most_important_csv_path.csv_linear_regression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.5488068972296842,
-            "best_mae": 0.42246994396249027,
-            "best_r2": 0.7059510758043488
-        }
-    },
-    "ridge_training_data_boxcox_most_important_csv_path.csv": {
-        "model_name": "ridge",
-        "dataset_name": "training_data_boxcox_most_important_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_boxcox_most_important_csv_path.csv_ridge.pkl",
-        "training_info": {
-            "best_params": {
-                "model__alpha": 0.01,
-                "model__fit_intercept": false,
-                "model__solver": "saga",
-                "model__tol": 0.001
-            },
-            "best_rmse": 0.5482962056621864,
-            "best_mae": 0.42202028672049063,
-            "best_r2": 0.7064920054479096
-        }
-    },
-    "random_forest_training_data_boxcox_most_important_csv_path.csv": {
-        "model_name": "random_forest",
-        "dataset_name": "training_data_boxcox_most_important_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_boxcox_most_important_csv_path.csv_random_forest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__bootstrap": true,
-                "model__max_depth": null,
-                "model__max_features": "sqrt",
-                "model__min_samples_leaf": 1,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 300
-            },
-            "best_rmse": 0.45984702382090215,
-            "best_mae": 0.36615027326994953,
-            "best_r2": 0.7946015737385338
-        }
-    },
-    "xgboost_training_data_boxcox_most_important_csv_path.csv": {
-        "model_name": "xgboost",
-        "dataset_name": "training_data_boxcox_most_important_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_boxcox_most_important_csv_path.csv_xgboost.pkl",
-        "training_info": {
-            "best_params": {
-                "model__learning_rate": 0.1,
-                "model__max_depth": 3,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.3944803824698506,
-            "best_mae": 0.3094887810236762,
-            "best_r2": 0.8479740514611229
-        }
-    },
-    "linear_regression_training_data_yeojohnson_most_important_csv_path.csv": {
-        "model_name": "linear_regression",
-        "dataset_name": "training_data_yeojohnson_most_important_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_yeojohnson_most_important_csv_path.csv_linear_regression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.5478891944407087,
-            "best_mae": 0.42178758800635185,
-            "best_r2": 0.7069619998670302
-        }
-    },
-    "ridge_training_data_yeojohnson_most_important_csv_path.csv": {
-        "model_name": "ridge",
-        "dataset_name": "training_data_yeojohnson_most_important_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_yeojohnson_most_important_csv_path.csv_ridge.pkl",
-        "training_info": {
-            "best_params": {
-                "model__alpha": 1,
-                "model__fit_intercept": false,
-                "model__solver": "sparse_cg",
-                "model__tol": 0.001
-            },
-            "best_rmse": 0.5473997989518724,
-            "best_mae": 0.42139405906933425,
-            "best_r2": 0.7074867459069258
-        }
-    },
-    "random_forest_training_data_yeojohnson_most_important_csv_path.csv": {
-        "model_name": "random_forest",
-        "dataset_name": "training_data_yeojohnson_most_important_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_yeojohnson_most_important_csv_path.csv_random_forest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__bootstrap": true,
-                "model__max_depth": 20,
-                "model__max_features": "sqrt",
-                "model__min_samples_leaf": 1,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.45994861751263194,
-            "best_mae": 0.36632169703444345,
-            "best_r2": 0.7944151683107273
-        }
-    },
-    "xgboost_training_data_yeojohnson_most_important_csv_path.csv": {
-        "model_name": "xgboost",
-        "dataset_name": "training_data_yeojohnson_most_important_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_yeojohnson_most_important_csv_path.csv_xgboost.pkl",
-        "training_info": {
-            "best_params": {
-                "model__learning_rate": 0.1,
-                "model__max_depth": 3,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.39524916133489263,
-            "best_mae": 0.31213730846836646,
-            "best_r2": 0.8470785215386168
-        }
-    },
-    "linear_regression_training_data_boxcox_output_csv_path.csv": {
-        "model_name": "linear_regression",
-        "dataset_name": "training_data_boxcox_output_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_boxcox_output_csv_path.csv_linear_regression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.554230817916368,
-            "best_mae": 0.42659736114662977,
-            "best_r2": 0.7004735641755533
-        }
-    },
-    "ridge_training_data_boxcox_output_csv_path.csv": {
-        "model_name": "ridge",
-        "dataset_name": "training_data_boxcox_output_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_boxcox_output_csv_path.csv_ridge.pkl",
-        "training_info": {
-            "best_params": {
-                "model__alpha": 10,
-                "model__fit_intercept": false,
-                "model__solver": "saga",
-                "model__tol": 0.0001
-            },
-            "best_rmse": 0.5535587653309262,
-            "best_mae": 0.426929897524856,
-            "best_r2": 0.7013220893511438
-        }
-    },
-    "random_forest_training_data_boxcox_output_csv_path.csv": {
-        "model_name": "random_forest",
-        "dataset_name": "training_data_boxcox_output_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_boxcox_output_csv_path.csv_random_forest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__bootstrap": false,
-                "model__max_depth": null,
-                "model__max_features": "sqrt",
-                "model__min_samples_leaf": 1,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 300
-            },
-            "best_rmse": 0.557033090471631,
-            "best_mae": 0.45245794168097025,
-            "best_r2": 0.6986372473237411
-        }
-    },
-    "xgboost_training_data_boxcox_output_csv_path.csv": {
-        "model_name": "xgboost",
-        "dataset_name": "training_data_boxcox_output_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_boxcox_output_csv_path.csv_xgboost.pkl",
-        "training_info": {
-            "best_params": {
-                "model__learning_rate": 0.1,
-                "model__max_depth": 3,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.4193426867623213,
-            "best_mae": 0.3304842047250048,
-            "best_r2": 0.8285099312971506
-        }
-    },
-    "linear_regression_training_data_original_pca_data_csv_path.csv": {
-        "model_name": "linear_regression",
-        "dataset_name": "training_data_original_pca_data_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_original_pca_data_csv_path.csv_linear_regression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 4.343213551946109,
-            "best_mae": 3.573886801572751,
-            "best_r2": 0.2917415097033939
-        }
-    },
-    "ridge_training_data_original_pca_data_csv_path.csv": {
-        "model_name": "ridge",
-        "dataset_name": "training_data_original_pca_data_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_original_pca_data_csv_path.csv_ridge.pkl",
-        "training_info": {
-            "best_params": {
-                "model__alpha": 0.1,
-                "model__fit_intercept": true,
-                "model__solver": "saga",
-                "model__tol": 0.001
-            },
-            "best_rmse": 4.343090315797878,
-            "best_mae": 3.5738234907605375,
-            "best_r2": 0.2917807921601689
-        }
-    },
-    "random_forest_training_data_original_pca_data_csv_path.csv": {
-        "model_name": "random_forest",
-        "dataset_name": "training_data_original_pca_data_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_original_pca_data_csv_path.csv_random_forest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__bootstrap": true,
-                "model__max_depth": null,
-                "model__max_features": "sqrt",
-                "model__min_samples_leaf": 4,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 4.437130265993661,
-            "best_mae": 3.613190265312098,
-            "best_r2": 0.26024549775729183
-        }
-    },
-    "xgboost_training_data_original_pca_data_csv_path.csv": {
-        "model_name": "xgboost",
-        "dataset_name": "training_data_original_pca_data_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_original_pca_data_csv_path.csv_xgboost.pkl",
-        "training_info": {
-            "best_params": {
-                "model__learning_rate": 0.05,
-                "model__max_depth": 3,
-                "model__n_estimators": 100
-            },
-            "best_rmse": 4.46124247673289,
-            "best_mae": 3.655985328473558,
-            "best_r2": 0.2524556199986834
-        }
-    },
-    "linear_regression_training_data_minmax_most_important_csv_path.csv": {
-        "model_name": "linear_regression",
-        "dataset_name": "training_data_minmax_most_important_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_minmax_most_important_csv_path.csv_linear_regression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.10535959323359534,
-            "best_mae": 0.08090254251850218,
-            "best_r2": 0.692713539673913
-        }
-    },
-    "ridge_training_data_minmax_most_important_csv_path.csv": {
-        "model_name": "ridge",
-        "dataset_name": "training_data_minmax_most_important_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_minmax_most_important_csv_path.csv_ridge.pkl",
-        "training_info": {
-            "best_params": {
-                "model__alpha": 0.1,
-                "model__fit_intercept": false,
-                "model__solver": "sparse_cg",
-                "model__tol": 0.0001
-            },
-            "best_rmse": 0.105220638703486,
-            "best_mae": 0.08088318848891976,
-            "best_r2": 0.693745213850471
-        }
-    },
-    "random_forest_training_data_minmax_most_important_csv_path.csv": {
-        "model_name": "random_forest",
-        "dataset_name": "training_data_minmax_most_important_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_minmax_most_important_csv_path.csv_random_forest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__bootstrap": true,
-                "model__max_depth": 20,
-                "model__max_features": "sqrt",
-                "model__min_samples_leaf": 1,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.08607231049267974,
-            "best_mae": 0.06852436304412517,
-            "best_r2": 0.7958400531629459
-        }
-    },
-    "xgboost_training_data_minmax_most_important_csv_path.csv": {
-        "model_name": "xgboost",
-        "dataset_name": "training_data_minmax_most_important_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_minmax_most_important_csv_path.csv_xgboost.pkl",
-        "training_info": {
-            "best_params": {
-                "model__learning_rate": 0.1,
-                "model__max_depth": 3,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.0751295909134603,
-            "best_mae": 0.05970976259855222,
-            "best_r2": 0.8431803535222258
-        }
-    },
-    "linear_regression_training_data_minmax_pca_data_csv_path.csv": {
-        "model_name": "linear_regression",
-        "dataset_name": "training_data_minmax_pca_data_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_minmax_pca_data_csv_path.csv_linear_regression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.12250763171526313,
-            "best_mae": 0.098037811208648,
-            "best_r2": 0.5870802420701852
-        }
-    },
-    "ridge_training_data_minmax_pca_data_csv_path.csv": {
-        "model_name": "ridge",
-        "dataset_name": "training_data_minmax_pca_data_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_minmax_pca_data_csv_path.csv_ridge.pkl",
-        "training_info": {
-            "best_params": {
-                "model__alpha": 0.1,
-                "model__fit_intercept": true,
-                "model__solver": "sparse_cg",
-                "model__tol": 0.001
-            },
-            "best_rmse": 0.12250264168134595,
-            "best_mae": 0.09804865352938574,
-            "best_r2": 0.5871159715676161
-        }
-    },
-    "random_forest_training_data_minmax_pca_data_csv_path.csv": {
-        "model_name": "random_forest",
-        "dataset_name": "training_data_minmax_pca_data_csv_path.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_minmax_pca_data_csv_path.csv_random_forest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__bootstrap": false,
-                "model__max_depth": null,
-                "model__max_features": "sqrt",
-                "model__min_samples_leaf": 2,
-                "model__min_samples_split": 5,
-                "model__n_estimators": 100
-            },
-            "best_rmse": 0.14422594771181935,
-            "best_mae": 0.11886576952197973,
-            "best_r2": 0.42736557960870736
-        }
-    },
-    "linear_regression_training_data_minmax_important.csv": {
-        "model_name": "linear_regression",
-        "dataset_name": "training_data_minmax_important.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_minmax_important.csv_linear_regression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.10535959323359534,
-            "best_mae": 0.08090254251850218,
-            "best_r2": 0.692713539673913
-        }
-    },
-    "ridge_training_data_minmax_important.csv": {
-        "model_name": "ridge",
-        "dataset_name": "training_data_minmax_important.csv",
-        "transformer_info": {
-            "scaler_pickle_path": null,
-            "pca_model_pkl_path": null
-        },
-        "model_pickle_path": "data/trained_models/best_model_training_data_minmax_important.csv_ridge.pkl",
-        "training_info": {
-            "best_params": {
-                "model__alpha": 0.1,
-                "model__fit_intercept": false,
-                "model__solver": "sparse_cg",
-                "model__tol": 0.0001
-            },
-            "best_rmse": 0.105220638703486,
-            "best_mae": 0.08088318848891976,
-            "best_r2": 0.693745213850471
-        }
-    },
     "linear_regression_training_data_minmax_important": {
         "model_name": "linear_regression",
         "dataset_name": "training_data_minmax_important",
@@ -940,6 +12,13 @@
             "best_rmse": 0.10535959323359534,
             "best_mae": 0.08090254251850218,
             "best_r2": 0.692713539673913
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_minmax_important_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_minmax_important_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 2.6062774322425972,
+            "mae": 2.085090406893626,
+            "r2": 0.6974479863017189
         }
     },
     "ridge_training_data_minmax_important": {
@@ -960,6 +39,13 @@
             "best_rmse": 0.105220638703486,
             "best_mae": 0.08088318848891976,
             "best_r2": 0.693745213850471
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_minmax_important_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_minmax_important_ridge.csv",
+        "original_metrics": {
+            "rmse": 2.6108426918748653,
+            "mae": 2.086720804500365,
+            "r2": 0.6963871336195053
         }
     },
     "random_forest_training_data_minmax_important": {
@@ -982,6 +68,13 @@
             "best_rmse": 0.08607231049267974,
             "best_mae": 0.06852436304412517,
             "best_r2": 0.7958400531629459
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_minmax_important_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_minmax_important_random_forest.csv",
+        "original_metrics": {
+            "rmse": 2.103743324709553,
+            "mae": 1.6920434491896184,
+            "r2": 0.802873839654846
         }
     },
     "xgboost_training_data_minmax_important": {
@@ -1001,6 +94,13 @@
             "best_rmse": 0.0751295909134603,
             "best_mae": 0.05970976259855222,
             "best_r2": 0.8431803535222258
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_minmax_important_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_minmax_important_xgboost.csv",
+        "original_metrics": {
+            "rmse": 1.842007124513093,
+            "mae": 1.5212702230898658,
+            "r2": 0.8488732398363773
         }
     },
     "linear_regression_training_data_standard_original": {
@@ -1016,6 +116,13 @@
             "best_rmse": 0.5669342399869561,
             "best_mae": 0.43650753579497714,
             "best_r2": 0.6863701153208048
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_standard_original_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_standard_original_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 2.6117882181457968,
+            "mae": 2.108785760231208,
+            "r2": 0.6961671847695112
         }
     },
     "ridge_training_data_standard_original": {
@@ -1036,6 +143,13 @@
             "best_rmse": 0.5663836631614885,
             "best_mae": 0.43680054835836507,
             "best_r2": 0.6870828302067116
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_standard_original_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_standard_original_ridge.csv",
+        "original_metrics": {
+            "rmse": 2.6126662431158487,
+            "mae": 2.113998591138885,
+            "r2": 0.695962866794437
         }
     },
     "random_forest_training_data_standard_original": {
@@ -1058,6 +172,13 @@
             "best_rmse": 0.5569115556843395,
             "best_mae": 0.45241449689632035,
             "best_r2": 0.6986003332450423
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_standard_original_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_standard_original_random_forest.csv",
+        "original_metrics": {
+            "rmse": 2.665523141395658,
+            "mae": 2.2000683165287596,
+            "r2": 0.6835364646480642
         }
     },
     "xgboost_training_data_standard_original": {
@@ -1077,6 +198,13 @@
             "best_rmse": 0.4224001870779577,
             "best_mae": 0.3350180924899001,
             "best_r2": 0.8252729585561547
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_standard_original_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_standard_original_xgboost.csv",
+        "original_metrics": {
+            "rmse": 2.015736206518791,
+            "mae": 1.655216663448637,
+            "r2": 0.819021845959583
         }
     },
     "linear_regression_training_data_yeojohnson_original": {
@@ -1092,6 +220,13 @@
             "best_rmse": 0.5534812804719476,
             "best_mae": 0.42649913419873275,
             "best_r2": 0.7012878862719839
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_yeojohnson_original_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_yeojohnson_original_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 2.5073445196337794,
+            "mae": 2.0437337883195683,
+            "r2": 0.7199814613992013
         }
     },
     "ridge_training_data_yeojohnson_original": {
@@ -1112,6 +247,13 @@
             "best_rmse": 0.55278496827229,
             "best_mae": 0.4267956136673286,
             "best_r2": 0.7021563700540829
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_yeojohnson_original_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_yeojohnson_original_ridge.csv",
+        "original_metrics": {
+            "rmse": 2.5112460588821865,
+            "mae": 2.0486883582644815,
+            "r2": 0.719109340873383
         }
     },
     "random_forest_training_data_yeojohnson_original": {
@@ -1134,6 +276,13 @@
             "best_rmse": 0.5573964012797659,
             "best_mae": 0.4527942804035911,
             "best_r2": 0.6982082671764168
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_yeojohnson_original_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_yeojohnson_original_random_forest.csv",
+        "original_metrics": {
+            "rmse": 2.671068076060932,
+            "mae": 2.2036159316415516,
+            "r2": 0.6822184533553368
         }
     },
     "xgboost_training_data_yeojohnson_original": {
@@ -1153,6 +302,13 @@
             "best_rmse": 0.4165298520442809,
             "best_mae": 0.3285977824577516,
             "best_r2": 0.8308011915101204
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_yeojohnson_original_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_yeojohnson_original_xgboost.csv",
+        "original_metrics": {
+            "rmse": 1.9865982422500297,
+            "mae": 1.6073729681498619,
+            "r2": 0.8242161975713572
         }
     },
     "linear_regression_training_data_boxcox_original": {
@@ -1168,6 +324,13 @@
             "best_rmse": 0.554230817916368,
             "best_mae": 0.42659736114662977,
             "best_r2": 0.7004735641755533
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_boxcox_original_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_boxcox_original_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 2.49967498434874,
+            "mae": 2.038134266235268,
+            "r2": 0.7212924876054368
         }
     },
     "ridge_training_data_boxcox_original": {
@@ -1188,6 +351,13 @@
             "best_rmse": 0.5535136269138833,
             "best_mae": 0.4269086914794338,
             "best_r2": 0.7013727815436016
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_boxcox_original_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_boxcox_original_ridge.csv",
+        "original_metrics": {
+            "rmse": 2.504436469248619,
+            "mae": 2.0421322103076776,
+            "r2": 0.7202296890086997
         }
     },
     "random_forest_training_data_boxcox_original": {
@@ -1210,6 +380,13 @@
             "best_rmse": 0.557033090471631,
             "best_mae": 0.45245794168097025,
             "best_r2": 0.6986372473237411
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_boxcox_original_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_boxcox_original_random_forest.csv",
+        "original_metrics": {
+            "rmse": 2.66818608048099,
+            "mae": 2.205759782758753,
+            "r2": 0.6824487582059661
         }
     },
     "xgboost_training_data_boxcox_original": {
@@ -1229,6 +406,13 @@
             "best_rmse": 0.4193426867623213,
             "best_mae": 0.3304842047250048,
             "best_r2": 0.8285099312971506
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_boxcox_original_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_boxcox_original_xgboost.csv",
+        "original_metrics": {
+            "rmse": 2.0271945737413892,
+            "mae": 1.6691328671982735,
+            "r2": 0.8166957826226988
         }
     },
     "linear_regression_training_data_minmax_original": {
@@ -1244,6 +428,13 @@
             "best_rmse": 0.10648097861482948,
             "best_mae": 0.08198437544584758,
             "best_r2": 0.6863701153208048
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_minmax_original_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_minmax_original_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 2.611788218145795,
+            "mae": 2.108785760231206,
+            "r2": 0.6961671847695116
         }
     },
     "ridge_training_data_minmax_original": {
@@ -1264,6 +455,13 @@
             "best_rmse": 0.10646132029855211,
             "best_mae": 0.08214410424707089,
             "best_r2": 0.6866251908746166
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_minmax_original_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_minmax_original_ridge.csv",
+        "original_metrics": {
+            "rmse": 2.617414925893399,
+            "mae": 2.11779265154339,
+            "r2": 0.6948566497427393
         }
     },
     "random_forest_training_data_minmax_original": {
@@ -1286,6 +484,13 @@
             "best_rmse": 0.10450724644509242,
             "best_mae": 0.08483451063123326,
             "best_r2": 0.6990671642516352
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_minmax_original_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_minmax_original_random_forest.csv",
+        "original_metrics": {
+            "rmse": 2.6620053861904767,
+            "mae": 2.1976166337772782,
+            "r2": 0.6843712025993419
         }
     },
     "xgboost_training_data_minmax_original": {
@@ -1305,6 +510,13 @@
             "best_rmse": 0.07932196335540354,
             "best_mae": 0.062935707648944,
             "best_r2": 0.825322946937956
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_minmax_original_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_minmax_original_xgboost.csv",
+        "original_metrics": {
+            "rmse": 2.017236634071513,
+            "mae": 1.6518857521666341,
+            "r2": 0.8187523209384389
         }
     },
     "linear_regression_training_data_boxcox_pca": {
@@ -1320,6 +532,13 @@
             "best_rmse": 0.6407996089890496,
             "best_mae": 0.506646689456692,
             "best_r2": 0.6010508739788316
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_boxcox_pca_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_boxcox_pca_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 3.3308338096452363,
+            "mae": 2.6694329410841027,
+            "r2": 0.5051341148328086
         }
     },
     "ridge_training_data_boxcox_pca": {
@@ -1340,6 +559,13 @@
             "best_rmse": 0.6400059008119676,
             "best_mae": 0.5063487028731849,
             "best_r2": 0.6020343087488319
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_boxcox_pca_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_boxcox_pca_ridge.csv",
+        "original_metrics": {
+            "rmse": 3.3267073058096406,
+            "mae": 2.662610631351275,
+            "r2": 0.5063595143287878
         }
     },
     "random_forest_training_data_boxcox_pca": {
@@ -1362,6 +588,13 @@
             "best_rmse": 0.7779312477225602,
             "best_mae": 0.6448858183506225,
             "best_r2": 0.41265258522141995
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_boxcox_pca_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_boxcox_pca_random_forest.csv",
+        "original_metrics": {
+            "rmse": 3.874950039757439,
+            "mae": 3.1630269323768743,
+            "r2": 0.33024833498748474
         }
     },
     "xgboost_training_data_boxcox_pca": {
@@ -1381,6 +614,13 @@
             "best_rmse": 0.7449043336234797,
             "best_mae": 0.6081137734860007,
             "best_r2": 0.4588301549240482
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_boxcox_pca_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_boxcox_pca_xgboost.csv",
+        "original_metrics": {
+            "rmse": 3.645475296069129,
+            "mae": 2.9974823918581457,
+            "r2": 0.4072249632777357
         }
     },
     "linear_regression_training_data_original_pca": {
@@ -1396,6 +636,13 @@
             "best_rmse": 4.343213551946109,
             "best_mae": 3.573886801572751,
             "best_r2": 0.2917415097033939
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_original_pca_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_original_pca_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 4.297026900346815,
+            "mae": 3.672067254736284,
+            "r2": 0.17757764684005206
         }
     },
     "ridge_training_data_original_pca": {
@@ -1416,6 +663,13 @@
             "best_rmse": 4.343210408068453,
             "best_mae": 3.573896860074691,
             "best_r2": 0.29174277875586563
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_original_pca_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_original_pca_ridge.csv",
+        "original_metrics": {
+            "rmse": 4.297021186085492,
+            "mae": 3.67206406535385,
+            "r2": 0.17757983418177836
         }
     },
     "random_forest_training_data_original_pca": {
@@ -1438,6 +692,13 @@
             "best_rmse": 4.437130265993661,
             "best_mae": 3.613190265312098,
             "best_r2": 0.26024549775729183
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_original_pca_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_original_pca_random_forest.csv",
+        "original_metrics": {
+            "rmse": 4.371876345909903,
+            "mae": 3.7400952881225074,
+            "r2": 0.14867673771770684
         }
     },
     "xgboost_training_data_original_pca": {
@@ -1457,6 +718,13 @@
             "best_rmse": 4.46124247673289,
             "best_mae": 3.655985328473558,
             "best_r2": 0.2524556199986834
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_original_pca_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_original_pca_xgboost.csv",
+        "original_metrics": {
+            "rmse": 4.483461035853228,
+            "mae": 3.791766555629377,
+            "r2": 0.10466500326180084
         }
     },
     "linear_regression_training_data_original_original": {
@@ -1472,6 +740,13 @@
             "best_rmse": 2.8836096587560793,
             "best_mae": 2.220217544749409,
             "best_r2": 0.6863701153208052
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_original_original_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_original_original_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 2.6117882181458003,
+            "mae": 2.108785760231212,
+            "r2": 0.6961671847695103
         }
     },
     "ridge_training_data_original_original": {
@@ -1492,6 +767,13 @@
             "best_rmse": 2.8827762133762938,
             "best_mae": 2.2204816678919714,
             "best_r2": 0.686570615638613
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_original_original_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_original_original_ridge.csv",
+        "original_metrics": {
+            "rmse": 2.612682101219261,
+            "mae": 2.111198531174122,
+            "r2": 0.6959591759541357
         }
     },
     "random_forest_training_data_original_original": {
@@ -1514,6 +796,13 @@
             "best_rmse": 2.830754249661967,
             "best_mae": 2.299667180106935,
             "best_r2": 0.6989465760707393
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_original_original_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_original_original_random_forest.csv",
+        "original_metrics": {
+            "rmse": 2.6651061518096317,
+            "mae": 2.1978045943450413,
+            "r2": 0.683635470861593
         }
     },
     "xgboost_training_data_original_original": {
@@ -1533,6 +822,13 @@
             "best_rmse": 2.149265493314605,
             "best_mae": 1.7047751661481674,
             "best_r2": 0.8251162428606186
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_original_original_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_original_original_xgboost.csv",
+        "original_metrics": {
+            "rmse": 2.0157359785236806,
+            "mae": 1.6552162163798037,
+            "r2": 0.8190218868995947
         }
     },
     "linear_regression_training_data_yeojohnson_important": {
@@ -1548,6 +844,13 @@
             "best_rmse": 0.5478891944407087,
             "best_mae": 0.42178758800635185,
             "best_r2": 0.7069619998670302
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_yeojohnson_important_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_yeojohnson_important_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 2.498859224176309,
+            "mae": 2.0046698349449974,
+            "r2": 0.7218735185505399
         }
     },
     "ridge_training_data_yeojohnson_important": {
@@ -1568,6 +871,13 @@
             "best_rmse": 0.5473997989518724,
             "best_mae": 0.42139405906933425,
             "best_r2": 0.7074867459069258
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_yeojohnson_important_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_yeojohnson_important_ridge.csv",
+        "original_metrics": {
+            "rmse": 2.4967326378888623,
+            "mae": 2.002473930867531,
+            "r2": 0.7223467010995499
         }
     },
     "random_forest_training_data_yeojohnson_important": {
@@ -1590,6 +900,13 @@
             "best_rmse": 0.45994861751263194,
             "best_mae": 0.36632169703444345,
             "best_r2": 0.7944151683107273
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_yeojohnson_important_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_yeojohnson_important_random_forest.csv",
+        "original_metrics": {
+            "rmse": 2.1070694772694716,
+            "mae": 1.6947113729423022,
+            "r2": 0.8022500087867404
         }
     },
     "xgboost_training_data_yeojohnson_important": {
@@ -1609,6 +926,13 @@
             "best_rmse": 0.39524916133489263,
             "best_mae": 0.31213730846836646,
             "best_r2": 0.8470785215386168
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_yeojohnson_important_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_yeojohnson_important_xgboost.csv",
+        "original_metrics": {
+            "rmse": 1.8498357249385124,
+            "mae": 1.5114188949360545,
+            "r2": 0.8475859210887204
         }
     },
     "linear_regression_training_data_yeojohnson_pca": {
@@ -1624,6 +948,13 @@
             "best_rmse": 0.6384325120506023,
             "best_mae": 0.5042424553108635,
             "best_r2": 0.6039550229457454
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_yeojohnson_pca_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_yeojohnson_pca_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 3.324327153985815,
+            "mae": 2.6590171530670204,
+            "r2": 0.5077720449257092
         }
     },
     "ridge_training_data_yeojohnson_pca": {
@@ -1644,6 +975,13 @@
             "best_rmse": 0.6376384493559938,
             "best_mae": 0.5039116967846178,
             "best_r2": 0.6049356166335865
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_yeojohnson_pca_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_yeojohnson_pca_ridge.csv",
+        "original_metrics": {
+            "rmse": 3.319996081865285,
+            "mae": 2.653449972588099,
+            "r2": 0.5090537996548796
         }
     },
     "random_forest_training_data_yeojohnson_pca": {
@@ -1666,6 +1004,13 @@
             "best_rmse": 0.7776876816121543,
             "best_mae": 0.6449244309849337,
             "best_r2": 0.4123365190432084
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_yeojohnson_pca_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_yeojohnson_pca_random_forest.csv",
+        "original_metrics": {
+            "rmse": 3.835602631041121,
+            "mae": 3.1400315360581006,
+            "r2": 0.3447214128135112
         }
     },
     "xgboost_training_data_yeojohnson_pca": {
@@ -1685,6 +1030,13 @@
             "best_rmse": 0.738297746754025,
             "best_mae": 0.6033663713486657,
             "best_r2": 0.4693830445230837
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_yeojohnson_pca_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_yeojohnson_pca_xgboost.csv",
+        "original_metrics": {
+            "rmse": 3.7269628061048268,
+            "mae": 3.0247858895403,
+            "r2": 0.3813160093627104
         }
     },
     "linear_regression_training_data_standard_important": {
@@ -1700,6 +1052,13 @@
             "best_rmse": 0.560963673439647,
             "best_mae": 0.4307475574736285,
             "best_r2": 0.6927135396739128
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_standard_important_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_standard_important_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 2.6062774322425954,
+            "mae": 2.085090406893625,
+            "r2": 0.6974479863017193
         }
     },
     "ridge_training_data_standard_important": {
@@ -1720,6 +1079,13 @@
             "best_rmse": 0.5605949839561617,
             "best_mae": 0.43046091197175695,
             "best_r2": 0.6931001802602909
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_standard_important_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_standard_important_ridge.csv",
+        "original_metrics": {
+            "rmse": 2.6018340823183417,
+            "mae": 2.0811145597193375,
+            "r2": 0.6984787273026118
         }
     },
     "random_forest_training_data_standard_important": {
@@ -1742,6 +1108,13 @@
             "best_rmse": 0.45903859495472066,
             "best_mae": 0.36524790638427923,
             "best_r2": 0.795146185237781
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_standard_important_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_standard_important_random_forest.csv",
+        "original_metrics": {
+            "rmse": 2.107013635251981,
+            "mae": 1.6901250889644963,
+            "r2": 0.8022604902751377
         }
     },
     "xgboost_training_data_standard_important": {
@@ -1761,6 +1134,13 @@
             "best_rmse": 0.40001068751047575,
             "best_mae": 0.31791125334226034,
             "best_r2": 0.8431804102886439
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_standard_important_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_standard_important_xgboost.csv",
+        "original_metrics": {
+            "rmse": 1.8420069951573665,
+            "mae": 1.5212701169450207,
+            "r2": 0.8488732610622574
         }
     },
     "linear_regression_training_data_standard_pca": {
@@ -1776,6 +1156,13 @@
             "best_rmse": 0.6576868479583786,
             "best_mae": 0.5229628902752366,
             "best_r2": 0.5798977495146315
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_standard_pca_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_standard_pca_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 3.445657403407996,
+            "mae": 2.765184086614349,
+            "r2": 0.47118599444466946
         }
     },
     "ridge_training_data_standard_pca": {
@@ -1796,6 +1183,13 @@
             "best_rmse": 0.6569658287589456,
             "best_mae": 0.5227495597928842,
             "best_r2": 0.5808269090900048
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_standard_pca_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_standard_pca_ridge.csv",
+        "original_metrics": {
+            "rmse": 3.441043070146494,
+            "mae": 2.758693915502042,
+            "r2": 0.47260139353673947
         }
     },
     "random_forest_training_data_standard_pca": {
@@ -1818,6 +1212,13 @@
             "best_rmse": 0.7749140380518285,
             "best_mae": 0.643486420965844,
             "best_r2": 0.4167542106225877
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_standard_pca_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_standard_pca_random_forest.csv",
+        "original_metrics": {
+            "rmse": 3.951538467114374,
+            "mae": 3.2433785153379873,
+            "r2": 0.3045095212232578
         }
     },
     "xgboost_training_data_standard_pca": {
@@ -1837,6 +1238,13 @@
             "best_rmse": 0.7332913502662074,
             "best_mae": 0.5942210728620262,
             "best_r2": 0.477397554900395
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_standard_pca_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_standard_pca_xgboost.csv",
+        "original_metrics": {
+            "rmse": 3.700469135187198,
+            "mae": 2.9701398967693073,
+            "r2": 0.39008076029751804
         }
     },
     "linear_regression_training_data_minmax_pca": {
@@ -1852,6 +1260,13 @@
             "best_rmse": 0.12250763171526313,
             "best_mae": 0.098037811208648,
             "best_r2": 0.5870802420701852
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_minmax_pca_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_minmax_pca_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 3.4001048796096254,
+            "mae": 2.7323631469634373,
+            "r2": 0.485075699345177
         }
     },
     "ridge_training_data_minmax_pca": {
@@ -1872,6 +1287,13 @@
             "best_rmse": 0.12250264168134595,
             "best_mae": 0.09804865352938574,
             "best_r2": 0.5871159715676161
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_minmax_pca_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_minmax_pca_ridge.csv",
+        "original_metrics": {
+            "rmse": 3.400096228868525,
+            "mae": 2.732568930087344,
+            "r2": 0.48507831954149583
         }
     },
     "random_forest_training_data_minmax_pca": {
@@ -1894,6 +1316,13 @@
             "best_rmse": 0.14422594771181935,
             "best_mae": 0.11886576952197973,
             "best_r2": 0.42736557960870736
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_minmax_pca_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_minmax_pca_random_forest.csv",
+        "original_metrics": {
+            "rmse": 3.7528703357572106,
+            "mae": 3.107486995759833,
+            "r2": 0.3726847001639966
         }
     },
     "xgboost_training_data_minmax_pca": {
@@ -1913,6 +1342,13 @@
             "best_rmse": 0.13415851131269382,
             "best_mae": 0.10752902049189643,
             "best_r2": 0.502737821450922
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_minmax_pca_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_minmax_pca_xgboost.csv",
+        "original_metrics": {
+            "rmse": 3.7252282932545078,
+            "mae": 2.972994240270142,
+            "r2": 0.3818917412259867
         }
     },
     "linear_regression_training_data_boxcox_important": {
@@ -1928,6 +1364,13 @@
             "best_rmse": 0.5488068972296842,
             "best_mae": 0.42246994396249027,
             "best_r2": 0.7059510758043488
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_boxcox_important_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_boxcox_important_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 2.4906389478862136,
+            "mae": 2.0016879028803647,
+            "r2": 0.723303836582546
         }
     },
     "ridge_training_data_boxcox_important": {
@@ -1948,6 +1391,13 @@
             "best_rmse": 0.5483052738380934,
             "best_mae": 0.4220753603302766,
             "best_r2": 0.7064931569633893
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_boxcox_important_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_boxcox_important_ridge.csv",
+        "original_metrics": {
+            "rmse": 2.488654563852403,
+            "mae": 2.000462640081186,
+            "r2": 0.7237445690432807
         }
     },
     "random_forest_training_data_boxcox_important": {
@@ -1970,6 +1420,13 @@
             "best_rmse": 0.45984702382090215,
             "best_mae": 0.36615027326994953,
             "best_r2": 0.7946015737385338
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_boxcox_important_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_boxcox_important_random_forest.csv",
+        "original_metrics": {
+            "rmse": 2.095314366767202,
+            "mae": 1.6867577165463978,
+            "r2": 0.804169664208628
         }
     },
     "xgboost_training_data_boxcox_important": {
@@ -1989,6 +1446,13 @@
             "best_rmse": 0.3944803824698506,
             "best_mae": 0.3094887810236762,
             "best_r2": 0.8479740514611229
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_boxcox_important_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_boxcox_important_xgboost.csv",
+        "original_metrics": {
+            "rmse": 1.8584461017919476,
+            "mae": 1.5361663997620492,
+            "r2": 0.8459429676544379
         }
     },
     "linear_regression_training_data_original_important": {
@@ -2004,6 +1468,13 @@
             "best_rmse": 2.853241439393528,
             "best_mae": 2.190920444750565,
             "best_r2": 0.6927135396739128
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_original_important_linear_regression.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_original_important_linear_regression.csv",
+        "original_metrics": {
+            "rmse": 2.606277432242595,
+            "mae": 2.0850904068936247,
+            "r2": 0.6974479863017193
         }
     },
     "ridge_training_data_original_important": {
@@ -2024,6 +1495,13 @@
             "best_rmse": 2.848389705134312,
             "best_mae": 2.1875499935375915,
             "best_r2": 0.6938994929463043
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_original_important_ridge.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_original_important_ridge.csv",
+        "original_metrics": {
+            "rmse": 2.6074255276372376,
+            "mae": 2.0854273912978516,
+            "r2": 0.6971813722590192
         }
     },
     "random_forest_training_data_original_important": {
@@ -2046,6 +1524,13 @@
             "best_rmse": 2.3365824309531105,
             "best_mae": 1.8595049407090507,
             "best_r2": 0.7948294538426977
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_original_important_random_forest.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_original_important_random_forest.csv",
+        "original_metrics": {
+            "rmse": 2.1089538072265803,
+            "mae": 1.6931472905019753,
+            "r2": 0.8018961591825077
         }
     },
     "xgboost_training_data_original_important": {
@@ -2065,6 +1550,13 @@
             "best_rmse": 2.037125984205757,
             "best_mae": 1.6205082996135238,
             "best_r2": 0.8428037584106768
+        },
+        "predictions_transformed_scale_csv_path": "data/predictions/transformed_scale/predictions_training_data_original_important_xgboost.csv",
+        "predictions_original_scale_csv_path": "data/predictions/original_scale/predictions_training_data_original_important_xgboost.csv",
+        "original_metrics": {
+            "rmse": 1.8420064967106595,
+            "mae": 1.5212695312223414,
+            "r2": 0.848873342851974
         }
     }
 }

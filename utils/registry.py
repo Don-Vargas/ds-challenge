@@ -17,8 +17,7 @@ def save_registry(registry, file_path=REGISTRY_FILE):
         json.dump(registry, f, indent=4)
 
 def add_transformation_record(output_prefix, 
-                              transformer, 
-                              columns, 
+                              transformer,
                               output_csv_path, 
                               scaler_pickle_path=None):
     """
@@ -31,7 +30,6 @@ def add_transformation_record(output_prefix,
             'transformer_type': type(transformer).__name__ if transformer else 'None',
             'params': transformer.get_params() if transformer else {}
         },
-        'columns': columns,
         'scaler_pickle_path': scaler_pickle_path,
         'output_csv_path': output_csv_path
     }
@@ -189,3 +187,52 @@ def add_trained_model_record(model_name,
 
     save_trained_registry(trained_registry, trained_registry_path)
     print(f"[INFO] Registro de modelo entrenado '{key}' actualizado.")
+
+def add_predictions_data_path_to_registry(model_name, predictions_csv_path, file_path=TRAINED_REGISTRY_FILE):
+    """
+    Agrega o actualiza la ruta de las predicciones en el registro de modelos entrenados existente para un model_name dado.
+    """
+    registry = load_trained_registry(file_path)
+
+    if model_name not in registry:
+        print(f"[WARNING] La llave '{model_name}' no existe en el registro. No se actualizó nada.")
+        return
+
+    registry[model_name]['predictions_transformed_scale_csv_path'] = predictions_csv_path
+    save_trained_registry(registry, file_path)
+    print(f"[INFO] Ruta de variables mas importantes agregada a '{model_name}': {predictions_csv_path}")
+
+def add_predictions_original_scale_data_path_to_registry(model_name, predictions_csv_path, file_path=TRAINED_REGISTRY_FILE):
+    """
+    Agrega o actualiza la ruta de las predicciones en escala original 
+    en el registro de modelos entrenados existente para un model_name dado.
+    """
+    registry = load_trained_registry(file_path)
+
+    if model_name not in registry:
+        print(f"[WARNING] La llave '{model_name}' no existe en el registro. No se actualizó nada.")
+        return
+
+    registry[model_name]['predictions_original_scale_csv_path'] = predictions_csv_path
+    save_trained_registry(registry, file_path)
+    print(f"[INFO] Ruta de variables mas importantes agregada a '{model_name}': {predictions_csv_path}")
+
+def add_original_metrics_path_to_registry(model_name, metrics, file_path=TRAINED_REGISTRY_FILE):
+    """
+    Agrega o actualiza las metricas de las predicciones en escala original 
+    en el registro de modelos entrenados existente para un model_name dado.
+    """
+    registry = load_trained_registry(file_path)
+
+    if model_name not in registry:
+        print(f"[WARNING] La llave '{model_name}' no existe en el registro. No se actualizó nada.")
+        return
+    # Crear la clave 'importance' si no existe
+    if 'original_metrics' not in registry[model_name]:
+        registry[model_name]['original_metrics'] = {}
+
+    registry[model_name]['original_metrics']['rmse']  = metrics[0]
+    registry[model_name]['original_metrics']['mae'] = metrics[1]
+    registry[model_name]['original_metrics']['r2'] = metrics[2]
+    save_trained_registry(registry, file_path)
+    print(f"[INFO] Ruta de variables mas importantes agregada a '{model_name}': {metrics}")

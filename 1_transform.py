@@ -10,22 +10,46 @@ def transform_and_save(df, transformer, output_prefix):
     
     path_validate(transformed_data_path)
     path_validate(scaler_path)
+    
     file_full_path = f'{transformed_data_path}{output_prefix}.csv'
     
     if transformer:
-        df_transformed = transformer.fit_transform(df)
-        df_transformed = pd.DataFrame(df_transformed, columns=df.columns)
+        scaler_X = transformer
+        scaler_y = transformer.__class__()  # Nuevo objeto del mismo tipo
+        
+        # Separar X e y
+        X = df.drop(columns=['target'])
+        y = df[['target']]
+        
+        # Transformar
+        X_transformed = scaler_X.fit_transform(X)
+        y_transformed = scaler_y.fit_transform(y)
+
+        # Reconstruir DataFrame
+        df_transformed = pd.DataFrame(X_transformed, columns=X.columns)
+        df_transformed['target'] = y_transformed
+
+        # Guardar CSV
         df_transformed.to_csv(file_full_path, index=False)
-        save_pickle(transformer, f"{scaler_path}scaler_{output_prefix}.pkl")
+
+        # Guardar scalers
+        save_pickle(scaler_X, f"{scaler_path}scaler_X_{output_prefix}.pkl")
+        save_pickle(scaler_y, f"{scaler_path}scaler_y_{output_prefix}.pkl")
+
+        scaler_pickle_path = {
+            "X": f"{scaler_path}scaler_X_{output_prefix}.pkl",
+            "y": f"{scaler_path}scaler_y_{output_prefix}.pkl"
+        }
     else:
         df.to_csv(file_full_path, index=False)
-    
+        scaler_pickle_path = None
+
+    # Registro
     add_transformation_record(
-    output_prefix=output_prefix,
-    transformer=transformer,
-    columns=list(df.columns),
-    output_csv_path = file_full_path,
-    scaler_pickle_path=f"{scaler_path}scaler_{output_prefix}.pkl" if transformer else None
+        output_prefix=output_prefix,
+        transformer=transformer,
+        output_csv_path=file_full_path,
+        scaler_pickle_path=scaler_pickle_path
     )
 
 
