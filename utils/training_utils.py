@@ -1,4 +1,3 @@
-import glob
 import os
 import warnings
 import numpy as np
@@ -12,7 +11,10 @@ from sklearn.exceptions import ConvergenceWarning
 from sklearn.linear_model import LinearRegression, Ridge
 from sklearn.ensemble import RandomForestRegressor
 from xgboost import XGBRegressor
+
 from utils.storage import save_pickle
+from utils.registry import load_registry, add_trained_model_record
+
 
 # 1. Métricas
 def definir_metricas():
@@ -25,9 +27,18 @@ def definir_metricas():
     }
 
 # 2. Cargar datasets
-def obtener_csvs(path):
-    csv_files = glob.glob(os.path.join(path, '*.csv'))
-    csvs_dict =  {os.path.basename(ruta): ruta for ruta in csv_files}
+def obtener_csvs_desde_registry():
+    registry = load_registry()
+
+    csvs_dict = {}
+    for key, data in registry.items():
+        # Verificamos que exista la sección 'train_hold' y dentro 'train_data_csv_path'
+        if 'train_hold' in data and 'train_data_csv_path' in data['train_hold']:
+            ruta_csv = data['train_hold']['train_data_csv_path']
+            # Puedes usar key o basename para la clave del dict, aquí uso basename
+            csv_name = os.path.basename(ruta_csv)
+            csvs_dict[csv_name] = ruta_csv
+
     return csvs_dict
 
 # 3. Modelos y grids
@@ -100,11 +111,23 @@ def procesar_dataset(name, path, models, scoring):
                 warnings.simplefilter("always", ConvergenceWarning)
                 grid.fit(X, y)
 
+            cv = grid.cv_results_  # <- mover acá para que esté disponible
+
             modelo_guardar = grid.best_estimator_
             nombre_archivo = f"data/trained_models/best_model_{name}_{model_name}.pkl"
             save_pickle(modelo_guardar, nombre_archivo)
 
-            cv = grid.cv_results_
+            # Actualizar el registry de modelos entrenados
+            add_trained_model_record(
+                model_name=model_name,
+                dataset_name=name,
+                model_pickle_path=nombre_archivo,
+                best_params=grid.best_params_,
+                best_rmse=-cv['mean_test_rmse'][grid.best_index_] if 'mean_test_rmse' in cv else None,
+                best_mae=-cv['mean_test_mae'][grid.best_index_] if 'mean_test_mae' in cv else None,
+                best_r2=cv['mean_test_r2'][grid.best_index_] if 'mean_test_r2' in cv else None
+            )
+
             resultados.append({
                 'dataset': name,
                 'file': os.path.basename(path),
@@ -118,4 +141,5 @@ def procesar_dataset(name, path, models, scoring):
         except Exception as e:
             print(f"Error al entrenar modelo '{model_name}' con dataset '{name}': {e}")
             continue
+
     return resultados
