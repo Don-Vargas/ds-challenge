@@ -44,13 +44,19 @@ if __name__ == "__main__":
     datasets = {}
 
     for prefix, info in registry.items():
-        input_path = info.get("output_csv_path")  # <-- puedes cambiar aquí si lo deseas
+        paths_to_check = {
+            "output_csv_path": info.get("output_csv_path"),
+            "most_important_csv_path": info.get("most_important_csv_path"),
+            "pca_data_csv_path": info.get("pca", {}).get("pca_data_csv_path")
+        }
 
-        if not input_path or not os.path.isfile(input_path):
-            print(f"[WARNING] Skipping '{prefix}' — missing or invalid output_csv_path.")
-            continue
+        for name, input_path in paths_to_check.items():
+            if not input_path or not os.path.isfile(input_path):
+                print(f"[WARNING] Skipping '{prefix}' — missing or invalid {name}.")
+                continue
 
-        datasets[prefix] = input_path
-        print(datasets)
+            datasets[prefix] = input_path
+            print(datasets)
 
-        split_and_save_datasets(datasets, output_dir)
+            split_and_save_datasets(datasets, output_dir)
+

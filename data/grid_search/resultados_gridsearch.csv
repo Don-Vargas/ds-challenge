@@ -1,0 +1,21 @@
+dataset,file,model,best_rmse,best_mae,best_r2,best_params
+training_data_minmax.csv,training_data_minmax.csv,xgboost,0.07932196335540354,0.062935707648944,0.825322946937956,"{'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 200}"
+training_data_minmax.csv,training_data_minmax.csv,random_forest,0.10450724644509242,0.08483451063123326,0.6990671642516352,"{'model__bootstrap': False, 'model__max_depth': None, 'model__max_features': 'sqrt', 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__n_estimators': 300}"
+training_data_minmax.csv,training_data_minmax.csv,ridge,0.10645798750156654,0.0821417936136512,0.6866465564522273,"{'model__alpha': 1, 'model__fit_intercept': True, 'model__solver': 'saga', 'model__tol': 0.001}"
+training_data_minmax.csv,training_data_minmax.csv,linear_regression,0.10648097861482948,0.08198437544584758,0.6863701153208048,{}
+training_data_yeojohnson.csv,training_data_yeojohnson.csv,xgboost,0.4165298520442809,0.3285977824577516,0.8308011915101204,"{'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 200}"
+training_data_boxcox.csv,training_data_boxcox.csv,xgboost,0.4193426867623213,0.3304842047250048,0.8285099312971506,"{'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 200}"
+training_data_standard.csv,training_data_standard.csv,xgboost,0.4224001870779577,0.3350180924899001,0.8252729585561547,"{'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 200}"
+training_data_yeojohnson.csv,training_data_yeojohnson.csv,ridge,0.5528001383807045,0.42679979276095603,0.7021382849893077,"{'model__alpha': 10, 'model__fit_intercept': False, 'model__solver': 'saga', 'model__tol': 0.001}"
+training_data_yeojohnson.csv,training_data_yeojohnson.csv,linear_regression,0.5534812804719476,0.42649913419873275,0.7012878862719839,{}
+training_data_boxcox.csv,training_data_boxcox.csv,ridge,0.5535473239217275,0.42690430584933703,0.7013355217226165,"{'model__alpha': 10, 'model__fit_intercept': False, 'model__solver': 'saga', 'model__tol': 0.001}"
+training_data_boxcox.csv,training_data_boxcox.csv,linear_regression,0.554230817916368,0.42659736114662977,0.7004735641755533,{}
+training_data_standard.csv,training_data_standard.csv,random_forest,0.5569115556843395,0.45241449689632035,0.6986003332450423,"{'model__bootstrap': False, 'model__max_depth': None, 'model__max_features': 'sqrt', 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__n_estimators': 300}"
+training_data_boxcox.csv,training_data_boxcox.csv,random_forest,0.557033090471631,0.45245794168097025,0.6986372473237411,"{'model__bootstrap': False, 'model__max_depth': None, 'model__max_features': 'sqrt', 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__n_estimators': 300}"
+training_data_yeojohnson.csv,training_data_yeojohnson.csv,random_forest,0.5573964012797659,0.4527942804035911,0.6982082671764168,"{'model__bootstrap': False, 'model__max_depth': None, 'model__max_features': 'sqrt', 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__n_estimators': 300}"
+training_data_standard.csv,training_data_standard.csv,ridge,0.566382009399568,0.436801309197293,0.687086519406301,"{'model__alpha': 10, 'model__fit_intercept': False, 'model__solver': 'saga', 'model__tol': 0.001}"
+training_data_standard.csv,training_data_standard.csv,linear_regression,0.5669342399869561,0.43650753579497714,0.6863701153208048,{}
+training_data_original.csv,training_data_original.csv,xgboost,2.149265493314605,1.7047751661481674,0.8251162428606186,"{'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 200}"
+training_data_original.csv,training_data_original.csv,random_forest,2.830754249661967,2.299667180106935,0.6989465760707393,"{'model__bootstrap': False, 'model__max_depth': None, 'model__max_features': 'sqrt', 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__n_estimators': 300}"
+training_data_original.csv,training_data_original.csv,ridge,2.8827762133762938,2.2204816678919714,0.686570615638613,"{'model__alpha': 10, 'model__fit_intercept': False, 'model__solver': 'auto', 'model__tol': 0.001}"
+training_data_original.csv,training_data_original.csv,linear_regression,2.8836096587560793,2.220217544749409,0.6863701153208052,{}

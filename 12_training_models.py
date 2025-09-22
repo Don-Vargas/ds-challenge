@@ -3,12 +3,11 @@ from utils.storage import path_validate
 from utils.training_utils import definir_metricas, obtener_csvs_desde_registry, definir_modelos, procesar_dataset
 
 if __name__ == "__main__":
-    path = 'data/data_for_models/split_datasets/training/'
-
     scoring = definir_metricas()
-    datasets = obtener_csvs_desde_registry(path)
+    datasets = obtener_csvs_desde_registry()
+    print(datasets)
     models = definir_modelos()
-
+'''
     resultados_totales = []
     for nombre, ruta in datasets.items():
         print(f"\nProcesando dataset: {nombre}")
@@ -23,3 +22,4 @@ if __name__ == "__main__":
     gridsearch_path = 'data/grid_search/'
     path_validate(gridsearch_path)
     results_df.to_csv(f"{gridsearch_path}resultados_gridsearch.csv", index=False)
+'''
