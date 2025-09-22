@@ -51,12 +51,15 @@ if __name__ == "__main__":
         }
 
         for name, input_path in paths_to_check.items():
+            print(input_path)
             if not input_path or not os.path.isfile(input_path):
                 print(f"[WARNING] Skipping '{prefix}' — missing or invalid {name}.")
                 continue
 
-            datasets[prefix] = input_path
-            print(datasets)
+            # clave única por dataset y tipo
+            datasets[f"{prefix}_{name}"] = input_path
 
-            split_and_save_datasets(datasets, output_dir)
+    # Ahora sí procesas todos
+    split_and_save_datasets(datasets, output_dir)
+
 
