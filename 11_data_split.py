@@ -13,11 +13,14 @@ def split_and_save_datasets(datasets, output_dir, test_size=0.2, random_state=42
     os.makedirs(training_dir, exist_ok=True)
     os.makedirs(holdout_dir, exist_ok=True)
 
+    #Note: los nombres se guardan con _csv_
+    # data/data_for_models/split_datasets/training/training_data_yeojohnson_pca_data_csv_path.csv
+
     for name, path in datasets.items():
         if not os.path.isfile(path):
             print(f"[WARNING] File not found for '{name}': {path}")
             continue
-
+        
         df = pd.read_csv(path)
 
         # Split into train/test (80/20)
@@ -33,8 +36,7 @@ def split_and_save_datasets(datasets, output_dir, test_size=0.2, random_state=42
         # Update registry
         add_split_data_path_to_registry(name, [train_path, test_path])
         print(f"[INFO] Split saved for: {name}")
-
-
+        
 if __name__ == "__main__":
     output_dir = 'data/data_for_models/split_datasets/'
     path_validate(output_dir)
@@ -45,21 +47,19 @@ if __name__ == "__main__":
 
     for prefix, info in registry.items():
         paths_to_check = {
-            "output_csv_path": info.get("output_csv_path"),
-            "most_important_csv_path": info.get("most_important_csv_path"),
-            "pca_data_csv_path": info.get("pca", {}).get("pca_data_csv_path")
+            "original": info.get("output_csv_path"),
+            "important": info.get("most_important_csv_path"),
+            "pca": info.get("pca", {}).get("pca_data_csv_path")
         }
 
-        for name, input_path in paths_to_check.items():
-            print(input_path)
+        for suffix, input_path in paths_to_check.items():
             if not input_path or not os.path.isfile(input_path):
-                print(f"[WARNING] Skipping '{prefix}' — missing or invalid {name}.")
+                print(f"[WARNING] Skipping '{prefix}' — missing or invalid {suffix}.")
                 continue
 
-            # clave única por dataset y tipo
-            datasets[f"{prefix}_{name}"] = input_path
+            # nombre limpio: prefix + tipo
+            datasets[f"{prefix}_{suffix}"] = input_path
 
     # Ahora sí procesas todos
     split_and_save_datasets(datasets, output_dir)
-
-
+    

@@ -27,19 +27,12 @@ def definir_metricas():
     }
 
 # 2. Cargar datasets
-def obtener_csvs_desde_registry():
-    registry = load_registry()
-
-    csvs_dict = {}
-    for key, data in registry.items():
-        # Verificamos que exista la sección 'train_hold' y dentro 'train_data_csv_path'
-        if 'train_hold' in data and 'train_data_csv_path' in data['train_hold']:
-            ruta_csv = data['train_hold']['train_data_csv_path']
-            # Puedes usar key o basename para la clave del dict, aquí uso basename
-            csv_name = os.path.basename(ruta_csv)
-            csvs_dict[csv_name] = ruta_csv
-
-    return csvs_dict
+def obtener_csvs(path):
+    return {
+        f: os.path.join(path, f)
+        for f in os.listdir(path)
+        if f.endswith(".csv")
+    }
 
 # 3. Modelos y grids
 def definir_modelos():
