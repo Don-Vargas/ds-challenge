@@ -5,9 +5,8 @@ from utils.training_utils import definir_metricas, obtener_csvs_desde_registry, 
 if __name__ == "__main__":
     scoring = definir_metricas()
     datasets = obtener_csvs_desde_registry()
-    print(datasets)
     models = definir_modelos()
-'''
+    
     resultados_totales = []
     for nombre, ruta in datasets.items():
         print(f"\nProcesando dataset: {nombre}")
@@ -22,4 +21,4 @@ if __name__ == "__main__":
     gridsearch_path = 'data/grid_search/'
     path_validate(gridsearch_path)
     results_df.to_csv(f"{gridsearch_path}resultados_gridsearch.csv", index=False)
-'''
+    
