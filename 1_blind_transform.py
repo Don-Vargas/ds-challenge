@@ -3,10 +3,10 @@ from sklearn.preprocessing import MinMaxScaler, StandardScaler, PowerTransformer
 
 from utils.registry import add_transformation_record
 from utils.storage import save_pickle, path_validate, TRAINING_DATA, BLIND_DATA
+# --- Parámetro global o configurable desde el main ---
+SCALER_PATH = 'data/scaler_models_blind/'
 
-def transform_and_save(df, transformer, output_prefix, transformed_data_path, blind=False):
-    scaler_path = 'data/scaler_models/'
-    
+def transform_and_save(df, transformer, output_prefix, transformed_data_path, blind=False, scaler_path=SCALER_PATH):
     path_validate(transformed_data_path)
     path_validate(scaler_path)
     
@@ -41,16 +41,16 @@ def transform_and_save(df, transformer, output_prefix, transformed_data_path, bl
         if not blind:
             save_pickle(scaler_y, f"{scaler_path}scaler_y_{output_prefix}.pkl")
 
-
+        # Paths de scalers para registro
         if not blind:
             scaler_pickle_path = {
                 "X": f"{scaler_path}scaler_X_{output_prefix}.pkl",
                 "y": f"{scaler_path}scaler_y_{output_prefix}.pkl"
             }
-        
-        scaler_pickle_path = {
-            "X": f"{scaler_path}scaler_X_{output_prefix}.pkl"
-        } 
+        else:
+            scaler_pickle_path = {
+                "X": f"{scaler_path}scaler_X_{output_prefix}.pkl"
+            } 
     else:
         df.to_csv(file_full_path, index=False)
         scaler_pickle_path = None
@@ -78,58 +78,36 @@ def apply_transformations(
     output_prefix: str,
     blind: bool = False,
     include_original: bool = True,
-    transformer_names: list = None  # <-- nuevo parámetro
+    transformer_names: list = None,
+    scaler_path: str = SCALER_PATH
 ):
-    """
-    Aplica transformaciones al DataFrame y guarda los resultados con diferentes prefijos.
-
-    Parameters:
-        df (pd.DataFrame): El DataFrame original.
-        output_prefix (str): Prefijo base para los archivos de salida.
-        blind (bool): Indica si los datos no tienen target (True) o sí (False).
-        include_original (bool): Si se desea guardar el dataset original sin transformar.
-        transformer_names (list): Lista opcional con los nombres de transformaciones a aplicar.
-    """
-
     transformadores_disponibles = obtener_transformadores_disponibles()
 
     if transformer_names is None:
-        # Aplica todas las transformaciones
         selected_transformers = transformadores_disponibles
     else:
-        # Solo las seleccionadas (valida que existan)
         selected_transformers = {
             name: transformadores_disponibles[name]
             for name in transformer_names
             if name in transformadores_disponibles
         }
 
-    # Guardar el dataset original si se solicita
+    # Guardar dataset original
     if include_original:
-        transform_and_save(df, transformer=None, output_prefix=f'{output_prefix}_original', transformed_data_path=transformed_data_path, blind=blind)
+        transform_and_save(df, transformer=None, output_prefix=f'{output_prefix}_original', transformed_data_path=transformed_data_path, blind=blind, scaler_path=scaler_path)
 
-    # Aplicar cada transformación
+    # Aplicar transformaciones
     for name, transformer in selected_transformers.items():
         full_prefix = f"{output_prefix}_{name}"
         print(f"Aplicando transformación: {full_prefix}")
-        transform_and_save(df, transformer, output_prefix=full_prefix, transformed_data_path=transformed_data_path, blind=blind)
+        transform_and_save(df, transformer, output_prefix=full_prefix, transformed_data_path=transformed_data_path, blind=blind, scaler_path=scaler_path)
+
 
 if __name__ == "__main__":
-    '''
-    transformed_data_path = 'data/data_for_models/transformed_data/'
-    df = pd.read_csv(TRAINING_DATA)
-    apply_transformations(df, transformed_data_path, output_prefix='training_data', blind=False)
-    '''
-    
-    #transformed_data_path = 'data/data_for_models/blind_data_sets/'
-    #df = pd.read_csv(BLIND_DATA)
-    
-    # Ejemplo 1: aplicar todas las transformaciones
-    #transformed_data_path = 'data/data_for_models/transformed_data/'
-    #apply_transformations(df, transformed_data_path, output_prefix='blind_data', blind=True)
-
-    # Ejemplo 2: aplicar solo algunas
     transformed_data_path = 'data/data_for_models/blind_transformed_data/'
     df = pd.read_csv(BLIND_DATA)
-    apply_transformations(df, transformed_data_path, output_prefix='blind_data', blind=True, transformer_names=['minmax'])
-
+    apply_transformations(df, transformed_data_path, 
+                          output_prefix='blind_data', 
+                          blind=True, 
+                          transformer_names=['minmax'], 
+                          scaler_path=SCALER_PATH)

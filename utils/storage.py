@@ -7,6 +7,24 @@ BLIND_DATA = 'data/data_for_models/original_data/blind_test_data.csv'
 def path_validate(filepath):
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
 
+def save_pickle(obj, path):
+    with open(path, 'wb') as f:
+        pickle.dump(obj, f)
+
+def load_pickle(path):
+    with open(path, 'rb') as f:
+        return pickle.load(f)
+
+
+def path_validate(path):
+    """
+    Si `path` es una carpeta, la crea si no existe.
+    Si `path` es un archivo, crea la carpeta contenedora.
+    """
+    directory = path if os.path.splitext(path)[1] == "" else os.path.dirname(path)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
+
 def save_pickle(obj, filepath):
     """
     Guarda un objeto en formato pickle en la ruta indicada.

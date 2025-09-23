@@ -145,5 +145,34 @@
             "train_data_csv_path": "data/data_for_models/split_datasets/training/training_data_yeojohnson_pca.csv",
             "hold_out_data_csv_path": "data/data_for_models/split_datasets/holdout/training_data_yeojohnson_pca.csv"
         }
+    },
+    "blind_data_original": {
+        "transformation": {
+            "transformer_type": "None",
+            "params": {}
+        },
+        "scaler_pickle_path": null,
+        "output_csv_path": "data/data_for_models/blind_transformed_data/blind_data_original.csv",
+        "blind": true,
+        "most_important_csv_path": "data/data_for_models/blind_data_sets/important_blind_data_original.csv"
+    },
+    "blind_data_minmax": {
+        "transformation": {
+            "transformer_type": "MinMaxScaler",
+            "params": {
+                "clip": false,
+                "copy": true,
+                "feature_range": [
+                    0,
+                    1
+                ]
+            }
+        },
+        "scaler_pickle_path": {
+            "X": "data/scaler_models_blind/scaler_X_blind_data_minmax.pkl"
+        },
+        "output_csv_path": "data/data_for_models/blind_transformed_data/blind_data_minmax.csv",
+        "blind": true,
+        "most_important_csv_path": "data/data_for_models/blind_data_sets/important_blind_data_minmax.csv"
     }
 }
