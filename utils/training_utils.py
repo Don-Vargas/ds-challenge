@@ -56,9 +56,7 @@ def definir_modelos(seleccionados=None):
                 'model__n_estimators': [100, 200, 300],
                 'model__max_depth': [None, 5, 10, 20],
                 'model__min_samples_split': [2, 5, 10],
-                'model__min_samples_leaf': [1, 2, 4],
-                'model__max_features': ['auto', 'sqrt', 'log2'],
-                'model__bootstrap': [True, False]
+                'model__min_samples_leaf': [1, 2, 4]
             }
         },
         'xgboost': {

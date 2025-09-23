@@ -77,7 +77,7 @@ def restaurar_predicciones_modelo(model_info, dataset_info, output_dir):
     df_preds_original.to_csv(predictions_csv_path, index=False)
 
     add_predictions_original_scale_data_path_to_registry(
-        model_name=f'{model_name}_{dataset_name}',
+        model_key=f'{model_name}_{dataset_name}',
         predictions_csv_path=predictions_csv_path
     )
 

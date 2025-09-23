@@ -29,9 +29,9 @@ if __name__ == "__main__":
     path = 'data/data_for_models/split_datasets/training/'
 
     # Ejemplo 1: Entrenar todos los modelos
-    #data_trainer(path)
+    data_trainer(path)
 
     # Ejemplo 2: Entrenar solo algunos modelos
-    modelos_deseados = ['random_forest']
-    data_trainer(path, modelos_a_entrenar=modelos_deseados)
+    # modelos_deseados = ['random_forest']
+    # data_trainer(path, modelos_a_entrenar=modelos_deseados)
 

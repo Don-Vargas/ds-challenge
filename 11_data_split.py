@@ -17,7 +17,6 @@ def split_and_save_datasets(datasets, output_dir, test_size=0.2, random_state=42
         if not os.path.isfile(path):
             print(f"[WARNING] File not found for '{name}': {path}")
             continue
-        
         df = pd.read_csv(path)
 
         # Split into train/test (80/20)
@@ -31,33 +30,30 @@ def split_and_save_datasets(datasets, output_dir, test_size=0.2, random_state=42
         test_df.to_csv(test_path, index=False)
 
         # Update registry
-        add_split_data_path_to_registry(name, [train_path, test_path])
+        add_split_data_path_to_registry(name.rsplit('_', 1)[0], [train_path, test_path])
         print(f"[INFO] Split saved for: {name}")
 
 def data_splitter(output_dir):
     path_validate(output_dir)
 
-    # Load model registry
     registry = load_registry()
     datasets = {}
 
     for prefix, info in registry.items():
         paths_to_check = {
             "original": info.get("output_csv_path"),
-            "important": info.get("most_important_csv_path"),
+            "important": info.get("most_important_csv_path", {}),
             "pca": info.get("pca", {}).get("pca_data_csv_path")
         }
 
         for suffix, input_path in paths_to_check.items():
-            if not input_path or not os.path.isfile(input_path):
-                print(f"[WARNING] Skipping '{prefix}' — missing or invalid {suffix}.")
-                continue
+            if input_path and os.path.isfile(input_path):
+                datasets[f"{prefix}_{suffix}"] = input_path
+            else:
+                print(f"[INFO] {prefix}_{suffix} no existe o es inválido, se ignora.")
 
-            # nombre limpio: prefix + tipo
-            datasets[f"{prefix}_{suffix}"] = input_path
-
-    # Ahora sí procesas todos
     split_and_save_datasets(datasets, output_dir)
+
             
 if __name__ == "__main__":
     output_dir = 'data/data_for_models/split_datasets/'

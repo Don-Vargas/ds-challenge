@@ -79,6 +79,7 @@ if __name__ == "__main__":
 
     important_features = ['feature_2', 'feature_9', 'feature_11', 'feature_13', 'feature_18']
 
+    '''
     # Procesar solo blind datasets (sin target)
     run_feature_filtering(
         output_folder='data/data_for_models/blind_data_sets/',
@@ -95,4 +96,3 @@ if __name__ == "__main__":
         include_target=True,
         blind_filter=False
     )
-    '''

@@ -115,13 +115,18 @@ def apply_transformations(
         transform_and_save(df, transformer, output_prefix=full_prefix, transformed_data_path=transformed_data_path, blind=blind)
 
 if __name__ == "__main__":
-    transformed_data_path = 'data/data_for_models/blind_data_sets/'
-    df = pd.read_csv(BLIND_DATA)
+    transformed_data_path = 'data/data_for_models/transformed_data/'
+    df = pd.read_csv(TRAINING_DATA)
+    apply_transformations(df, transformed_data_path, output_prefix='training_data', blind=False)
+
+    
+    #transformed_data_path = 'data/data_for_models/blind_data_sets/'
+    #df = pd.read_csv(BLIND_DATA)
     
     # Ejemplo 1: aplicar todas las transformaciones
     #transformed_data_path = 'data/data_for_models/transformed_data/'
     #apply_transformations(df, transformed_data_path, output_prefix='blind_data', blind=True)
 
     # Ejemplo 2: aplicar solo algunas
-    apply_transformations(df, transformed_data_path, output_prefix='blind_data', blind=True, transformer_names=['minmax', 'standard'])
+    #apply_transformations(df, transformed_data_path, output_prefix='blind_data', blind=True, transformer_names=['minmax', 'standard'])
 

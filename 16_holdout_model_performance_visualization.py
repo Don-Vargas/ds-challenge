@@ -92,7 +92,7 @@ if __name__ == "__main__":
     performance_metrics = "data/predictions/original_performance_metrics/"
     path_validate(performance_metrics)
 
-    metric = 'r2'
+    metric = 'rmse'
 
     # Extraer DataFrame
     df = extract_model_metrics_from_registry(trained_registry, metric)
