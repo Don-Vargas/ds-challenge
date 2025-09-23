@@ -11,21 +11,33 @@ def load_model(model_path):
     with open(model_path, "rb") as f:
         return pickle.load(f)
 
-def predictions_transformed_scale():
-    registry = load_registry()
+def predictions_transformed_scale(blind=False):
     trained_registry = load_trained_registry()
+
+    if blind:
+        y_pred_path = 'data/data_for_models/blind_data_preds/'
+        path_validate(y_pred_path)
+    else:
+        # Create output directory
+        repository_path = 'data/data_for_models/split_datasets/holdout/'
+        predictions_csv_dir = 'data/predictions/transformed_scale/'
+        path_validate(predictions_csv_dir)
 
     for model_key, model_info in trained_registry.items():
         model_path = model_info["model_pickle_path"]
         dataset_name = model_info["dataset_name"]
         model_name = model_info["model_name"]
 
-        hold_out_path = f'data/data_for_models/split_datasets/holdout/{dataset_name}.csv'
+        hold_out_path = f'{repository_path}{dataset_name}.csv'
 
         # Load holdout data
         df = pd.read_csv(hold_out_path)
         if 'target' not in df.columns:
             print(f"'target' column not found in {hold_out_path}")
+            model = load_model(model_path)
+            y_pred = model.predict(df)
+            df_preds = pd.DataFrame({"y_pred": y_pred})
+            df_preds.to_csv(y_pred_path, index=False)
             continue
 
         X_holdout = df.drop(columns='target')
@@ -63,9 +75,7 @@ def predictions_transformed_scale():
         print(f"Predictions done for model: {model_name} | dataset: {dataset_name}")
 
 
-# Create output directory
-predictions_csv_dir = 'data/predictions/transformed_scale/'
-path_validate(predictions_csv_dir)
 
 # Run
 predictions_transformed_scale()
+#predictions_transformed_scale(blind=True)

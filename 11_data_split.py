@@ -13,9 +13,6 @@ def split_and_save_datasets(datasets, output_dir, test_size=0.2, random_state=42
     os.makedirs(training_dir, exist_ok=True)
     os.makedirs(holdout_dir, exist_ok=True)
 
-    #Note: los nombres se guardan con _csv_
-    # data/data_for_models/split_datasets/training/training_data_yeojohnson_pca_data_csv_path.csv
-
     for name, path in datasets.items():
         if not os.path.isfile(path):
             print(f"[WARNING] File not found for '{name}': {path}")
@@ -36,9 +33,8 @@ def split_and_save_datasets(datasets, output_dir, test_size=0.2, random_state=42
         # Update registry
         add_split_data_path_to_registry(name, [train_path, test_path])
         print(f"[INFO] Split saved for: {name}")
-        
-if __name__ == "__main__":
-    output_dir = 'data/data_for_models/split_datasets/'
+
+def data_splitter(output_dir):
     path_validate(output_dir)
 
     # Load model registry
@@ -62,4 +58,7 @@ if __name__ == "__main__":
 
     # Ahora sí procesas todos
     split_and_save_datasets(datasets, output_dir)
-    
+            
+if __name__ == "__main__":
+    output_dir = 'data/data_for_models/split_datasets/'
+    data_splitter(output_dir)

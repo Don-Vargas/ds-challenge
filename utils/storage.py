@@ -2,6 +2,7 @@ import os
 import pickle
 
 TRAINING_DATA = 'data/data_for_models/original_data/training_data.csv'
+BLIND_DATA = 'data/data_for_models/original_data/blind_test_data.csv'
 
 def path_validate(filepath):
     os.makedirs(os.path.dirname(filepath), exist_ok=True)

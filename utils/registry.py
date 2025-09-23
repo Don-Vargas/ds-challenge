@@ -3,154 +3,109 @@ import os
 
 from utils.storage import path_validate
 
-REGISTRY_FILE = 'registry/model_registry.json'
-path_validate(REGISTRY_FILE)
+# ---------------------- #
+#    Rutas y Validación  #
+# ---------------------- #
 
-def load_registry(file_path=REGISTRY_FILE):
+REGISTRY_FILE = 'registry/model_registry.json'
+TRAINED_REGISTRY_FILE = 'registry/trained_model_registry.json'
+
+path_validate(REGISTRY_FILE)
+path_validate(TRAINED_REGISTRY_FILE)
+
+# Funciones Base Reutilizables
+def _load_json(file_path):
     if not os.path.exists(file_path):
         return {}
     with open(file_path, 'r') as f:
         return json.load(f)
 
-def save_registry(registry, file_path=REGISTRY_FILE):
+def _save_json(data, file_path):
     with open(file_path, 'w') as f:
-        json.dump(registry, f, indent=4)
+        json.dump(data, f, indent=4)
 
-def add_transformation_record(output_prefix, 
-                              transformer,
-                              output_csv_path, 
-                              scaler_pickle_path=None):
-    """
-    Agrega un registro de transformación al archivo JSON.
-    """
+def _update_registry_entry(file_path, key, update_dict):
+    registry = _load_json(file_path)
+    if key not in registry:
+        print(f"[WARNING] La llave '{key}' no existe en el registro. No se actualizó nada.")
+        return
+
+    registry[key].update(update_dict)
+    _save_json(registry, file_path)
+    print(f"[INFO] Registro actualizado para '{key}' con: {list(update_dict.keys())}")
+
+# Registro General
+
+def load_registry():
+    return _load_json(REGISTRY_FILE)
+
+def save_registry(registry):
+    _save_json(registry, REGISTRY_FILE)
+
+def add_transformation_record(output_prefix, transformer, output_csv_path, scaler_pickle_path=None, blind=False):
     registry = load_registry()
 
     transformer_info = {
-        'transformation':{
+        'transformation': {
             'transformer_type': type(transformer).__name__ if transformer else 'None',
             'params': transformer.get_params() if transformer else {}
         },
         'scaler_pickle_path': scaler_pickle_path,
-        'output_csv_path': output_csv_path
+        'output_csv_path': output_csv_path,
+        'blind': blind
     }
 
     registry[output_prefix] = transformer_info
     save_registry(registry)
-
-def add_eda_path_to_registry(output_prefix, eda_report_path, file_path=REGISTRY_FILE):
-    """
-    Agrega o actualiza la ruta del reporte EDA en el registro existente para un prefix dado.
-    """
-    registry = load_registry(file_path)
-
-    if output_prefix not in registry:
-        print(f"[WARNING] La llave '{output_prefix}' no existe en el registro. No se actualizó nada.")
-        return
-
-    registry[output_prefix]['eda_report_path'] = eda_report_path
-    save_registry(registry, file_path)
-    print(f"[INFO] Ruta EDA agregada a '{output_prefix}': {eda_report_path}")
-
-def add_correlation_path_to_registry(output_prefix, correlation_csv_path, file_path=REGISTRY_FILE):
-    """
-    Agrega o actualiza la ruta del reporte de correlacion en el registro existente para un prefix dado.
-    """
-    registry = load_registry(file_path)
-
-    if output_prefix not in registry:
-        print(f"[WARNING] La llave '{output_prefix}' no existe en el registro. No se actualizó nada.")
-        return
-
-    registry[output_prefix]['correlation_csv_path'] = correlation_csv_path
-    save_registry(registry, file_path)
-    print(f"[INFO] Ruta EDA agregada a '{output_prefix}': {correlation_csv_path}")
-
-def add_importance_path_to_registry(output_prefix, importance_paths, file_path=REGISTRY_FILE):
-    """
-    Agrega o actualiza las rutas del reporte de importancia de variables en el registro existente para un prefix dado.
-    """
-    registry = load_registry(file_path)
-
-    if output_prefix not in registry:
-        print(f"[WARNING] La llave '{output_prefix}' no existe en el registro. No se actualizó nada.")
-        return
-
-    # Crear la clave 'importance' si no existe
-    if 'importance' not in registry[output_prefix]:
-        registry[output_prefix]['importance'] = {}
-
-    registry[output_prefix]['importance']['features_csv_path'] = importance_paths[0]
-    registry[output_prefix]['importance']['metrics_csv_path'] = importance_paths[1]
-
-    save_registry(registry, file_path)
-    print(f"[INFO] Rutas de importancia agregadas a '{output_prefix}': {importance_paths}")
-
-def add_most_important_data_path_to_registry(output_prefix, most_important_csv_path, file_path=REGISTRY_FILE):
-    """
-    Agrega o actualiza la ruta de variables mas importantes en el registro existente para un prefix dado.
-    """
-    registry = load_registry(file_path)
-
-    if output_prefix not in registry:
-        print(f"[WARNING] La llave '{output_prefix}' no existe en el registro. No se actualizó nada.")
-        return
-
-    registry[output_prefix]['most_important_csv_path'] = most_important_csv_path
-    save_registry(registry, file_path)
-    print(f"[INFO] Ruta de variables mas importantes agregada a '{output_prefix}': {most_important_csv_path}")
-
-def add_pca_data_path_to_registry(output_prefix, pcs_csv_path, file_path=REGISTRY_FILE):
-    """
-    Agrega o actualiza la ruta de PCA en el registro existente para un prefix dado.
-    """
-    registry = load_registry(file_path)
-
-    if output_prefix not in registry:
-        print(f"[WARNING] La llave '{output_prefix}' no existe en el registro. No se actualizó nada.")
-        return
-    # Crear la clave 'importance' si no existe
-    if 'pca' not in registry[output_prefix]:
-        registry[output_prefix]['pca'] = {}
-
-    registry[output_prefix]['pca']['pca_data_csv_path'] = pcs_csv_path[0]
-    registry[output_prefix]['pca']['pca_model_pkl_path'] = pcs_csv_path[1]
-    save_registry(registry, file_path)
-    print(f"[INFO] Ruta de PCA agregada a '{output_prefix}': {pcs_csv_path}")
-
-def add_split_data_path_to_registry(output_prefix, train_hold_csv_path, file_path=REGISTRY_FILE):
-    """
-    Agrega o actualiza la ruta de los data sets train y hold-out en el registro existente para un prefix dado.
-    """
-    registry = load_registry(file_path)
-
-    if output_prefix not in registry:
-        print(f"[WARNING] La llave '{output_prefix}' no existe en el registro. No se actualizó nada.")
-        return
-    # Crear la clave 'importance' si no existe
-    if 'train_hold' not in registry[output_prefix]:
-        registry[output_prefix]['train_hold'] = {}
-
-    registry[output_prefix]['train_hold']['train_data_csv_path'] = train_hold_csv_path[0]
-    registry[output_prefix]['train_hold']['hold_out_data_csv_path'] = train_hold_csv_path[1]
-    save_registry(registry, file_path)
-    print(f"[INFO] Ruta de los data sets train y hold-out agregada a '{output_prefix}': {train_hold_csv_path}")
+    print(f"[INFO] Transformación registrada para '{output_prefix}'")
 
 
+def add_eda_path_to_registry(output_prefix, eda_report_path):
+    _update_registry_entry(REGISTRY_FILE, output_prefix, {
+        'eda_report_path': eda_report_path
+    })
 
-######################################
+def add_correlation_path_to_registry(output_prefix, correlation_csv_path):
+    _update_registry_entry(REGISTRY_FILE, output_prefix, {
+        'correlation_csv_path': correlation_csv_path
+    })
 
-TRAINED_REGISTRY_FILE = 'registry/trained_model_registry.json'
-path_validate(TRAINED_REGISTRY_FILE)
+def add_importance_path_to_registry(output_prefix, importance_paths):
+    _update_registry_entry(REGISTRY_FILE, output_prefix, {
+        'importance': {
+            'features_csv_path': importance_paths[0],
+            'metrics_csv_path': importance_paths[1]
+        }
+    })
 
-def load_trained_registry(file_path=TRAINED_REGISTRY_FILE):
-    if not os.path.exists(file_path):
-        return {}
-    with open(file_path, 'r') as f:
-        return json.load(f)
+def add_most_important_data_path_to_registry(output_prefix, most_important_csv_path):
+    _update_registry_entry(REGISTRY_FILE, output_prefix, {
+        'most_important_csv_path': most_important_csv_path
+    })
 
-def save_trained_registry(registry, file_path=TRAINED_REGISTRY_FILE):
-    with open(file_path, 'w') as f:
-        json.dump(registry, f, indent=4)
+def add_pca_data_path_to_registry(output_prefix, pcs_csv_path):
+    _update_registry_entry(REGISTRY_FILE, output_prefix, {
+        'pca': {
+            'pca_data_csv_path': pcs_csv_path[0],
+            'pca_model_pkl_path': pcs_csv_path[1]
+        }
+    })
+
+def add_split_data_path_to_registry(output_prefix, train_hold_csv_path):
+    _update_registry_entry(REGISTRY_FILE, output_prefix, {
+        'train_hold': {
+            'train_data_csv_path': train_hold_csv_path[0],
+            'hold_out_data_csv_path': train_hold_csv_path[1]
+        }
+    })
+
+# Registro de Modelos Entrenados
+
+def load_trained_registry():
+    return _load_json(TRAINED_REGISTRY_FILE)
+
+def save_trained_registry(registry):
+    _save_json(registry, TRAINED_REGISTRY_FILE)
 
 def add_trained_model_record(model_name,
                              dataset_name,
@@ -158,14 +113,11 @@ def add_trained_model_record(model_name,
                              best_params=None,
                              best_rmse=None,
                              best_mae=None,
-                             best_r2=None,
-                             model_registry_path=REGISTRY_FILE,
-                             trained_registry_path=TRAINED_REGISTRY_FILE):
-    model_registry = load_registry(model_registry_path)
-    trained_registry = load_trained_registry(trained_registry_path)
+                             best_r2=None):
+    registry = load_registry()
+    trained_registry = load_trained_registry()
 
-    dataset_info = model_registry.get(dataset_name, {})
-
+    dataset_info = registry.get(dataset_name, {})
     transformer_info = {
         'scaler_pickle_path': dataset_info.get('scaler_pickle_path'),
         'pca_model_pkl_path': dataset_info.get('pca', {}).get('pca_model_pkl_path')
@@ -185,54 +137,25 @@ def add_trained_model_record(model_name,
         }
     }
 
-    save_trained_registry(trained_registry, trained_registry_path)
+    save_trained_registry(trained_registry)
     print(f"[INFO] Registro de modelo entrenado '{key}' actualizado.")
 
-def add_predictions_data_path_to_registry(model_name, predictions_csv_path, file_path=TRAINED_REGISTRY_FILE):
-    """
-    Agrega o actualiza la ruta de las predicciones en el registro de modelos entrenados existente para un model_name dado.
-    """
-    registry = load_trained_registry(file_path)
 
-    if model_name not in registry:
-        print(f"[WARNING] La llave '{model_name}' no existe en el registro. No se actualizó nada.")
-        return
+def add_predictions_data_path_to_registry(model_key, predictions_csv_path):
+    _update_registry_entry(TRAINED_REGISTRY_FILE, model_key, {
+        'predictions_transformed_scale_csv_path': predictions_csv_path
+    })
 
-    registry[model_name]['predictions_transformed_scale_csv_path'] = predictions_csv_path
-    save_trained_registry(registry, file_path)
-    print(f"[INFO] Ruta de variables mas importantes agregada a '{model_name}': {predictions_csv_path}")
+def add_predictions_original_scale_data_path_to_registry(model_key, predictions_csv_path):
+    _update_registry_entry(TRAINED_REGISTRY_FILE, model_key, {
+        'predictions_original_scale_csv_path': predictions_csv_path
+    })
 
-def add_predictions_original_scale_data_path_to_registry(model_name, predictions_csv_path, file_path=TRAINED_REGISTRY_FILE):
-    """
-    Agrega o actualiza la ruta de las predicciones en escala original 
-    en el registro de modelos entrenados existente para un model_name dado.
-    """
-    registry = load_trained_registry(file_path)
-
-    if model_name not in registry:
-        print(f"[WARNING] La llave '{model_name}' no existe en el registro. No se actualizó nada.")
-        return
-
-    registry[model_name]['predictions_original_scale_csv_path'] = predictions_csv_path
-    save_trained_registry(registry, file_path)
-    print(f"[INFO] Ruta de variables mas importantes agregada a '{model_name}': {predictions_csv_path}")
-
-def add_original_metrics_path_to_registry(model_name, metrics, file_path=TRAINED_REGISTRY_FILE):
-    """
-    Agrega o actualiza las metricas de las predicciones en escala original 
-    en el registro de modelos entrenados existente para un model_name dado.
-    """
-    registry = load_trained_registry(file_path)
-
-    if model_name not in registry:
-        print(f"[WARNING] La llave '{model_name}' no existe en el registro. No se actualizó nada.")
-        return
-    # Crear la clave 'importance' si no existe
-    if 'original_metrics' not in registry[model_name]:
-        registry[model_name]['original_metrics'] = {}
-
-    registry[model_name]['original_metrics']['rmse']  = metrics[0]
-    registry[model_name]['original_metrics']['mae'] = metrics[1]
-    registry[model_name]['original_metrics']['r2'] = metrics[2]
-    save_trained_registry(registry, file_path)
-    print(f"[INFO] Ruta de variables mas importantes agregada a '{model_name}': {metrics}")
+def add_original_metrics_path_to_registry(model_key, metrics):
+    _update_registry_entry(TRAINED_REGISTRY_FILE, model_key, {
+        'original_metrics': {
+            'rmse': metrics[0],
+            'mae': metrics[1],
+            'r2': metrics[2]
+        }
+    })

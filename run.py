@@ -12,7 +12,7 @@ py_files = [f for f in os.listdir(parent_dir) if f.endswith('.py')]
 print("Python scripts in parent directory:")
 for file in py_files:
     print(file)
-
+'''
 def extract_number(filename):
     """Extrae el número inicial del nombre del archivo."""
     match = re.match(r'^(\d+)', filename)
@@ -38,3 +38,4 @@ for script_name in scripts_sorted:
         print(f"Error ejecutando {script_name}. Código de salida: {e.returncode}")
         print("Deteniendo ejecución.")
         break
+'''

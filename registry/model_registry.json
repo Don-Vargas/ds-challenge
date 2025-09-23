@@ -20,8 +20,7 @@
             }
         },
         "scaler_pickle_path": {
-            "X": "data/scaler_models/scaler_X_training_data_minmax.pkl",
-            "y": "data/scaler_models/scaler_y_training_data_minmax.pkl"
+            "X": "data/scaler_models/scaler_X_training_data_minmax.pkl"
         },
         "output_csv_path": "data/data_for_models/transformed_data/training_data_minmax.csv"
     },
@@ -35,8 +34,7 @@
             }
         },
         "scaler_pickle_path": {
-            "X": "data/scaler_models/scaler_X_training_data_standard.pkl",
-            "y": "data/scaler_models/scaler_y_training_data_standard.pkl"
+            "X": "data/scaler_models/scaler_X_training_data_standard.pkl"
         },
         "output_csv_path": "data/data_for_models/transformed_data/training_data_standard.csv"
     },
@@ -50,8 +48,7 @@
             }
         },
         "scaler_pickle_path": {
-            "X": "data/scaler_models/scaler_X_training_data_boxcox.pkl",
-            "y": "data/scaler_models/scaler_y_training_data_boxcox.pkl"
+            "X": "data/scaler_models/scaler_X_training_data_boxcox.pkl"
         },
         "output_csv_path": "data/data_for_models/transformed_data/training_data_boxcox.csv"
     },
@@ -65,9 +62,85 @@
             }
         },
         "scaler_pickle_path": {
-            "X": "data/scaler_models/scaler_X_training_data_yeojohnson.pkl",
-            "y": "data/scaler_models/scaler_y_training_data_yeojohnson.pkl"
+            "X": "data/scaler_models/scaler_X_training_data_yeojohnson.pkl"
         },
         "output_csv_path": "data/data_for_models/transformed_data/training_data_yeojohnson.csv"
+    },
+    "blind_data_original": {
+        "transformation": {
+            "transformer_type": "None",
+            "params": {}
+        },
+        "scaler_pickle_path": null,
+        "output_csv_path": "data/data_for_models/blind_data_sets/blind_data_original.csv",
+        "blind": true,
+        "most_important_csv_path": "data/data_for_models/blind_data_sets/important_blind_data_original.csv"
+    },
+    "blind_data_minmax": {
+        "transformation": {
+            "transformer_type": "MinMaxScaler",
+            "params": {
+                "clip": false,
+                "copy": true,
+                "feature_range": [
+                    0,
+                    1
+                ]
+            }
+        },
+        "scaler_pickle_path": {
+            "X": "data/scaler_models/scaler_X_blind_data_minmax.pkl"
+        },
+        "output_csv_path": "data/data_for_models/blind_data_sets/blind_data_minmax.csv",
+        "blind": true,
+        "most_important_csv_path": "data/data_for_models/blind_data_sets/important_blind_data_minmax.csv"
+    },
+    "blind_data_standard": {
+        "transformation": {
+            "transformer_type": "StandardScaler",
+            "params": {
+                "copy": true,
+                "with_mean": true,
+                "with_std": true
+            }
+        },
+        "scaler_pickle_path": {
+            "X": "data/scaler_models/scaler_X_blind_data_standard.pkl"
+        },
+        "output_csv_path": "data/data_for_models/blind_data_sets/blind_data_standard.csv",
+        "blind": true,
+        "most_important_csv_path": "data/data_for_models/blind_data_sets/important_blind_data_standard.csv"
+    },
+    "blind_data_boxcox": {
+        "transformation": {
+            "transformer_type": "PowerTransformer",
+            "params": {
+                "copy": true,
+                "method": "box-cox",
+                "standardize": true
+            }
+        },
+        "scaler_pickle_path": {
+            "X": "data/scaler_models/scaler_X_blind_data_boxcox.pkl"
+        },
+        "output_csv_path": "data/data_for_models/transformed_data/blind_data_boxcox.csv",
+        "blind": true,
+        "most_important_csv_path": "data/data_for_models/blind_data_sets/important_blind_data_boxcox.csv"
+    },
+    "blind_data_yeojohnson": {
+        "transformation": {
+            "transformer_type": "PowerTransformer",
+            "params": {
+                "copy": true,
+                "method": "yeo-johnson",
+                "standardize": true
+            }
+        },
+        "scaler_pickle_path": {
+            "X": "data/scaler_models/scaler_X_blind_data_yeojohnson.pkl"
+        },
+        "output_csv_path": "data/data_for_models/transformed_data/blind_data_yeojohnson.csv",
+        "blind": true,
+        "most_important_csv_path": "data/data_for_models/blind_data_sets/important_blind_data_yeojohnson.csv"
     }
 }

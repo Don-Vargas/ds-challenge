@@ -35,8 +35,8 @@ def obtener_csvs(path):
     }
 
 # 3. Modelos y grids
-def definir_modelos():
-    return {
+def definir_modelos(seleccionados=None):
+    todos_los_modelos = {
         'linear_regression': {
             'model': LinearRegression(),
             'params': {}
@@ -74,6 +74,15 @@ def definir_modelos():
             }
         }
     }
+
+    if seleccionados is None:
+        return todos_los_modelos
+    else:
+        return {
+            nombre: config
+            for nombre, config in todos_los_modelos.items()
+            if nombre in seleccionados
+        }
 
 # 4. Entrenamiento
 def procesar_dataset(name, path, models, scoring):
