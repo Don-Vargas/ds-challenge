@@ -2,16 +2,11 @@ import json
 import os
 
 from utils.storage import path_validate
+from config.paths import REGISTRY_FILE, TRAINED_REGISTRY_FILE
 
 # ---------------------- #
 #    Rutas y Validación  #
 # ---------------------- #
-
-REGISTRY_FILE = 'registry/model_registry.json'
-TRAINED_REGISTRY_FILE = 'registry/trained_model_registry.json'
-
-path_validate(REGISTRY_FILE)
-path_validate(TRAINED_REGISTRY_FILE)
 
 # Funciones Base Reutilizables
 def _load_json(file_path):
@@ -42,7 +37,7 @@ def load_registry():
 def save_registry(registry):
     _save_json(registry, REGISTRY_FILE)
 
-def add_transformation_record(output_prefix, transformer, output_csv_path, scaler_pickle_path=None, blind=False):
+def add_transformation_record(output_prefix, transformer, transformed_data_csv_path, scaler_pickle_path=None, blind=False):
     registry = load_registry()
 
     transformer_info = {
@@ -51,7 +46,7 @@ def add_transformation_record(output_prefix, transformer, output_csv_path, scale
             'params': transformer.get_params() if transformer else {}
         },
         'scaler_pickle_path': scaler_pickle_path,
-        'output_csv_path': output_csv_path,
+        'transformed_data_csv_path': transformed_data_csv_path,
         'blind': blind
     }
 
@@ -88,14 +83,6 @@ def add_pca_data_path_to_registry(output_prefix, pcs_csv_path):
         'pca': {
             'pca_data_csv_path': pcs_csv_path[0],
             'pca_model_pkl_path': pcs_csv_path[1]
-        }
-    })
-
-def add_split_data_path_to_registry(output_prefix, train_hold_csv_path):
-    _update_registry_entry(REGISTRY_FILE, output_prefix, {
-        'train_hold': {
-            'train_data_csv_path': train_hold_csv_path[0],
-            'hold_out_data_csv_path': train_hold_csv_path[1]
         }
     })
 
