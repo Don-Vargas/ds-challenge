@@ -29,7 +29,7 @@ def definir_metricas():
 # 3. Modelos y grids
 def definir_modelos():
     return {
-        'linear_regression': {
+        'linearregression': {
             'model': LinearRegression(),
             'params': {}
         },
@@ -42,7 +42,7 @@ def definir_modelos():
                 'model__tol': [1e-3, 1e-4]
             }
         },
-        'random_forest': {
+        'randomforest': {
             'model': RandomForestRegressor(random_state=42),
             'params': {
                 'model__n_estimators': [100, 200, 300],
@@ -66,7 +66,7 @@ def definir_modelos():
     }
 
 # 4. Entrenamiento
-def procesar_dataset(name, path, models, scoring, trained_models_path):
+def procesar_dataset(name, field_prefix, path, models, scoring, trained_models_path):
     print(f"\n--- Procesando dataset: {name} ---")
     print(f" Ruta del archivo: {path} ")
     df = pd.read_csv(path)
@@ -80,8 +80,7 @@ def procesar_dataset(name, path, models, scoring, trained_models_path):
 
     resultados = []
     for model_name, config in models.items():
-        print(f"\n Entrenando modelo: {model_name}...")
-        print(f" Configuración: {config}")
+
         pipeline = Pipeline([('model', config['model'])])
         grid = GridSearchCV(
             pipeline,
@@ -89,7 +88,7 @@ def procesar_dataset(name, path, models, scoring, trained_models_path):
             scoring=scoring,
             refit='rmse',
             cv=5,
-            verbose=1,
+            verbose=0,
             n_jobs=30,
             return_train_score=False
         )
@@ -101,7 +100,8 @@ def procesar_dataset(name, path, models, scoring, trained_models_path):
             cv = grid.cv_results_  # <- mover acá para que esté disponible
 
             modelo_guardar = grid.best_estimator_
-            nombre_archivo = f"{trained_models_path}trained_model_{name}_{model_name}.pkl"
+            nombre_archivo = f"{trained_models_path}trained_model_{field_prefix}_{name}_{model_name}.pkl"
+            print(f" Guardando modelo en: {nombre_archivo} ")
             save_pickle(modelo_guardar, nombre_archivo)
 
             # Actualizar el registry de modelos entrenados

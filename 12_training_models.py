@@ -10,7 +10,7 @@ def dataset_fields():
         ("transformed_data_csv_path", None),
         ("most_important_csv_path", None),
         ("pca_data_csv_path", "pca")
-    ]
+    ] 
 
 def data_trainer():
     registry = load_registry()
@@ -29,11 +29,11 @@ def data_trainer():
                 print(f"Archivo no encontrado: {file_path} (campo: {field}) — Saltando.")
                 continue
 
-            print(f"Procesando archivo: {file_path}")
+            field_prefix = field.replace("_csv_path", "")
+            print('-------------------------------------------')
+            print(f"\nProcesando {prefix} - {field_prefix} - {file_path} ")
 
-            print(f" Procesando dataset: {prefix}")
-            
-            resultados = procesar_dataset(prefix, file_path, models, scoring, TRAINING_MODEL_GRID_DIR)
+            resultados = procesar_dataset(prefix, field_prefix, file_path, models, scoring, TRAINING_MODEL_GRID_DIR)
             resultados_totales.extend(resultados)
 
     results_df = pd.DataFrame(resultados_totales).sort_values(by='best_rmse')
@@ -41,7 +41,7 @@ def data_trainer():
     # output_path = os.path.join(GRID_SEARCH_PATH, "resultados_gridsearch.csv")
     results_df.to_csv(output_path, index=False)
     print(f"\n Resultados guardados en: {output_path}")
-
+    
 if __name__ == "__main__":
     data_trainer()
 
