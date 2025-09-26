@@ -3,7 +3,7 @@ import pandas as pd
 
 from utils.training_utils import definir_metricas, definir_modelos, procesar_dataset
 from utils.registry import load_registry
-from config.paths import GRID_SEARCH_MODELS_PATH
+from config.paths import GRID_SEARCH_MODELS_PATH, TRAINING_MODEL_GRID_DIR
 
 def dataset_fields():
     return [
@@ -33,7 +33,7 @@ def data_trainer():
 
             print(f" Procesando dataset: {prefix}")
             
-            resultados = procesar_dataset(prefix, file_path, models, scoring)
+            resultados = procesar_dataset(prefix, file_path, models, scoring, TRAINING_MODEL_GRID_DIR)
             resultados_totales.extend(resultados)
 
     results_df = pd.DataFrame(resultados_totales).sort_values(by='best_rmse')

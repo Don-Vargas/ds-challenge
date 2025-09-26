@@ -45,6 +45,7 @@ TEST_DATA_PCA_DIR       = f'{TEST_DIR}/datasets/data_pca/'
 BLIND_DATA_PCA_DIR      = f'{BLIND_DIR}/datasets/data_pca/'
 
 # PCA Model/directory paths
+TRAINING_MODEL_GRID_DIR   = f'{TRAIN_DIR}/models/trained_models/'
 TRAINING_MODEL_PCA_DIR   = f'{TRAIN_DIR}/models/data_pca/'
 TEST_MODEL_PCA_DIR       = f'{TEST_DIR}/models/data_pca/'
 BLIND_MODEL_PCA_DIR      = f'{BLIND_DIR}/models/data_pca/'
@@ -68,7 +69,8 @@ data_paths = {
         'important': TRAINING_DATA_IMPORTANT_DIR,
         'pca_data': TRAINING_DATA_PCA_DIR,
         'pca_model': TRAINING_MODEL_PCA_DIR,
-        'grid_models': GRID_SEARCH_MODELS_PATH
+        'grid_models': GRID_SEARCH_MODELS_PATH,
+        'trained_models': TRAINING_MODEL_GRID_DIR
     },
     'test': {
         'base_data': TEST_DIR,

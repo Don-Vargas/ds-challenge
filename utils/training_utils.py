@@ -66,7 +66,9 @@ def definir_modelos():
     }
 
 # 4. Entrenamiento
-def procesar_dataset(name, path, models, scoring):
+def procesar_dataset(name, path, models, scoring, trained_models_path):
+    print(f"\n--- Procesando dataset: {name} ---")
+    print(f" Ruta del archivo: {path} ")
     df = pd.read_csv(path)
 
     if 'target' not in df.columns:
@@ -78,6 +80,8 @@ def procesar_dataset(name, path, models, scoring):
 
     resultados = []
     for model_name, config in models.items():
+        print(f"\n Entrenando modelo: {model_name}...")
+        print(f" Configuración: {config}")
         pipeline = Pipeline([('model', config['model'])])
         grid = GridSearchCV(
             pipeline,
@@ -97,7 +101,7 @@ def procesar_dataset(name, path, models, scoring):
             cv = grid.cv_results_  # <- mover acá para que esté disponible
 
             modelo_guardar = grid.best_estimator_
-            nombre_archivo = f"data/trained_models/best_model_{name}_{model_name}.pkl"
+            nombre_archivo = f"{trained_models_path}trained_model_{name}_{model_name}.pkl"
             save_pickle(modelo_guardar, nombre_archivo)
 
             # Actualizar el registry de modelos entrenados
