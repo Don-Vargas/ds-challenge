@@ -44,4 +44,3 @@ def data_trainer():
     
 if __name__ == "__main__":
     data_trainer()
-

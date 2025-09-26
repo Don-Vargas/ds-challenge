@@ -44,11 +44,15 @@ TRAINING_DATA_PCA_DIR   = f'{TRAIN_DIR}/datasets/data_pca/'
 TEST_DATA_PCA_DIR       = f'{TEST_DIR}/datasets/data_pca/'
 BLIND_DATA_PCA_DIR      = f'{BLIND_DIR}/datasets/data_pca/'
 
-# PCA Model/directory paths
-TRAINING_MODEL_GRID_DIR   = f'{TRAIN_DIR}/models/trained_models/'
+# Model/directory paths
+TRAINING_MODEL_GRID_DIR  = f'{TRAIN_DIR}/models/trained_models/'
 TRAINING_MODEL_PCA_DIR   = f'{TRAIN_DIR}/models/data_pca/'
-TEST_MODEL_PCA_DIR       = f'{TEST_DIR}/models/data_pca/'
-BLIND_MODEL_PCA_DIR      = f'{BLIND_DIR}/models/data_pca/'
+
+# Predictions
+TEST_DATA_RAW_PREDS_DIR     = f'{TEST_DIR}/predictions/raw/'
+BLIND_DATA_RAW_PREDS_DIR    = f'{BLIND_DIR}/predictions/raw/'
+TEST_DATA_TRANSFORMED_PREDS_DIR     = f'{TEST_DIR}/predictions/transformed/'
+BLIND_DATA_TRANSFORMED_PREDS_DIR    = f'{BLIND_DIR}/predictions/transformed/'
 
 # Base data folders
 BASE_REGISTRY = 'registry'
@@ -78,7 +82,8 @@ data_paths = {
         'transformed_model': TEST_MODEL_TRANSFORMED_DIR,
         'important': TEST_DATA_IMPORTANT_DIR,
         'pca_data': TEST_DATA_PCA_DIR,
-        'pca_model': TEST_MODEL_PCA_DIR
+        'raw_preds': TEST_DATA_RAW_PREDS_DIR,
+        'trans_preds':TEST_DATA_TRANSFORMED_PREDS_DIR
     },
     'blind': {
         'base_data': BLIND_DIR,
@@ -86,7 +91,8 @@ data_paths = {
         'transformed_model': BLIND_MODEL_TRANSFORMED_DIR,
         'important': BLIND_DATA_IMPORTANT_DIR,
         'pca_data': BLIND_DATA_PCA_DIR,
-        'pca_model': BLIND_MODEL_PCA_DIR
+        'raw_preds': BLIND_DATA_RAW_PREDS_DIR,
+        'trans_preds':BLIND_DATA_TRANSFORMED_PREDS_DIR
     },
     'registry':{
         'base registry': BASE_REGISTRY

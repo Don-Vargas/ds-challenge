@@ -4,7 +4,8 @@ from pathlib import Path
 import re
 import os
 
-parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../DS_challenge_wizeline/'))
+#parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../DS_challenge_wizeline/'))
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../ds-challenge/'))
 
 
 py_files = [f for f in os.listdir(parent_dir) if f.endswith('.py')]
