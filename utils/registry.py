@@ -37,7 +37,7 @@ def load_registry():
 def save_registry(registry):
     _save_json(registry, REGISTRY_FILE)
 
-def add_transformation_record(output_prefix, transformer, transformed_data_csv_path, scaler_pickle_path=None, blind=False):
+def add_transformation_record(output_prefix, transformer, transformed_data_csv_path, type_, scaler_pickle_path=None):
     registry = load_registry()
 
     transformer_info = {
@@ -47,7 +47,7 @@ def add_transformation_record(output_prefix, transformer, transformed_data_csv_p
         },
         'scaler_pickle_path': scaler_pickle_path,
         'transformed_data_csv_path': transformed_data_csv_path,
-        'blind': blind
+        'type': type_
     }
 
     registry[output_prefix] = transformer_info

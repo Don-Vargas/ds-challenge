@@ -13,7 +13,7 @@ from sklearn.ensemble import RandomForestRegressor
 from xgboost import XGBRegressor
 
 from utils.storage import save_pickle
-from utils.registry import load_registry, add_trained_model_record
+from utils.registry import add_trained_model_record
 
 
 # 1. Métricas
@@ -35,8 +35,8 @@ def obtener_csvs(path):
     }
 
 # 3. Modelos y grids
-def definir_modelos(seleccionados=None):
-    todos_los_modelos = {
+def definir_modelos():
+    return {
         'linear_regression': {
             'model': LinearRegression(),
             'params': {}
@@ -72,15 +72,6 @@ def definir_modelos(seleccionados=None):
             }
         }
     }
-
-    if seleccionados is None:
-        return todos_los_modelos
-    else:
-        return {
-            nombre: config
-            for nombre, config in todos_los_modelos.items()
-            if nombre in seleccionados
-        }
 
 # 4. Entrenamiento
 def procesar_dataset(name, path, models, scoring):

@@ -2,8 +2,9 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-from utils.storage import path_validate
 from utils.registry import load_registry, add_eda_path_to_registry
+from config.paths import EDA_TRAINING_DATA_DIR
+
 
 def explorar_dataset(df, incluir_categoricas=False):
     reporte = []
@@ -58,27 +59,25 @@ def explorar_dataset(df, incluir_categoricas=False):
 
     return pd.DataFrame(reporte)
 
-def generate_report(input_csv, output_prefix, eda_path, incluir_categoricas=True):
-    df = pd.read_csv(input_csv)
-    reporte = explorar_dataset(df, incluir_categoricas=incluir_categoricas)
-    reporte.round(10).to_csv(f'{eda_path}eda_{output_prefix}.csv', index=False)
-
-if __name__ == "__main__":
+def generate_report():
     registry = load_registry()
-    eda_path = 'data/eda/'
-    path_validate(eda_path)
-
     for prefix, info in registry.items():
-        if "output_csv_path" not in info:
-            print(f"[WARNING] No se encontró 'output_csv_path' para '{prefix}'. Saltando...")
+        if "transformed_data_csv_path" not in info:
+            print(f"[WARNING] No se encontró 'transformed_data_csv_path' para '{prefix}'. Saltando...")
             continue
 
-        file_path = info["output_csv_path"]
-        print(f"Generando reporte para {prefix} desde {file_path}")
-        
-        # Generar el reporte
-        generate_report(file_path, prefix, eda_path, incluir_categoricas=True)
+        if info['type'] == 'train':
+            file_path = info["transformed_data_csv_path"]
+            print(f"Generando reporte para {prefix} desde {file_path}")
+            
+            # Generar el reporte
+            df = pd.read_csv(file_path)
+            reporte = explorar_dataset(df, incluir_categoricas=True)
+            reporte.round(10).to_csv(f'{EDA_TRAINING_DATA_DIR}eda_{prefix}.csv', index=False)
 
-        # Generar y registrar la ruta al archivo EDA
-        eda_report_path = f"{eda_path}eda_{prefix}.csv"
-        add_eda_path_to_registry(prefix, eda_report_path)
+            # Generar y registrar la ruta al archivo EDA
+            eda_report_path = f"{EDA_TRAINING_DATA_DIR}eda_{prefix}.csv"
+            add_eda_path_to_registry(prefix, eda_report_path)
+
+if __name__ == "__main__":
+    generate_report()

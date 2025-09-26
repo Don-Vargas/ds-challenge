@@ -6,7 +6,18 @@
         },
         "scaler_pickle_path": "None",
         "transformed_data_csv_path": "data/B_training_data/datasets/data_transformed/train.csv",
-        "blind": false
+        "type": "train",
+        "eda_report_path": "data/B_training_data/analisys/eda/eda_train.csv",
+        "correlation_csv_path": "data/B_training_data/analisys/correlation_matrices/correlation_train.csv",
+        "importance": {
+            "features_csv_path": "data/B_training_data/analisys/variable_importance/feature_importance_train.csv",
+            "metrics_csv_path": "data/B_training_data/analisys/variable_importance/metrics_train.csv"
+        },
+        "most_important_csv_path": "data/B_training_data/datasets/data_important/important_train.csv",
+        "pca": {
+            "pca_data_csv_path": "data/B_training_data/datasets/data_pca/pca_train.csv",
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train.pkl"
+        }
     },
     "test": {
         "transformation": {
@@ -15,7 +26,12 @@
         },
         "scaler_pickle_path": "None",
         "transformed_data_csv_path": "data/C_test_data/datasets/data_transformed/test.csv",
-        "blind": false
+        "type": "test",
+        "most_important_csv_path": "data/C_test_data/datasets/data_important/important_test.csv",
+        "pca": {
+            "pca_data_csv_path": "data/C_test_data/datasets/data_pca/pca_test.csv",
+            "pca_model_pkl_path": "data/C_test_data/models/data_pca/pca_model_test.pkl"
+        }
     },
     "blind": {
         "transformation": {
@@ -24,7 +40,12 @@
         },
         "scaler_pickle_path": "None",
         "transformed_data_csv_path": "data/D_blind_data/datasets/data_transformed/blind.csv",
-        "blind": true
+        "type": "blind",
+        "most_important_csv_path": "data/D_blind_data/datasets/data_important/important_blind.csv",
+        "pca": {
+            "pca_data_csv_path": "data/D_blind_data/datasets/data_pca/pca_blind.csv",
+            "pca_model_pkl_path": "data/D_blind_data/models/data_pca/pca_model_blind.pkl"
+        }
     },
     "train_minmax": {
         "transformation": {
@@ -43,7 +64,18 @@
             "y": "data/B_training_data/models/data_transformed/scaler_y_minmax.pkl"
         },
         "transformed_data_csv_path": "data/B_training_data/datasets/data_transformed/minmax.csv",
-        "blind": false
+        "type": "train",
+        "eda_report_path": "data/B_training_data/analisys/eda/eda_train_minmax.csv",
+        "correlation_csv_path": "data/B_training_data/analisys/correlation_matrices/correlation_train_minmax.csv",
+        "importance": {
+            "features_csv_path": "data/B_training_data/analisys/variable_importance/feature_importance_train_minmax.csv",
+            "metrics_csv_path": "data/B_training_data/analisys/variable_importance/metrics_train_minmax.csv"
+        },
+        "most_important_csv_path": "data/B_training_data/datasets/data_important/important_minmax.csv",
+        "pca": {
+            "pca_data_csv_path": "data/B_training_data/datasets/data_pca/pca_train_minmax.csv",
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_minmax.pkl"
+        }
     },
     "train_standard": {
         "transformation": {
@@ -59,7 +91,18 @@
             "y": "data/B_training_data/models/data_transformed/scaler_y_standard.pkl"
         },
         "transformed_data_csv_path": "data/B_training_data/datasets/data_transformed/standard.csv",
-        "blind": false
+        "type": "train",
+        "eda_report_path": "data/B_training_data/analisys/eda/eda_train_standard.csv",
+        "correlation_csv_path": "data/B_training_data/analisys/correlation_matrices/correlation_train_standard.csv",
+        "importance": {
+            "features_csv_path": "data/B_training_data/analisys/variable_importance/feature_importance_train_standard.csv",
+            "metrics_csv_path": "data/B_training_data/analisys/variable_importance/metrics_train_standard.csv"
+        },
+        "most_important_csv_path": "data/B_training_data/datasets/data_important/important_standard.csv",
+        "pca": {
+            "pca_data_csv_path": "data/B_training_data/datasets/data_pca/pca_train_standard.csv",
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_standard.pkl"
+        }
     },
     "train_boxcox": {
         "transformation": {
@@ -75,7 +118,18 @@
             "y": "data/B_training_data/models/data_transformed/scaler_y_boxcox.pkl"
         },
         "transformed_data_csv_path": "data/B_training_data/datasets/data_transformed/boxcox.csv",
-        "blind": false
+        "type": "train",
+        "eda_report_path": "data/B_training_data/analisys/eda/eda_train_boxcox.csv",
+        "correlation_csv_path": "data/B_training_data/analisys/correlation_matrices/correlation_train_boxcox.csv",
+        "importance": {
+            "features_csv_path": "data/B_training_data/analisys/variable_importance/feature_importance_train_boxcox.csv",
+            "metrics_csv_path": "data/B_training_data/analisys/variable_importance/metrics_train_boxcox.csv"
+        },
+        "most_important_csv_path": "data/B_training_data/datasets/data_important/important_boxcox.csv",
+        "pca": {
+            "pca_data_csv_path": "data/B_training_data/datasets/data_pca/pca_train_boxcox.csv",
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_boxcox.pkl"
+        }
     },
     "train_yeojohnson": {
         "transformation": {
@@ -91,7 +145,18 @@
             "y": "data/B_training_data/models/data_transformed/scaler_y_yeojohnson.pkl"
         },
         "transformed_data_csv_path": "data/B_training_data/datasets/data_transformed/yeojohnson.csv",
-        "blind": false
+        "type": "train",
+        "eda_report_path": "data/B_training_data/analisys/eda/eda_train_yeojohnson.csv",
+        "correlation_csv_path": "data/B_training_data/analisys/correlation_matrices/correlation_train_yeojohnson.csv",
+        "importance": {
+            "features_csv_path": "data/B_training_data/analisys/variable_importance/feature_importance_train_yeojohnson.csv",
+            "metrics_csv_path": "data/B_training_data/analisys/variable_importance/metrics_train_yeojohnson.csv"
+        },
+        "most_important_csv_path": "data/B_training_data/datasets/data_important/important_yeojohnson.csv",
+        "pca": {
+            "pca_data_csv_path": "data/B_training_data/datasets/data_pca/pca_train_yeojohnson.csv",
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_yeojohnson.pkl"
+        }
     },
     "test_minmax": {
         "transformation": {
@@ -110,7 +175,12 @@
             "y": "data/C_test_data/models/data_transformed/scaler_y_minmax.pkl"
         },
         "transformed_data_csv_path": "data/C_test_data/datasets/data_transformed/minmax.csv",
-        "blind": false
+        "type": "test",
+        "most_important_csv_path": "data/C_test_data/datasets/data_important/important_minmax.csv",
+        "pca": {
+            "pca_data_csv_path": "data/C_test_data/datasets/data_pca/pca_test_minmax.csv",
+            "pca_model_pkl_path": "data/C_test_data/models/data_pca/pca_model_test_minmax.pkl"
+        }
     },
     "test_standard": {
         "transformation": {
@@ -126,7 +196,12 @@
             "y": "data/C_test_data/models/data_transformed/scaler_y_standard.pkl"
         },
         "transformed_data_csv_path": "data/C_test_data/datasets/data_transformed/standard.csv",
-        "blind": false
+        "type": "test",
+        "most_important_csv_path": "data/C_test_data/datasets/data_important/important_standard.csv",
+        "pca": {
+            "pca_data_csv_path": "data/C_test_data/datasets/data_pca/pca_test_standard.csv",
+            "pca_model_pkl_path": "data/C_test_data/models/data_pca/pca_model_test_standard.pkl"
+        }
     },
     "test_boxcox": {
         "transformation": {
@@ -142,7 +217,12 @@
             "y": "data/C_test_data/models/data_transformed/scaler_y_boxcox.pkl"
         },
         "transformed_data_csv_path": "data/C_test_data/datasets/data_transformed/boxcox.csv",
-        "blind": false
+        "type": "test",
+        "most_important_csv_path": "data/C_test_data/datasets/data_important/important_boxcox.csv",
+        "pca": {
+            "pca_data_csv_path": "data/C_test_data/datasets/data_pca/pca_test_boxcox.csv",
+            "pca_model_pkl_path": "data/C_test_data/models/data_pca/pca_model_test_boxcox.pkl"
+        }
     },
     "test_yeojohnson": {
         "transformation": {
@@ -158,7 +238,12 @@
             "y": "data/C_test_data/models/data_transformed/scaler_y_yeojohnson.pkl"
         },
         "transformed_data_csv_path": "data/C_test_data/datasets/data_transformed/yeojohnson.csv",
-        "blind": false
+        "type": "test",
+        "most_important_csv_path": "data/C_test_data/datasets/data_important/important_yeojohnson.csv",
+        "pca": {
+            "pca_data_csv_path": "data/C_test_data/datasets/data_pca/pca_test_yeojohnson.csv",
+            "pca_model_pkl_path": "data/C_test_data/models/data_pca/pca_model_test_yeojohnson.pkl"
+        }
     },
     "blind_minmax": {
         "transformation": {
@@ -176,7 +261,12 @@
             "X": "data/D_blind_data/models/data_transformed/scaler_X_blind_minmax.pkl"
         },
         "transformed_data_csv_path": "data/D_blind_data/datasets/data_transformed/minmax.csv",
-        "blind": true
+        "type": "blind",
+        "most_important_csv_path": "data/D_blind_data/datasets/data_important/important_minmax.csv",
+        "pca": {
+            "pca_data_csv_path": "data/D_blind_data/datasets/data_pca/pca_blind_minmax.csv",
+            "pca_model_pkl_path": "data/D_blind_data/models/data_pca/pca_model_blind_minmax.pkl"
+        }
     },
     "blind_standard": {
         "transformation": {
@@ -191,7 +281,12 @@
             "X": "data/D_blind_data/models/data_transformed/scaler_X_blind_standard.pkl"
         },
         "transformed_data_csv_path": "data/D_blind_data/datasets/data_transformed/standard.csv",
-        "blind": true
+        "type": "blind",
+        "most_important_csv_path": "data/D_blind_data/datasets/data_important/important_standard.csv",
+        "pca": {
+            "pca_data_csv_path": "data/D_blind_data/datasets/data_pca/pca_blind_standard.csv",
+            "pca_model_pkl_path": "data/D_blind_data/models/data_pca/pca_model_blind_standard.pkl"
+        }
     },
     "blind_boxcox": {
         "transformation": {
@@ -206,7 +301,12 @@
             "X": "data/D_blind_data/models/data_transformed/scaler_X_blind_boxcox.pkl"
         },
         "transformed_data_csv_path": "data/D_blind_data/datasets/data_transformed/boxcox.csv",
-        "blind": true
+        "type": "blind",
+        "most_important_csv_path": "data/D_blind_data/datasets/data_important/important_boxcox.csv",
+        "pca": {
+            "pca_data_csv_path": "data/D_blind_data/datasets/data_pca/pca_blind_boxcox.csv",
+            "pca_model_pkl_path": "data/D_blind_data/models/data_pca/pca_model_blind_boxcox.pkl"
+        }
     },
     "blind_yeojohnson": {
         "transformation": {
@@ -221,6 +321,11 @@
             "X": "data/D_blind_data/models/data_transformed/scaler_X_blind_yeojohnson.pkl"
         },
         "transformed_data_csv_path": "data/D_blind_data/datasets/data_transformed/yeojohnson.csv",
-        "blind": true
+        "type": "blind",
+        "most_important_csv_path": "data/D_blind_data/datasets/data_important/important_yeojohnson.csv",
+        "pca": {
+            "pca_data_csv_path": "data/D_blind_data/datasets/data_pca/pca_blind_yeojohnson.csv",
+            "pca_model_pkl_path": "data/D_blind_data/models/data_pca/pca_model_blind_yeojohnson.pkl"
+        }
     }
 }

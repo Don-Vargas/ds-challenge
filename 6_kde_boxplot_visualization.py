@@ -4,14 +4,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
-from utils.storage import path_validate
 from utils.registry import load_registry
+from config.paths import KDE_FIGS_DIR
 
 
 def kde_boxplot(df, output_prefix):
-    kde_boxplot_path = 'data/kde_boxplot/'
-    path_validate(kde_boxplot_path)
-
+    
     features = df.columns
     #num_features = len(features)
 
@@ -51,20 +49,26 @@ def kde_boxplot(df, output_prefix):
 
     plt.suptitle(f"Feature Distributions with KDE + Boxplots {output_prefix}", fontsize=18, y=0.9)
     plt.subplots_adjust(top=0.85)
-    plt.savefig(f"{kde_boxplot_path}kde_boxplot_{output_prefix}.png", dpi=300, bbox_inches='tight')
+    plt.savefig(f"{KDE_FIGS_DIR}kde_boxplot_{output_prefix}.png", dpi=300, bbox_inches='tight')
     plt.close()
 
+def create_boxplots():
+    # Load the registry (dictionary) from JSON using your utility function
+    registry = load_registry()
 
-# Load the registry (dictionary) from JSON using your utility function
-registry = load_registry()
+    for prefix, info in registry.items():
+        if not info['type'] == 'train':
+            continue
 
-for prefix, info in registry.items():
-    output_csv_path = info.get("output_csv_path")
-    
-    if not output_csv_path or not os.path.isfile(output_csv_path):
-        print(f"[WARNING] Skipping '{prefix}' — missing or invalid output_csv_path.")
-        continue
-    
-    # Load transformed data and plot KDE + boxplots
-    df = pd.read_csv(output_csv_path)
-    kde_boxplot(df, prefix)
+        output_csv_path = info.get("transformed_data_csv_path")
+        
+        if not output_csv_path or not os.path.isfile(output_csv_path):
+            print(f"[WARNING] Skipping '{prefix}' — missing or invalid output_csv_path.")
+            continue
+        
+        # Load transformed data and plot KDE + boxplots
+        df = pd.read_csv(output_csv_path)
+        kde_boxplot(df, prefix)
+
+if __name__ == '__main__':
+    create_boxplots()

@@ -4,8 +4,8 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, root_mean_squared_error
 
-from utils.storage import path_validate
 from utils.registry import load_registry, add_importance_path_to_registry
+from config.paths import VAR_IMPORTANCE_DATA_DIR
 
 def variable_importances(df, test_size=0.3, n_estimators=100, random_state=42):
     y = df['target']
@@ -51,43 +51,46 @@ def variable_importances(df, test_size=0.3, n_estimators=100, random_state=42):
 
     return feature_importance_df, metrics_df
 
-# Paths
-importance_path = 'data/variable_importance/'
-path_validate(importance_path)
+def compute_importance():
+    # Load registry
+    registry = load_registry()
 
-# Load registry
-registry = load_registry()
+    # Loop through registry items
+    all_results = {}
 
-# Loop through registry items
-all_results = {}
+    for prefix, info in registry.items():
+        if not info['type'] == 'train':
+            continue
 
-for prefix, info in registry.items():
-    output_csv_path = info.get("output_csv_path")
+        output_csv_path = info.get("transformed_data_csv_path")
 
-    if not output_csv_path or not os.path.isfile(output_csv_path):
-        print(f"[WARNING] Skipping '{prefix}' — missing or invalid output_csv_path.")
-        continue
+        if not output_csv_path or not os.path.isfile(output_csv_path):
+            print(f"[WARNING] Skipping '{prefix}' — missing or invalid output_csv_path.")
+            continue
 
-    print(f"[INFO] Processing '{prefix}'...")
-    df = pd.read_csv(output_csv_path)
+        print(f"[INFO] Processing '{prefix}'...")
+        df = pd.read_csv(output_csv_path)
 
-    # Run variable importance analysis
-    feature_importance_df, metrics_df = variable_importances(
-        df, test_size=0.3, n_estimators=100, random_state=42
-    )
+        # Run variable importance analysis
+        feature_importance_df, metrics_df = variable_importances(
+            df, test_size=0.3, n_estimators=100, random_state=42
+        )
 
-    # Save results
-    importance_file = os.path.join(importance_path, f'feature_importance_{prefix}.csv')
-    metrics_file = os.path.join(importance_path, f'metrics_{prefix}.csv')
-    add_importance_path_to_registry(prefix, importance_paths=[importance_file,metrics_file])
+        # Save results
+        importance_file = os.path.join(VAR_IMPORTANCE_DATA_DIR, f'feature_importance_{prefix}.csv')
+        metrics_file = os.path.join(VAR_IMPORTANCE_DATA_DIR, f'metrics_{prefix}.csv')
+        add_importance_path_to_registry(prefix, importance_paths=[importance_file,metrics_file])
 
-    feature_importance_df.to_csv(importance_file, index=False)
-    metrics_df.to_csv(metrics_file, index=False)
+        feature_importance_df.to_csv(importance_file, index=False)
+        metrics_df.to_csv(metrics_file, index=False)
 
-    # Store results in memory if needed
-    all_results[prefix] = {
-        'feature_importance': feature_importance_df,
-        'metrics': metrics_df
-    }
+        # Store results in memory if needed
+        all_results[prefix] = {
+            'feature_importance': feature_importance_df,
+            'metrics': metrics_df
+        }
 
-print(f"[INFO] Finished processing {len(all_results)} datasets.")
+    print(f"[INFO] Finished processing {len(all_results)} datasets.")
+
+if __name__ == '__main__':
+    compute_importance()

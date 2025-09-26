@@ -2,10 +2,13 @@ import pandas as pd
 from utils.storage import path_validate
 from utils.training_utils import definir_metricas, obtener_csvs, definir_modelos, procesar_dataset
 
-def data_trainer(path, modelos_a_entrenar=None):
+from config.paths import TRAIN_DIR
+
+def data_trainer():
+    path = f'{TRAIN_DIR}/datasets/'
     scoring = definir_metricas()
     datasets = obtener_csvs(path)
-    models = definir_modelos(modelos_a_entrenar)
+    models = definir_modelos()
     
     resultados_totales = []
     for nombre, ruta in datasets.items():
@@ -25,13 +28,5 @@ def data_trainer(path, modelos_a_entrenar=None):
 
 
 if __name__ == "__main__":
-    #path = 'data/data_for_models/split_datasets/training/'
-    path = 'data/data_for_models/split_datasets/training/'
-
-    # Ejemplo 1: Entrenar todos los modelos
-    data_trainer(path)
-
-    # Ejemplo 2: Entrenar solo algunos modelos
-    # modelos_deseados = ['random_forest']
-    # data_trainer(path, modelos_a_entrenar=modelos_deseados)
+    data_trainer()
 
