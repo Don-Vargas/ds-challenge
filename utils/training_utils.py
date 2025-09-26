@@ -26,14 +26,6 @@ def definir_metricas():
         'r2': make_scorer(r2_score)
     }
 
-# 2. Cargar datasets
-def obtener_csvs(path):
-    return {
-        f: os.path.join(path, f)
-        for f in os.listdir(path)
-        if f.endswith(".csv")
-    }
-
 # 3. Modelos y grids
 def definir_modelos():
     return {

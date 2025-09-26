@@ -22,10 +22,13 @@ TRAINING_SPLIT_RAW_FILE = f'{TRAINING_DATA_TRANSFORMED_DIR}/train.csv'
 TEST_SPLIT_RAW_FILE     = f'{TEST_DATA_TRANSFORMED_DIR}/test.csv'
 BLIND_RAW_FILE          = f'{BLIND_DATA_TRANSFORMED_DIR}/blind.csv'
 
-# Analisys path
+# Analisys data path
 EDA_TRAINING_DATA_DIR   = f'{TRAIN_DIR}/analisys/eda/'
 CORR_TRAINING_DATA_DIR  = f'{TRAIN_DIR}/analisys/correlation_matrices/'
 VAR_IMPORTANCE_DATA_DIR = f'{TRAIN_DIR}/analisys/variable_importance/'
+GRID_SEARCH_MODELS_PATH = f'{TRAIN_DIR}/analisys/grid_search_trained_models/'
+
+# Analisys figure path
 CORR_FIGS_DIR           = f'{TRAIN_DIR}/analisys/figures/correlation/'
 KDE_FIGS_DIR            = f'{TRAIN_DIR}/analisys/figures/kde/'
 IMPORTANCE_FIGS_DIR     = f'{TRAIN_DIR}/analisys/figures/importance/'
@@ -64,7 +67,8 @@ data_paths = {
         'figures_pca': PCA_FIGS_DIR,
         'important': TRAINING_DATA_IMPORTANT_DIR,
         'pca_data': TRAINING_DATA_PCA_DIR,
-        'pca_model': TRAINING_MODEL_PCA_DIR
+        'pca_model': TRAINING_MODEL_PCA_DIR,
+        'grid_models': GRID_SEARCH_MODELS_PATH
     },
     'test': {
         'base_data': TEST_DIR,
