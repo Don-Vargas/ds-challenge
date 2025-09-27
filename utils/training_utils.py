@@ -106,7 +106,7 @@ def procesar_dataset(name, field_prefix, path, models, scoring, trained_models_p
 
             # Actualizar el registry de modelos entrenados
             add_trained_model_record(
-                model_name=model_name,
+                model_name=f"{model_name}_{field_prefix}",
                 dataset_name=name,
                 model_pickle_path=nombre_archivo,
                 best_params=grid.best_params_,
