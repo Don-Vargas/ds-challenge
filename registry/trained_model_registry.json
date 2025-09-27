@@ -1,12 +1,12 @@
 {
-    "linear_regression_train": {
-        "model_name": "linear_regression",
+    "linearregression_train": {
+        "model_name": "linearregression",
         "dataset_name": "train",
         "transformer_info": {
             "scaler_pickle_path": "None",
             "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train.pkl"
         },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_train_linear_regression.pkl",
+        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_linearregression.pkl",
         "training_info": {
             "best_params": {},
             "best_rmse": 4.361600204200128,
@@ -24,24 +24,24 @@
         "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_ridge.pkl",
         "training_info": {
             "best_params": {
-                "model__alpha": 1,
+                "model__alpha": 0.1,
                 "model__fit_intercept": true,
                 "model__solver": "saga",
                 "model__tol": 0.001
             },
-            "best_rmse": 4.36152070426202,
-            "best_mae": 3.5915169630381856,
-            "best_r2": 0.2856119085463126
+            "best_rmse": 4.361534378862966,
+            "best_mae": 3.5915435676303877,
+            "best_r2": 0.2856073712044619
         }
     },
-    "random_forest_train": {
-        "model_name": "random_forest",
+    "randomforest_train": {
+        "model_name": "randomforest",
         "dataset_name": "train",
         "transformer_info": {
             "scaler_pickle_path": "None",
             "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train.pkl"
         },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_train_random_forest.pkl",
+        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_randomforest.pkl",
         "training_info": {
             "best_params": {
                 "model__max_depth": 5,
@@ -73,8 +73,8 @@
             "best_r2": 0.25106917649440125
         }
     },
-    "linear_regression_train_minmax": {
-        "model_name": "linear_regression",
+    "linearregression_train_minmax": {
+        "model_name": "linearregression",
         "dataset_name": "train_minmax",
         "transformer_info": {
             "scaler_pickle_path": {
@@ -83,7 +83,7 @@
             },
             "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_minmax.pkl"
         },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_train_minmax_linear_regression.pkl",
+        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_minmax_linearregression.pkl",
         "training_info": {
             "best_params": {},
             "best_rmse": 0.1270560485248046,
@@ -106,16 +106,16 @@
             "best_params": {
                 "model__alpha": 1,
                 "model__fit_intercept": true,
-                "model__solver": "sparse_cg",
+                "model__solver": "saga",
                 "model__tol": 0.001
             },
-            "best_rmse": 0.12704959682665118,
-            "best_mae": 0.10168204858892316,
-            "best_r2": 0.5558081728613281
+            "best_rmse": 0.1270481139821949,
+            "best_mae": 0.10168030121973522,
+            "best_r2": 0.5558171903451338
         }
     },
-    "random_forest_train_minmax": {
-        "model_name": "random_forest",
+    "randomforest_train_minmax": {
+        "model_name": "randomforest",
         "dataset_name": "train_minmax",
         "transformer_info": {
             "scaler_pickle_path": {
@@ -124,7 +124,7 @@
             },
             "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_minmax.pkl"
         },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_train_minmax_random_forest.pkl",
+        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_minmax_randomforest.pkl",
         "training_info": {
             "best_params": {
                 "model__max_depth": null,
@@ -159,8 +159,8 @@
             "best_r2": 0.47981342503216207
         }
     },
-    "linear_regression_train_standard": {
-        "model_name": "linear_regression",
+    "linearregression_train_standard": {
+        "model_name": "linearregression",
         "dataset_name": "train_standard",
         "transformer_info": {
             "scaler_pickle_path": {
@@ -169,7 +169,7 @@
             },
             "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_standard.pkl"
         },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_train_standard_linear_regression.pkl",
+        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_standard_linearregression.pkl",
         "training_info": {
             "best_params": {},
             "best_rmse": 0.6692635204571304,
@@ -192,16 +192,16 @@
             "best_params": {
                 "model__alpha": 10,
                 "model__fit_intercept": false,
-                "model__solver": "sparse_cg",
+                "model__solver": "saga",
                 "model__tol": 0.001
             },
-            "best_rmse": 0.668346477611799,
-            "best_mae": 0.534979213749104,
-            "best_r2": 0.5526399229538461
+            "best_rmse": 0.6683438314651309,
+            "best_mae": 0.5349767016771821,
+            "best_r2": 0.5526431849108147
         }
     },
-    "random_forest_train_standard": {
-        "model_name": "random_forest",
+    "randomforest_train_standard": {
+        "model_name": "randomforest",
         "dataset_name": "train_standard",
         "transformer_info": {
             "scaler_pickle_path": {
@@ -210,7 +210,7 @@
             },
             "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_standard.pkl"
         },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_train_standard_random_forest.pkl",
+        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_standard_randomforest.pkl",
         "training_info": {
             "best_params": {
                 "model__max_depth": 20,
@@ -245,8 +245,8 @@
             "best_r2": 0.43771150347853094
         }
     },
-    "linear_regression_train_boxcox": {
-        "model_name": "linear_regression",
+    "linearregression_train_boxcox": {
+        "model_name": "linearregression",
         "dataset_name": "train_boxcox",
         "transformer_info": {
             "scaler_pickle_path": {
@@ -255,7 +255,7 @@
             },
             "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_boxcox.pkl"
         },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_train_boxcox_linear_regression.pkl",
+        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_boxcox_linearregression.pkl",
         "training_info": {
             "best_params": {},
             "best_rmse": 0.6460843952279444,
@@ -286,8 +286,8 @@
             "best_r2": 0.5827365637693986
         }
     },
-    "random_forest_train_boxcox": {
-        "model_name": "random_forest",
+    "randomforest_train_boxcox": {
+        "model_name": "randomforest",
         "dataset_name": "train_boxcox",
         "transformer_info": {
             "scaler_pickle_path": {
@@ -296,7 +296,7 @@
             },
             "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_boxcox.pkl"
         },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_train_boxcox_random_forest.pkl",
+        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_boxcox_randomforest.pkl",
         "training_info": {
             "best_params": {
                 "model__max_depth": null,
@@ -331,8 +331,8 @@
             "best_r2": 0.4588746941141939
         }
     },
-    "linear_regression_train_yeojohnson": {
-        "model_name": "linear_regression",
+    "linearregression_train_yeojohnson": {
+        "model_name": "linearregression",
         "dataset_name": "train_yeojohnson",
         "transformer_info": {
             "scaler_pickle_path": {
@@ -341,7 +341,7 @@
             },
             "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_yeojohnson.pkl"
         },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_train_yeojohnson_linear_regression.pkl",
+        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_yeojohnson_linearregression.pkl",
         "training_info": {
             "best_params": {},
             "best_rmse": 0.6469401707856736,
@@ -372,8 +372,8 @@
             "best_r2": 0.5816765769780001
         }
     },
-    "random_forest_train_yeojohnson": {
-        "model_name": "random_forest",
+    "randomforest_train_yeojohnson": {
+        "model_name": "randomforest",
         "dataset_name": "train_yeojohnson",
         "transformer_info": {
             "scaler_pickle_path": {
@@ -382,7 +382,7 @@
             },
             "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_yeojohnson.pkl"
         },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_train_yeojohnson_random_forest.pkl",
+        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_yeojohnson_randomforest.pkl",
         "training_info": {
             "best_params": {
                 "model__max_depth": 20,
@@ -415,205 +415,6 @@
             "best_rmse": 0.7353794551887034,
             "best_mae": 0.5849352097781996,
             "best_r2": 0.4571134633422453
-        }
-    },
-    "linearregression_train": {
-        "model_name": "linearregression",
-        "dataset_name": "train",
-        "transformer_info": {
-            "scaler_pickle_path": "None",
-            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train.pkl"
-        },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_linearregression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 4.361600204200128,
-            "best_mae": 3.591650131324445,
-            "best_r2": 0.2855835467256195
-        }
-    },
-    "randomforest_train": {
-        "model_name": "randomforest",
-        "dataset_name": "train",
-        "transformer_info": {
-            "scaler_pickle_path": "None",
-            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train.pkl"
-        },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_randomforest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__max_depth": 5,
-                "model__min_samples_leaf": 2,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 300
-            },
-            "best_rmse": 4.4600689714522845,
-            "best_mae": 3.617381493197257,
-            "best_r2": 0.2529672954326172
-        }
-    },
-    "linearregression_train_minmax": {
-        "model_name": "linearregression",
-        "dataset_name": "train_minmax",
-        "transformer_info": {
-            "scaler_pickle_path": {
-                "X": "data/B_training_data/models/data_transformed/scaler_X_minmax.pkl",
-                "y": "data/B_training_data/models/data_transformed/scaler_y_minmax.pkl"
-            },
-            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_minmax.pkl"
-        },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_minmax_linearregression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.1270560485248046,
-            "best_mae": 0.10156513741282087,
-            "best_r2": 0.5557450046452029
-        }
-    },
-    "randomforest_train_minmax": {
-        "model_name": "randomforest",
-        "dataset_name": "train_minmax",
-        "transformer_info": {
-            "scaler_pickle_path": {
-                "X": "data/B_training_data/models/data_transformed/scaler_X_minmax.pkl",
-                "y": "data/B_training_data/models/data_transformed/scaler_y_minmax.pkl"
-            },
-            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_minmax.pkl"
-        },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_minmax_randomforest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__max_depth": null,
-                "model__min_samples_leaf": 2,
-                "model__min_samples_split": 5,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.1426541788462257,
-            "best_mae": 0.11704262571973185,
-            "best_r2": 0.4388218829263694
-        }
-    },
-    "linearregression_train_standard": {
-        "model_name": "linearregression",
-        "dataset_name": "train_standard",
-        "transformer_info": {
-            "scaler_pickle_path": {
-                "X": "data/B_training_data/models/data_transformed/scaler_X_standard.pkl",
-                "y": "data/B_training_data/models/data_transformed/scaler_y_standard.pkl"
-            },
-            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_standard.pkl"
-        },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_standard_linearregression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.6692635204571304,
-            "best_mae": 0.5354502800654877,
-            "best_r2": 0.5513779765596785
-        }
-    },
-    "randomforest_train_standard": {
-        "model_name": "randomforest",
-        "dataset_name": "train_standard",
-        "transformer_info": {
-            "scaler_pickle_path": {
-                "X": "data/B_training_data/models/data_transformed/scaler_X_standard.pkl",
-                "y": "data/B_training_data/models/data_transformed/scaler_y_standard.pkl"
-            },
-            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_standard.pkl"
-        },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_standard_randomforest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__max_depth": 20,
-                "model__min_samples_leaf": 1,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 300
-            },
-            "best_rmse": 0.7502827664293855,
-            "best_mae": 0.6114582760311561,
-            "best_r2": 0.43462951712139236
-        }
-    },
-    "linearregression_train_boxcox": {
-        "model_name": "linearregression",
-        "dataset_name": "train_boxcox",
-        "transformer_info": {
-            "scaler_pickle_path": {
-                "X": "data/B_training_data/models/data_transformed/scaler_X_boxcox.pkl",
-                "y": "data/B_training_data/models/data_transformed/scaler_y_boxcox.pkl"
-            },
-            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_boxcox.pkl"
-        },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_boxcox_linearregression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.6460843952279444,
-            "best_mae": 0.5156964814356754,
-            "best_r2": 0.5815870941155871
-        }
-    },
-    "randomforest_train_boxcox": {
-        "model_name": "randomforest",
-        "dataset_name": "train_boxcox",
-        "transformer_info": {
-            "scaler_pickle_path": {
-                "X": "data/B_training_data/models/data_transformed/scaler_X_boxcox.pkl",
-                "y": "data/B_training_data/models/data_transformed/scaler_y_boxcox.pkl"
-            },
-            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_boxcox.pkl"
-        },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_boxcox_randomforest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__max_depth": null,
-                "model__min_samples_leaf": 2,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 300
-            },
-            "best_rmse": 0.7488625964001536,
-            "best_mae": 0.6090794970192263,
-            "best_r2": 0.43709493421249734
-        }
-    },
-    "linearregression_train_yeojohnson": {
-        "model_name": "linearregression",
-        "dataset_name": "train_yeojohnson",
-        "transformer_info": {
-            "scaler_pickle_path": {
-                "X": "data/B_training_data/models/data_transformed/scaler_X_yeojohnson.pkl",
-                "y": "data/B_training_data/models/data_transformed/scaler_y_yeojohnson.pkl"
-            },
-            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_yeojohnson.pkl"
-        },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_yeojohnson_linearregression.pkl",
-        "training_info": {
-            "best_params": {},
-            "best_rmse": 0.6469401707856736,
-            "best_mae": 0.5163611386265126,
-            "best_r2": 0.5805270282940321
-        }
-    },
-    "randomforest_train_yeojohnson": {
-        "model_name": "randomforest",
-        "dataset_name": "train_yeojohnson",
-        "transformer_info": {
-            "scaler_pickle_path": {
-                "X": "data/B_training_data/models/data_transformed/scaler_X_yeojohnson.pkl",
-                "y": "data/B_training_data/models/data_transformed/scaler_y_yeojohnson.pkl"
-            },
-            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_yeojohnson.pkl"
-        },
-        "model_pickle_path": "data/B_training_data/models/trained_models/trained_model_pca_data_train_yeojohnson_randomforest.pkl",
-        "training_info": {
-            "best_params": {
-                "model__max_depth": 20,
-                "model__min_samples_leaf": 1,
-                "model__min_samples_split": 2,
-                "model__n_estimators": 200
-            },
-            "best_rmse": 0.7474975363186621,
-            "best_mae": 0.6056197609700892,
-            "best_r2": 0.4392524020867198
         }
     }
 }

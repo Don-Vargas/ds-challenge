@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import pickle
 
 from utils.registry import load_registry
+from utils.storage import load_pickle
 from config.paths import PCA_FIGS_DIR
 
 # Constants
@@ -14,17 +15,13 @@ THRESHOLD = 0.80  # Threshold for cumulative explained variance
 # Utility Functions
 # -----------------------------
 
-def load_pca_model(pickle_path):
-    """Load a PCA model from a pickle file."""
-    with open(pickle_path, 'rb') as f:
-        return pickle.load(f)
+def plot_pca_variance(pca_info, output_prefix, threshold=THRESHOLD):
+    """Generate a single explained variance plot for a PCA model info dict."""
+    pca = pca_info["pca_model"]
+    n_selected = pca_info["n_selected"]
 
-
-def plot_pca_variance(pca, output_prefix, threshold=THRESHOLD):
-    """Generate a single explained variance plot for a PCA model."""
     evr = pca.explained_variance_ratio_
     cumulative = np.cumsum(evr)
-    n_selected = np.argmax(cumulative >= threshold) + 1
 
     fig, ax = plt.subplots(figsize=(6, 4))
     ax.plot(range(1, len(cumulative) + 1), cumulative, marker='o', linestyle='--', label='Cumulative variance')
@@ -68,8 +65,8 @@ def plot_all_pca_variance_from_registry(threshold=THRESHOLD):
             continue
 
         try:
-            pca = load_pca_model(pca_model_path)
-            fig = plot_pca_variance(pca, prefix, threshold)
+            model_info = load_pickle(pca_model_path)
+            fig = plot_pca_variance(model_info, prefix, threshold)
             figs.append((prefix, fig))
         except Exception as e:
             print(f"[ERROR] Failed to plot PCA for '{prefix}': {e}")

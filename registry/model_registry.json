@@ -30,7 +30,7 @@
         "most_important_csv_path": "data/C_test_data/datasets/data_important/important_test.csv",
         "pca": {
             "pca_data_csv_path": "data/C_test_data/datasets/data_pca/pca_test.csv",
-            "pca_model_pkl_path": "data/C_test_data/models/data_pca/pca_model_test.pkl"
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train.pkl"
         }
     },
     "blind": {
@@ -44,7 +44,7 @@
         "most_important_csv_path": "data/D_blind_data/datasets/data_important/important_blind.csv",
         "pca": {
             "pca_data_csv_path": "data/D_blind_data/datasets/data_pca/pca_blind.csv",
-            "pca_model_pkl_path": "data/D_blind_data/models/data_pca/pca_model_blind.pkl"
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train.pkl"
         }
     },
     "train_minmax": {
@@ -179,7 +179,7 @@
         "most_important_csv_path": "data/C_test_data/datasets/data_important/important_minmax.csv",
         "pca": {
             "pca_data_csv_path": "data/C_test_data/datasets/data_pca/pca_test_minmax.csv",
-            "pca_model_pkl_path": "data/C_test_data/models/data_pca/pca_model_test_minmax.pkl"
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_minmax.pkl"
         }
     },
     "test_standard": {
@@ -200,7 +200,7 @@
         "most_important_csv_path": "data/C_test_data/datasets/data_important/important_standard.csv",
         "pca": {
             "pca_data_csv_path": "data/C_test_data/datasets/data_pca/pca_test_standard.csv",
-            "pca_model_pkl_path": "data/C_test_data/models/data_pca/pca_model_test_standard.pkl"
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_standard.pkl"
         }
     },
     "test_boxcox": {
@@ -221,7 +221,7 @@
         "most_important_csv_path": "data/C_test_data/datasets/data_important/important_boxcox.csv",
         "pca": {
             "pca_data_csv_path": "data/C_test_data/datasets/data_pca/pca_test_boxcox.csv",
-            "pca_model_pkl_path": "data/C_test_data/models/data_pca/pca_model_test_boxcox.pkl"
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_boxcox.pkl"
         }
     },
     "test_yeojohnson": {
@@ -242,7 +242,7 @@
         "most_important_csv_path": "data/C_test_data/datasets/data_important/important_yeojohnson.csv",
         "pca": {
             "pca_data_csv_path": "data/C_test_data/datasets/data_pca/pca_test_yeojohnson.csv",
-            "pca_model_pkl_path": "data/C_test_data/models/data_pca/pca_model_test_yeojohnson.pkl"
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_yeojohnson.pkl"
         }
     },
     "blind_minmax": {
@@ -265,7 +265,7 @@
         "most_important_csv_path": "data/D_blind_data/datasets/data_important/important_minmax.csv",
         "pca": {
             "pca_data_csv_path": "data/D_blind_data/datasets/data_pca/pca_blind_minmax.csv",
-            "pca_model_pkl_path": "data/D_blind_data/models/data_pca/pca_model_blind_minmax.pkl"
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_minmax.pkl"
         }
     },
     "blind_standard": {
@@ -285,7 +285,7 @@
         "most_important_csv_path": "data/D_blind_data/datasets/data_important/important_standard.csv",
         "pca": {
             "pca_data_csv_path": "data/D_blind_data/datasets/data_pca/pca_blind_standard.csv",
-            "pca_model_pkl_path": "data/D_blind_data/models/data_pca/pca_model_blind_standard.pkl"
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_standard.pkl"
         }
     },
     "blind_boxcox": {
@@ -305,7 +305,7 @@
         "most_important_csv_path": "data/D_blind_data/datasets/data_important/important_boxcox.csv",
         "pca": {
             "pca_data_csv_path": "data/D_blind_data/datasets/data_pca/pca_blind_boxcox.csv",
-            "pca_model_pkl_path": "data/D_blind_data/models/data_pca/pca_model_blind_boxcox.pkl"
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_boxcox.pkl"
         }
     },
     "blind_yeojohnson": {
@@ -325,7 +325,7 @@
         "most_important_csv_path": "data/D_blind_data/datasets/data_important/important_yeojohnson.csv",
         "pca": {
             "pca_data_csv_path": "data/D_blind_data/datasets/data_pca/pca_blind_yeojohnson.csv",
-            "pca_model_pkl_path": "data/D_blind_data/models/data_pca/pca_model_blind_yeojohnson.pkl"
+            "pca_model_pkl_path": "data/B_training_data/models/data_pca/pca_model_train_yeojohnson.pkl"
         }
     }
 }

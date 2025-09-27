@@ -9,7 +9,6 @@ from config.paths import (
     TRAINING_DATA_PCA_DIR, TEST_DATA_PCA_DIR, BLIND_DATA_PCA_DIR,
     TRAINING_MODEL_PCA_DIR
 )
-#NOTE: actualizar codigo para que entrene train pca y guarde sus modelos y a partir de esos modelos .fit test y blind.
 
 VARIANCE_THRESHOLD = 0.80
 

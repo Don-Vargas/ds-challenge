@@ -3,13 +3,8 @@ import pickle
 import pandas as pd
 import numpy as np
 
-from utils.storage import path_validate
+from utils.storage import path_validate, load_pickle
 from utils.registry import load_registry, load_trained_registry, add_predictions_data_path_to_registry
-
-
-def load_model(model_path):
-    with open(model_path, "rb") as f:
-        return pickle.load(f)
 
 def predictions_transformed_scale(blind=False):
     trained_registry = load_trained_registry()
@@ -34,7 +29,7 @@ def predictions_transformed_scale(blind=False):
         df = pd.read_csv(hold_out_path)
         if 'target' not in df.columns:
             print(f"'target' column not found in {hold_out_path}")
-            model = load_model(model_path)
+            model = load_pickle(model_path)
             y_pred = model.predict(df)
             df_preds = pd.DataFrame({"y_pred": y_pred})
             df_preds.to_csv(y_pred_path, index=False)
@@ -45,7 +40,7 @@ def predictions_transformed_scale(blind=False):
 
         # Load model
         try:
-            model = load_model(model_path)
+            model = load_pickle(model_path)
         except Exception as e:
             print(f"Failed to load model {model_path}: {e}")
             continue
