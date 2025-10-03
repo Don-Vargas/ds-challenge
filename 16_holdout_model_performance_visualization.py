@@ -1,129 +1,94 @@
-import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
-from utils.storage import path_validate
+import seaborn as sns
+import pandas as pd
+
 from config.paths import TEST_PREDICTIONS_PERFORMANCE_FIG_DIR
 from utils.registry import load_registry, load_trained_registry
 
 
-# --- Extract metrics from trained registry ---
-
 def extract_model_metrics_from_registry(trained_registry, metric):
-    """
-    Extrae las métricas de evaluación (como RMSE o R2), el nombre del modelo,
-    el tipo de escalador y la categoría de selección de features desde el registro.
-    """
-    data = []
+    data_list = []
+    for key, value in trained_registry.items():
+        rmse = value.get('original_metrics', {}).get('rmse', None)
+        model_name = value.get('model_name', '')
 
-    for model_key, model_info in trained_registry.items():
-        dataset_name = model_info["dataset_name"]
-        model_name = model_info["model_name"]
-
-        # Infer scaler and category from dataset_name
-        if "_" in dataset_name:
-            parts = dataset_name.split("_")
-            scaler = "_".join(parts[:-1])
-            category = parts[-1]
+        parts = model_name.split('_')
+        if len(parts) >= 2:
+            modelo = parts[0]
+            categoria = '_'.join(parts[1:])
         else:
-            scaler = dataset_name
-            category = "original"
+            modelo = model_name
+            categoria = ''
 
-        metric_value = model_info["original_metrics"].get(metric)
-        if metric_value is None:
-            continue
+        dataset_name = value.get('dataset_name', '')
 
-        data.append({
-            "scaler": scaler,
-            "category": category,
-            "model_name": model_name,
-            metric: metric_value
+        data_list.append({
+            metric: rmse,
+            'modelo': modelo,
+            'categoria': categoria,
+            'dataset_name': dataset_name
         })
 
-    return pd.DataFrame(data)
+    return pd.DataFrame(data_list)
 
 
-# --- Plot differences to reference model ---
+def prepare_comparison_dataframe(df: pd.DataFrame, ref_model: str, metric: str) -> pd.DataFrame:
+    """Agrega columna con diferencia de métrica vs modelo de referencia."""
+    ref_df = df[df['modelo'] == ref_model][['categoria', 'dataset_name', metric]]
+    ref_df = ref_df.rename(columns={metric: f'{ref_model}_{metric}'})
 
-def plot_metric_differences(df, metric, reference_model, save_path, grid_title=None,
-                            scaler_order=None, transformation_order=None):
-    """
-    Genera un grid de boxplots con diferencias de la métrica especificada
-    contra un modelo de referencia. Se guarda como imagen.
-    """
-    # Get baseline metric per (scaler, category)
-    ref_df = df[df["model_name"] == reference_model][["scaler", "category", metric]]
-    ref_df = ref_df.rename(columns={metric: f"{reference_model}_{metric}"})
+    df_comp = df.merge(ref_df, on=['categoria', 'dataset_name'], how='left')
+    df_comp[f'{metric}_diff'] = df_comp[metric] - df_comp[f'{ref_model}_{metric}']
+    return df_comp
 
-    # Merge and compute difference
-    comp_df = df.merge(ref_df, on=["scaler", "category"], how="left")
-    comp_df[f"{metric}_diff"] = comp_df[metric] - comp_df[f"{reference_model}_{metric}"]
 
-    # Plot
-    g = sns.catplot(
-        data=comp_df,
-        x="model_name",
-        y=f"{metric}_diff",
-        row="scaler",
-        col="category",
-        kind="box",
-        height=3,
-        aspect=1.5,
-        sharey=False,
-        order=sorted(df["model_name"].unique()),
-        row_order=scaler_order,
-        col_order=transformation_order
-    )
+def plot_metric_differences(df_comp: pd.DataFrame, metric: str, ref_model: str, save_path: str):
+    categorias = ['pca_data', 'most_important', 'transformed_data']
+    datasets = ['train', 'train_minmax', 'train_standard', 'train_boxcox', 'train_yeojohnson']
+    modelos = ['xgboost', 'linearregression', 'ridge', 'randomforest']
 
-    g.set_axis_labels("Modelo", f"Diferencia {metric} vs {reference_model}")
-    g.set_titles(row_template="{row_name} scaler", col_template="{col_name} features")
+    fig, axes = plt.subplots(nrows=len(datasets), ncols=len(categorias), figsize=(18, 20), sharey=True)
 
-    for ax in g.axes.flatten():
-        for label in ax.get_xticklabels():
-            label.set_rotation(45)
+    for i, dataset in enumerate(datasets):
+        for j, categoria in enumerate(categorias):
+            ax = axes[i, j]
+            subset = df_comp[(df_comp['categoria'] == categoria) & (df_comp['dataset_name'] == dataset)]
 
-    if grid_title:
-        g.figure.suptitle(grid_title, fontsize=14)
-        g.figure.subplots_adjust(top=1.5)
+            sns.boxplot(x='modelo', 
+                        y=f'{metric}_diff', 
+                        data=subset, 
+                        ax=ax, 
+                        order=modelos, 
+                        palette='viridis')
 
-    g.figure.set_size_inches(14, 20)
+            ax.axhline(0, linestyle='--', color='gray', alpha=0.6)
+            ax.set_title(f'{categoria} | {dataset}')
+            ax.set_xlabel('')
+            ax.set_ylabel(f'Delta {metric.upper()}' if j == 0 else '')
+            ax.grid(axis='y', linestyle='--', alpha=0.7)
+    
+    fig.suptitle(f'Diferencia de {metric.upper()} respecto a {ref_model}', fontsize=20, y=1.02)
 
     plt.tight_layout()
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
     plt.close()
 
 
-# --- Main Execution Block ---
+# ------------------- MAIN SCRIPT -------------------
+def main():
+    metric = 'rmse'
+    reference_models = ["linearregression", "ridge"]
 
-if __name__ == "__main__":
     # Load registries
-    registry = load_registry()
     trained_registry = load_trained_registry()
-
-    # Create folder if needed
-    performance_metrics = TEST_PREDICTIONS_PERFORMANCE_FIG_DIR
-
-    # Define metric to plot
-    metric = 'rmse'  # or 'r2'
-
-    # Extract DataFrame of metrics
     df = extract_model_metrics_from_registry(trained_registry, metric)
 
-    # Sort scalers and categories
-    scaler_order = sorted(df["scaler"].unique())
-    transformation_order = ["important", "pca", "original"]  # Adjust to match your use case
-
-    # Define reference models
-    reference_models = ["linear_regression", "ridge"]
-
-    # Generate and save plots
     for ref_model in reference_models:
-        save_path = f"{performance_metrics}boxplot_diff_{metric}_{ref_model}.png"
-        title = f"Diferencia de {metric} vs {ref_model} (más bajo es mejor)"
-        plot_metric_differences(
-            df, metric,
-            reference_model=ref_model,
-            save_path=save_path,
-            grid_title=title,
-            scaler_order=scaler_order,
-            transformation_order=transformation_order
-        )
+        df_comp = prepare_comparison_dataframe(df, ref_model, metric)
+
+        diff_save_path = f"{TEST_PREDICTIONS_PERFORMANCE_FIG_DIR}boxplot_{metric}_diff_vs_{ref_model}.png"
+        plot_metric_differences(df_comp, metric, ref_model, diff_save_path)
+
+
+if __name__ == "__main__":
+    main()
