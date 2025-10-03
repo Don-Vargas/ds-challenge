@@ -1,76 +1,102 @@
 import os
-import pickle
 import pandas as pd
-import numpy as np
 
-from utils.storage import path_validate, load_pickle
-from utils.registry import load_registry, load_trained_registry, add_predictions_data_path_to_registry
+from utils.storage import load_pickle
+from utils.registry import (load_registry, 
+                            load_trained_registry, 
+                            add_predictions_test_data_path_to_registry,
+                            add_predictions_blind_data_path_to_registry)
+from config.paths import (TEST_DATA_RAW_PREDS_DIR,
+                          BLIND_DATA_RAW_PREDS_DIR)
 
-def predictions_transformed_scale(blind=False):
-    trained_registry = load_trained_registry()
+registry = load_registry()
+trained_registry = load_trained_registry()
 
-    if blind:
-        y_pred_path = 'data/data_for_models/blind_data_preds/'
-        path_validate(y_pred_path)
+def split_suffix(s, suffix_parts=2):
+    parts = s.split('_')
+    if len(parts) < suffix_parts:
+        # No hay suficientes partes para separar
+        return s, ''
+    
+    prefix = '_'.join(parts[:-suffix_parts])
+    suffix = '_'.join(parts[-suffix_parts:])
+    return prefix, suffix
+
+def read_csv_file(df):
+    df = pd.read_csv(df)
+    if 'target' not in df.columns:
+        X = df
+        return X
     else:
-        # Create output directory
-        repository_path = 'data/data_for_models/split_datasets/holdout/'
-        predictions_csv_dir = 'data/predictions/transformed_scale/'
-        path_validate(predictions_csv_dir)
+        X = df.drop(columns='target')
+        y_true = df['target']
+        return X, y_true
 
-    for model_key, model_info in trained_registry.items():
-        model_path = model_info["model_pickle_path"]
-        dataset_name = model_info["dataset_name"]
-        model_name = model_info["model_name"]
 
-        hold_out_path = f'{repository_path}{dataset_name}.csv'
+def generate_raw_preds(is_test=True, output_dir=None):
+    for prefix, info in trained_registry.items():
+        model_name = info.get("model_name")
+        model, data_type = split_suffix(model_name)
+        data_set_info = registry[info.get("dataset_name")]
 
-        # Load holdout data
-        df = pd.read_csv(hold_out_path)
-        if 'target' not in df.columns:
-            print(f"'target' column not found in {hold_out_path}")
-            model = load_pickle(model_path)
-            y_pred = model.predict(df)
-            df_preds = pd.DataFrame({"y_pred": y_pred})
-            df_preds.to_csv(y_pred_path, index=False)
-            continue
+        # Determine which dataset to load
+        if data_type == 'most_important':
+            df_path = data_set_info['most_important_csv_path']
+        elif data_type == 'pca_data':
+            df_path = data_set_info['pca']['pca_data_csv_path']
+        elif data_type == 'transformed_data':
+            df_path = data_set_info['transformed_data_csv_path']
+        else:
+            raise ValueError(f"Unknown data_type: {data_type}")
+        
+        # Construct the new path (switching training to test/blind)
+        base_path, filename = os.path.split(df_path)
+        # Replace 'B_training_data' with appropriate dataset type
+        if is_test:
+            base_path = base_path.replace('B_training_data', 'C_test_data')
+            new_filename = filename.replace('train', 'test')
+        else:
+            base_path = base_path.replace('B_training_data', 'D_blind_data')
+            new_filename = filename.replace('train', 'blind')
 
-        X_holdout = df.drop(columns='target')
-        y_holdout = df['target']
+        new_df_path = os.path.join(base_path, new_filename)
 
-        # Load model
-        try:
-            model = load_pickle(model_path)
-        except Exception as e:
-            print(f"Failed to load model {model_path}: {e}")
-            continue
+        # Read data depending on test/blind mode
+        if is_test:
+            X, y_true = read_csv_file(new_df_path)
+        else:
+            print(new_df_path)
+            X = read_csv_file(new_df_path)
 
-        try:
-            y_pred = model.predict(X_holdout)
+        # Load model and predict
+        prediction_model_path = info.get("model_pickle_path")
+        prediction_model = load_pickle(prediction_model_path)
+        y_pred = prediction_model.predict(X)
 
-            # Generate prediction DataFrame
+        preds_csv = f'{output_dir}preds_{prefix}.csv'
+        # Create predictions DataFrame
+        if is_test:
             df_preds = pd.DataFrame({
-                "y_true": y_holdout,
+                "y_true": y_true,
                 "y_pred": y_pred
             })
+            add_predictions_test_data_path_to_registry(model_key=prefix, 
+                                                       predictions_csv_path=preds_csv)
+        else:
+            df_preds = pd.DataFrame({"y_pred": y_pred})
+            add_predictions_blind_data_path_to_registry(model_key=prefix, 
+                                                        predictions_csv_path=preds_csv)
 
-            # Generate filename
-            predictions_csv_filename = f"predictions_{dataset_name}_{model_name}.csv"
-            predictions_csv_path = os.path.join(predictions_csv_dir, predictions_csv_filename)
+        # Write to appropriate output directory
+        df_preds.to_csv(preds_csv, index=False)
 
-            # Save predictions
-            df_preds.to_csv(predictions_csv_path, index=False)
-
-            # Register prediction path
-            add_predictions_data_path_to_registry(f'{model_name}_{dataset_name}', predictions_csv_path)
-        except Exception as e:
-            print(f"Error predicting with model {model_name} on dataset {dataset_name}: {e}")
-            continue
-
-        print(f"Predictions done for model: {model_name} | dataset: {dataset_name}")
-
-
-
-# Run
-predictions_transformed_scale()
-#predictions_transformed_scale(blind=True)
+if __name__ == '__main__':
+    generate_raw_preds(
+    is_test=True,
+    output_dir=TEST_DATA_RAW_PREDS_DIR
+    )
+    
+    generate_raw_preds(
+        is_test=False,
+        output_dir=BLIND_DATA_RAW_PREDS_DIR
+    )

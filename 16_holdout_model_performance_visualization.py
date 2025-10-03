@@ -2,52 +2,63 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from utils.storage import path_validate
-from utils.registry import (
-    load_registry,
-    load_trained_registry,
-)
+from config.paths import TEST_PREDICTIONS_PERFORMANCE_FIG_DIR
+from utils.registry import load_registry, load_trained_registry
 
-# --- FUNCIÓN 1: Extraer métricas del registry ---
+
+# --- Extract metrics from trained registry ---
 
 def extract_model_metrics_from_registry(trained_registry, metric):
     """
-    Extrae las métricas de RMSE, escalador y tipo de transformación 
-    desde un registro de modelos entrenados.
+    Extrae las métricas de evaluación (como RMSE o R2), el nombre del modelo,
+    el tipo de escalador y la categoría de selección de features desde el registro.
     """
     data = []
 
     for model_key, model_info in trained_registry.items():
         dataset_name = model_info["dataset_name"]
         model_name = model_info["model_name"]
-        scaler = "_".join(dataset_name.split("_")[:-1]) if "_" in dataset_name else dataset_name
-        category = dataset_name.split('_')[-1]
-        
-        metrica = model_info["original_metrics"][f"{metric}"]
+
+        # Infer scaler and category from dataset_name
+        if "_" in dataset_name:
+            parts = dataset_name.split("_")
+            scaler = "_".join(parts[:-1])
+            category = parts[-1]
+        else:
+            scaler = dataset_name
+            category = "original"
+
+        metric_value = model_info["original_metrics"].get(metric)
+        if metric_value is None:
+            continue
 
         data.append({
             "scaler": scaler,
             "category": category,
             "model_name": model_name,
-            f"{metric}": metrica
+            metric: metric_value
         })
 
     return pd.DataFrame(data)
 
 
-# --- FUNCIÓN 2: Plotear diferencias de RMSE vs modelo de referencia ---
+# --- Plot differences to reference model ---
 
 def plot_metric_differences(df, metric, reference_model, save_path, grid_title=None,
-                          scaler_order=None, transformation_order=None):
+                            scaler_order=None, transformation_order=None):
     """
-    Genera y guarda un grid de boxplots con las diferencias de RMSE
-    comparadas contra un modelo de referencia.
+    Genera un grid de boxplots con diferencias de la métrica especificada
+    contra un modelo de referencia. Se guarda como imagen.
     """
-    ref_df = df[df["model_name"] == reference_model][["scaler", "category", f"{metric}"]]
-    ref_df = ref_df.rename(columns={f"{metric}": f"{reference_model}_{metric}"})
+    # Get baseline metric per (scaler, category)
+    ref_df = df[df["model_name"] == reference_model][["scaler", "category", metric]]
+    ref_df = ref_df.rename(columns={metric: f"{reference_model}_{metric}"})
 
+    # Merge and compute difference
     comp_df = df.merge(ref_df, on=["scaler", "category"], how="left")
-    comp_df[f"{metric}_diff"] = comp_df[f"{metric}"] - comp_df[f"{reference_model}_{metric}"]
+    comp_df[f"{metric}_diff"] = comp_df[metric] - comp_df[f"{reference_model}_{metric}"]
 
+    # Plot
     g = sns.catplot(
         data=comp_df,
         x="model_name",
@@ -73,38 +84,38 @@ def plot_metric_differences(df, metric, reference_model, save_path, grid_title=N
     if grid_title:
         g.figure.suptitle(grid_title, fontsize=14)
         g.figure.subplots_adjust(top=1.5)
-    g.figure.set_size_inches(14, 20)
 
+    g.figure.set_size_inches(14, 20)
 
     plt.tight_layout()
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
     plt.close()
 
 
-# --- BLOQUE PRINCIPAL ---
+# --- Main Execution Block ---
 
 if __name__ == "__main__":
-    # Cargar registros
+    # Load registries
     registry = load_registry()
     trained_registry = load_trained_registry()
 
-    # Crear carpeta si no existe
-    performance_metrics = "data/predictions/original_performance_metrics/"
-    path_validate(performance_metrics)
+    # Create folder if needed
+    performance_metrics = TEST_PREDICTIONS_PERFORMANCE_FIG_DIR
 
-    metric = 'rmse'
+    # Define metric to plot
+    metric = 'rmse'  # or 'r2'
 
-    # Extraer DataFrame
+    # Extract DataFrame of metrics
     df = extract_model_metrics_from_registry(trained_registry, metric)
 
-    # Definir órdenes de escaladores y transformaciones
+    # Sort scalers and categories
     scaler_order = sorted(df["scaler"].unique())
-    transformation_order = ["important", "pca", "original"]  # Ajusta si es necesario
+    transformation_order = ["important", "pca", "original"]  # Adjust to match your use case
 
-    # Modelos de referencia
+    # Define reference models
     reference_models = ["linear_regression", "ridge"]
 
-    # Generar plots
+    # Generate and save plots
     for ref_model in reference_models:
         save_path = f"{performance_metrics}boxplot_diff_{metric}_{ref_model}.png"
         title = f"Diferencia de {metric} vs {ref_model} (más bajo es mejor)"

@@ -1,118 +1,114 @@
+import os
 import pandas as pd
 import numpy as np
-import os
-import joblib
 
-from utils.storage import path_validate
+from utils.storage import load_pickle
 from utils.registry import (
-    load_registry,
-    load_trained_registry,
-    add_predictions_original_scale_data_path_to_registry
+    load_registry, 
+    load_trained_registry, 
+    add_predictions_test_original_scale_data_path_to_registry,
+    add_predictions_blind_original_scale_data_path_to_registry
+)
+from config.paths import (
+    TEST_DATA_TRANSFORMED_PREDS_DIR,
+    BLIND_DATA_TRANSFORMED_PREDS_DIR
 )
 
+# Load registries
+registry = load_registry()
+trained_registry = load_trained_registry()
 
-def restaurar_predicciones_modelo(model_info, dataset_info, output_dir):
-    """
-    Restaura las predicciones de un modelo específico a escala original.
+# Split model name into base + suffix
+def split_suffix(s, suffix_parts=2):
+    parts = s.split('_')
+    if len(parts) < suffix_parts:
+        return s, ''
+    prefix = '_'.join(parts[:-suffix_parts])
+    suffix = '_'.join(parts[-suffix_parts:])
+    return prefix, suffix
 
-    Parámetros:
-        model_info (dict): Información del modelo entrenado desde el registry.
-        dataset_info (dict): Información del dataset transformado desde el registry.
-        output_dir (str): Carpeta donde guardar las predicciones desescaladas.
-    """
-    predictions_path = model_info.get("predictions_transformed_scale_csv_path")
-    dataset_name = model_info.get("dataset_name")
-    model_name = model_info.get("model_name")
+# Read predictions CSV
+def read_csv_file(path):
+    df = pd.read_csv(path)
+    if 'y_true' not in df.columns:
+        return df, None
+    y_pred = df.drop(columns='y_true')
+    y_true = df['y_true']
+    return y_pred, y_true
 
-    if not predictions_path or not os.path.exists(predictions_path):
-        print(f"Predicciones no encontradas para modelo '{model_name}'. Se omite.")
-        return
+# Reverses the transformation applied to target values
+def reverse_transform(y, scaler_trans_model):
+    if scaler_trans_model is None:
+        return np.asarray(y).flatten()  # Always convert & flatten
+    
+    transformer = load_pickle(scaler_trans_model)
 
-    blind = "blind" in dataset_name.lower() or "blind" in predictions_path.lower()
-    print(f"Procesando modelo '{model_name}' para dataset '{dataset_name}' (blind={blind})")
-
-    scaler_path = dataset_info.get("scaler_pickle_path")
-
-    df_preds = pd.read_csv(predictions_path)
-    preds = df_preds.values
-
-    if scaler_path:
-        if isinstance(scaler_path, dict) and "y" in scaler_path:
-            y_scaler_path = scaler_path["y"]
-        elif isinstance(scaler_path, str):
-            y_scaler_path = scaler_path
-        else:
-            print("Formato de scaler_path no reconocido. Se omite desescalado.")
-            y_scaler_path = None
-
-        if y_scaler_path and os.path.exists(y_scaler_path):
-            print(f"  Revirtiendo escala con scaler: {y_scaler_path}")
-            scaler_y = joblib.load(y_scaler_path)
-
-            try:
-                if blind:
-                    y_pred_original = scaler_y.inverse_transform(preds)
-                    preds = y_pred_original
-                else:
-                    y_true_original = scaler_y.inverse_transform(preds[:, [0]])
-                    y_pred_original = scaler_y.inverse_transform(preds[:, [1]])
-                    preds = np.hstack([y_true_original, y_pred_original])
-            except Exception as e:
-                print(f"Error al revertir la escala: {e}")
-        else:
-            print("Scaler no encontrado o inválido. Se omite desescalado.")
+    if isinstance(y, pd.DataFrame) or isinstance(y, pd.Series):
+        y_array = y.to_numpy().reshape(-1, 1)
     else:
-        print("No se aplicó escalado. Se mantienen valores originales.")
+        y_array = np.asarray(y).reshape(-1, 1)
 
-    if blind:
-        df_preds_original = pd.DataFrame(preds, columns=["y_pred"])
-    else:
-        if preds.shape[1] == 2:
-            df_preds_original = pd.DataFrame(preds, columns=["y_true", "y_pred"])
+    reversed_y = transformer.inverse_transform(y_array).flatten()
+    return reversed_y  # Always numpy 1D array
+
+
+# Main function to reverse transformed predictions and save results
+def reversed_transformed_preds(is_test=True, output_dir=None):
+    for prefix, info in trained_registry.items():
+        model_name = info.get("model_name")
+        model, data_type = split_suffix(model_name)
+
+        if is_test:
+            preds_csv = info.get('predictions_test_csv_path')
+            y_pred, y_true = read_csv_file(preds_csv)
         else:
-            df_preds_original = pd.DataFrame(preds)
+            preds_csv = info.get('predictions_bind_csv_path')
+            y_pred, y_true = read_csv_file(preds_csv)
 
-    predictions_csv_filename = f"predictions_{dataset_name}_{model_name}.csv"
-    predictions_csv_path = os.path.join(output_dir, predictions_csv_filename)
-    df_preds_original.to_csv(predictions_csv_path, index=False)
+        # Load transformer for y (if any)
+        scaler_info = info.get("transformer_info", {}).get("scaler_pickle_path", None)
+        if isinstance(scaler_info, dict):
+            scaler_trans_model = scaler_info.get("y", None)
+        elif isinstance(scaler_info, str) and scaler_info.lower() != "none":
+            scaler_trans_model = scaler_info
+        else:
+            scaler_trans_model = None
 
-    add_predictions_original_scale_data_path_to_registry(
-        model_key=f'{model_name}_{dataset_name}',
-        predictions_csv_path=predictions_csv_path
+        # Reverse prediction transformation
+        reversed_y_pred = reverse_transform(y_pred, scaler_trans_model)
+
+        # Compose output filename
+        output_path = os.path.join(output_dir, f'preds_{prefix}.csv')
+
+        if is_test:
+            reversed_y_true = reverse_transform(y_true, scaler_trans_model) if y_true is not None else None
+            df_preds = pd.DataFrame({
+                "y_true": reversed_y_true if reversed_y_true is not None else None,
+                "y_pred": reversed_y_pred
+            })
+            add_predictions_test_original_scale_data_path_to_registry(
+                model_key=prefix, 
+                predictions_csv_path=output_path
+            )
+        else:
+            df_preds = pd.DataFrame({"y_pred": reversed_y_pred.flatten()})
+            add_predictions_blind_original_scale_data_path_to_registry(
+                model_key=prefix, 
+                predictions_csv_path=output_path
+            )
+
+        df_preds.to_csv(output_path, index=False)
+        print('###################################')
+
+# Execution block
+if __name__ == '__main__':
+    
+    reversed_transformed_preds(
+        is_test=True,
+        output_dir=TEST_DATA_TRANSFORMED_PREDS_DIR
     )
-
-    print(f"Predicciones guardadas en escala original: {predictions_csv_path}")
-
-def restaurar_predicciones_a_escala_original(
-    output_dir: str = "data/predictions/original_scale/",
-    trained_models_registry: dict = None,
-    datasets_registry: dict = None
-):
-    """
-    Itera sobre todos los modelos entrenados y restaura sus predicciones a escala original.
-
-    Parámetros:
-        output_dir (str): Carpeta donde se guardarán las predicciones desescaladas.
-        trained_models_registry (dict, opcional): Registro de modelos entrenados. Se carga automáticamente si no se pasa.
-        datasets_registry (dict, opcional): Registro de datasets transformados. Se carga automáticamente si no se pasa.
-    """
-    path_validate(output_dir)
-
-    if trained_models_registry is None:
-        trained_models_registry = load_trained_registry()
-    if datasets_registry is None:
-        datasets_registry = load_registry()
-
-    for model_key, model_info in trained_models_registry.items():
-        dataset_name = model_info.get("dataset_name")
-        base_dataset_name = "_".join(dataset_name.split("_")[:-1]) if "_" in dataset_name else dataset_name
-
-        if base_dataset_name not in datasets_registry:
-            print(f"No se encontró el dataset '{base_dataset_name}' en el registry. Se omite.")
-            continue
-
-        dataset_info = datasets_registry[base_dataset_name]
-        restaurar_predicciones_modelo(model_info, dataset_info, output_dir)
-
-if __name__ == "__main__":
-    restaurar_predicciones_a_escala_original()
+    
+    reversed_transformed_preds(
+        is_test=False,
+        output_dir=BLIND_DATA_TRANSFORMED_PREDS_DIR
+    )

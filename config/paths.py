@@ -54,6 +54,9 @@ BLIND_DATA_RAW_PREDS_DIR    = f'{BLIND_DIR}/predictions/raw/'
 TEST_DATA_TRANSFORMED_PREDS_DIR     = f'{TEST_DIR}/predictions/transformed/'
 BLIND_DATA_TRANSFORMED_PREDS_DIR    = f'{BLIND_DIR}/predictions/transformed/'
 
+# Performance
+TEST_PREDICTIONS_PERFORMANCE_FIG_DIR = f'{TEST_DIR}/analisys/model_performance/'
+
 # Base data folders
 BASE_REGISTRY = 'registry'
 
@@ -83,7 +86,8 @@ data_paths = {
         'important': TEST_DATA_IMPORTANT_DIR,
         'pca_data': TEST_DATA_PCA_DIR,
         'raw_preds': TEST_DATA_RAW_PREDS_DIR,
-        'trans_preds':TEST_DATA_TRANSFORMED_PREDS_DIR
+        'trans_preds':TEST_DATA_TRANSFORMED_PREDS_DIR,
+        'model_performance':TEST_PREDICTIONS_PERFORMANCE_FIG_DIR
     },
     'blind': {
         'base_data': BLIND_DIR,

@@ -12,6 +12,15 @@
             "best_rmse": 2.8836096587560798,
             "best_mae": 2.220217544749409,
             "best_r2": 0.6863701153208049
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_transformed_data_train.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_transformed_data_train.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_transformed_data_train.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_transformed_data_train.csv",
+        "original_metrics": {
+            "rmse": 2.6117882181458043,
+            "mae": 2.1087857602312177,
+            "r2": 0.6961671847695095
         }
     },
     "ridge_transformed_data_train": {
@@ -32,6 +41,15 @@
             "best_rmse": 2.8827762133762924,
             "best_mae": 2.2204816678919697,
             "best_r2": 0.6865706156386133
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_transformed_data_train.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_transformed_data_train.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_transformed_data_train.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_transformed_data_train.csv",
+        "original_metrics": {
+            "rmse": 2.6126821012192587,
+            "mae": 2.11119853117412,
+            "r2": 0.6959591759541361
         }
     },
     "randomforest_transformed_data_train": {
@@ -52,6 +70,15 @@
             "best_rmse": 2.66024191309995,
             "best_mae": 2.11276467880727,
             "best_r2": 0.7339398730682228
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_transformed_data_train.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_transformed_data_train.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_transformed_data_train.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_transformed_data_train.csv",
+        "original_metrics": {
+            "rmse": 2.513453628683536,
+            "mae": 2.0123484283020416,
+            "r2": 0.718615276753432
         }
     },
     "xgboost_transformed_data_train": {
@@ -71,6 +98,15 @@
             "best_rmse": 2.149265493314605,
             "best_mae": 1.7047751661481674,
             "best_r2": 0.8251162428606186
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_transformed_data_train.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_transformed_data_train.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_transformed_data_train.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_transformed_data_train.csv",
+        "original_metrics": {
+            "rmse": 2.0157359785236806,
+            "mae": 1.6552162163798037,
+            "r2": 0.8190218868995947
         }
     },
     "linearregression_most_important_train": {
@@ -86,6 +122,15 @@
             "best_rmse": 2.853241439393528,
             "best_mae": 2.190920444750565,
             "best_r2": 0.6927135396739128
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_most_important_train.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_most_important_train.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_most_important_train.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_most_important_train.csv",
+        "original_metrics": {
+            "rmse": 2.606277432242595,
+            "mae": 2.0850904068936247,
+            "r2": 0.6974479863017193
         }
     },
     "ridge_most_important_train": {
@@ -106,6 +151,15 @@
             "best_rmse": 2.848389705134312,
             "best_mae": 2.1875499935375915,
             "best_r2": 0.6938994929463043
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_most_important_train.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_most_important_train.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_most_important_train.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_most_important_train.csv",
+        "original_metrics": {
+            "rmse": 2.6074255276372376,
+            "mae": 2.0854273912978516,
+            "r2": 0.6971813722590192
         }
     },
     "randomforest_most_important_train": {
@@ -126,6 +180,15 @@
             "best_rmse": 2.3885268354554308,
             "best_mae": 1.8780002367635151,
             "best_r2": 0.785917993394602
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_most_important_train.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_most_important_train.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_most_important_train.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_most_important_train.csv",
+        "original_metrics": {
+            "rmse": 2.1377085033443213,
+            "mae": 1.714172151443131,
+            "r2": 0.7964572066208586
         }
     },
     "xgboost_most_important_train": {
@@ -145,6 +208,15 @@
             "best_rmse": 2.037125984205757,
             "best_mae": 1.6205082996135238,
             "best_r2": 0.8428037584106768
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_most_important_train.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_most_important_train.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_most_important_train.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_most_important_train.csv",
+        "original_metrics": {
+            "rmse": 1.8420064967106595,
+            "mae": 1.5212695312223414,
+            "r2": 0.848873342851974
         }
     },
     "linearregression_pca_data_train": {
@@ -160,6 +232,15 @@
             "best_rmse": 4.361600204200128,
             "best_mae": 3.591650131324445,
             "best_r2": 0.2855835467256195
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_pca_data_train.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_pca_data_train.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_pca_data_train.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_pca_data_train.csv",
+        "original_metrics": {
+            "rmse": 4.314547336591667,
+            "mae": 3.6756951941058276,
+            "r2": 0.17085738451239596
         }
     },
     "ridge_pca_data_train": {
@@ -180,6 +261,15 @@
             "best_rmse": 4.36142034425635,
             "best_mae": 3.5914641883931595,
             "best_r2": 0.2856422317616066
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_pca_data_train.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_pca_data_train.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_pca_data_train.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_pca_data_train.csv",
+        "original_metrics": {
+            "rmse": 4.31450446367593,
+            "mae": 3.6755581791814516,
+            "r2": 0.17087386252600834
         }
     },
     "randomforest_pca_data_train": {
@@ -200,6 +290,15 @@
             "best_rmse": 4.4600689714522845,
             "best_mae": 3.617381493197257,
             "best_r2": 0.2529672954326172
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_pca_data_train.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_pca_data_train.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_pca_data_train.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_pca_data_train.csv",
+        "original_metrics": {
+            "rmse": 4.588253223567713,
+            "mae": 3.857515491742628,
+            "r2": 0.062322451188742134
         }
     },
     "xgboost_pca_data_train": {
@@ -219,6 +318,15 @@
             "best_rmse": 4.464884206799927,
             "best_mae": 3.610808142838576,
             "best_r2": 0.25106917649440125
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_pca_data_train.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_pca_data_train.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_pca_data_train.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_pca_data_train.csv",
+        "original_metrics": {
+            "rmse": 4.631749379782386,
+            "mae": 3.9144058668189166,
+            "r2": 0.04446001524966148
         }
     },
     "linearregression_transformed_data_train_minmax": {
@@ -237,6 +345,15 @@
             "best_rmse": 0.10648097861482946,
             "best_mae": 0.08198437544584758,
             "best_r2": 0.6863701153208048
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_transformed_data_train_minmax.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_transformed_data_train_minmax.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_transformed_data_train_minmax.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_transformed_data_train_minmax.csv",
+        "original_metrics": {
+            "rmse": 3.3148725852073064,
+            "mae": 2.7075369323520704,
+            "r2": 0.6607337795340049
         }
     },
     "ridge_transformed_data_train_minmax": {
@@ -260,6 +377,15 @@
             "best_rmse": 0.10645886364340648,
             "best_mae": 0.0821419018562978,
             "best_r2": 0.6866442682678592
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_transformed_data_train_minmax.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_transformed_data_train_minmax.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_transformed_data_train_minmax.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_transformed_data_train_minmax.csv",
+        "original_metrics": {
+            "rmse": 3.3353390059604173,
+            "mae": 2.729243337798926,
+            "r2": 0.6565315061504066
         }
     },
     "randomforest_transformed_data_train_minmax": {
@@ -283,6 +409,15 @@
             "best_rmse": 0.09832987789135066,
             "best_mae": 0.0781416452737658,
             "best_r2": 0.7334333762430968
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_transformed_data_train_minmax.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_transformed_data_train_minmax.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_transformed_data_train_minmax.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_transformed_data_train_minmax.csv",
+        "original_metrics": {
+            "rmse": 3.3067197404734694,
+            "mae": 2.733128297065306,
+            "r2": 0.6624005605720453
         }
     },
     "xgboost_transformed_data_train_minmax": {
@@ -305,6 +440,15 @@
             "best_rmse": 0.07932196335540354,
             "best_mae": 0.062935707648944,
             "best_r2": 0.825322946937956
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_transformed_data_train_minmax.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_transformed_data_train_minmax.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_transformed_data_train_minmax.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_transformed_data_train_minmax.csv",
+        "original_metrics": {
+            "rmse": 2.6884548609098693,
+            "mae": 2.1559217974899694,
+            "r2": 0.7768420110965288
         }
     },
     "linearregression_most_important_train_minmax": {
@@ -323,6 +467,15 @@
             "best_rmse": 0.10535959323359534,
             "best_mae": 0.0809025425185022,
             "best_r2": 0.692713539673913
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_most_important_train_minmax.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_most_important_train_minmax.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_most_important_train_minmax.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_most_important_train_minmax.csv",
+        "original_metrics": {
+            "rmse": 3.315545514583036,
+            "mae": 2.6862077981270938,
+            "r2": 0.6605960213709975
         }
     },
     "ridge_most_important_train_minmax": {
@@ -346,6 +499,15 @@
             "best_rmse": 0.10522063870348597,
             "best_mae": 0.08088318848891977,
             "best_r2": 0.693745213850471
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_most_important_train_minmax.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_most_important_train_minmax.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_most_important_train_minmax.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_most_important_train_minmax.csv",
+        "original_metrics": {
+            "rmse": 3.347013569685885,
+            "mae": 2.7216476264988487,
+            "r2": 0.6541228379054733
         }
     },
     "randomforest_most_important_train_minmax": {
@@ -369,6 +531,15 @@
             "best_rmse": 0.08825407793543409,
             "best_mae": 0.06935939681370432,
             "best_r2": 0.7856400035002951
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_most_important_train_minmax.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_most_important_train_minmax.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_most_important_train_minmax.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_most_important_train_minmax.csv",
+        "original_metrics": {
+            "rmse": 2.9192890109295244,
+            "mae": 2.428477108434261,
+            "r2": 0.7368755982989239
         }
     },
     "xgboost_most_important_train_minmax": {
@@ -391,6 +562,15 @@
             "best_rmse": 0.0751295909134603,
             "best_mae": 0.05970976259855222,
             "best_r2": 0.8431803535222258
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_most_important_train_minmax.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_most_important_train_minmax.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_most_important_train_minmax.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_most_important_train_minmax.csv",
+        "original_metrics": {
+            "rmse": 2.5174070058589053,
+            "mae": 1.99732687058966,
+            "r2": 0.8043346997282645
         }
     },
     "linearregression_pca_data_train_minmax": {
@@ -409,6 +589,15 @@
             "best_rmse": 0.1270560485248046,
             "best_mae": 0.10156513741282087,
             "best_r2": 0.5557450046452029
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_pca_data_train_minmax.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_pca_data_train_minmax.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_pca_data_train_minmax.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_pca_data_train_minmax.csv",
+        "original_metrics": {
+            "rmse": 4.3485047558771885,
+            "mae": 3.537812539974614,
+            "r2": 0.41616941905201865
         }
     },
     "ridge_pca_data_train_minmax": {
@@ -432,6 +621,15 @@
             "best_rmse": 0.1270490299357166,
             "best_mae": 0.10156951051449599,
             "best_r2": 0.5557943629574092
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_pca_data_train_minmax.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_pca_data_train_minmax.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_pca_data_train_minmax.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_pca_data_train_minmax.csv",
+        "original_metrics": {
+            "rmse": 4.349229397088999,
+            "mae": 3.5387050904166393,
+            "r2": 0.41597482207041947
         }
     },
     "randomforest_pca_data_train_minmax": {
@@ -455,6 +653,15 @@
             "best_rmse": 0.1426541788462257,
             "best_mae": 0.11704262571973185,
             "best_r2": 0.4388218829263694
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_pca_data_train_minmax.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_pca_data_train_minmax.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_pca_data_train_minmax.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_pca_data_train_minmax.csv",
+        "original_metrics": {
+            "rmse": 4.8879513306912745,
+            "mae": 3.9692344248815425,
+            "r2": 0.26233243734093226
         }
     },
     "xgboost_pca_data_train_minmax": {
@@ -477,6 +684,15 @@
             "best_rmse": 0.13743026935191127,
             "best_mae": 0.10990868589710859,
             "best_r2": 0.47981342503216207
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_pca_data_train_minmax.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_pca_data_train_minmax.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_pca_data_train_minmax.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_pca_data_train_minmax.csv",
+        "original_metrics": {
+            "rmse": 4.599779901113187,
+            "mae": 3.7905699343884707,
+            "r2": 0.3467475559929106
         }
     },
     "linearregression_transformed_data_train_standard": {
@@ -495,6 +711,15 @@
             "best_rmse": 0.5581657421270367,
             "best_mae": 0.42975628472651983,
             "best_r2": 0.6863701153208046
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_transformed_data_train_standard.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_transformed_data_train_standard.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_transformed_data_train_standard.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_transformed_data_train_standard.csv",
+        "original_metrics": {
+            "rmse": 2.8523275243627837,
+            "mae": 2.321504811376509,
+            "r2": 0.6951738660052681
         }
     },
     "ridge_transformed_data_train_standard": {
@@ -518,6 +743,15 @@
             "best_rmse": 0.557540536692138,
             "best_mae": 0.43000085414165135,
             "best_r2": 0.6871939672533831
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_transformed_data_train_standard.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_transformed_data_train_standard.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_transformed_data_train_standard.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_transformed_data_train_standard.csv",
+        "original_metrics": {
+            "rmse": 2.8616373643688267,
+            "mae": 2.334343738762269,
+            "r2": 0.6931807471512416
         }
     },
     "randomforest_transformed_data_train_standard": {
@@ -541,6 +775,15 @@
             "best_rmse": 0.5153047515710819,
             "best_mae": 0.40996122424336096,
             "best_r2": 0.7335529463817098
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_transformed_data_train_standard.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_transformed_data_train_standard.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_transformed_data_train_standard.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_transformed_data_train_standard.csv",
+        "original_metrics": {
+            "rmse": 2.810179806579665,
+            "mae": 2.281377201489808,
+            "r2": 0.7041158986947411
         }
     },
     "xgboost_transformed_data_train_standard": {
@@ -563,6 +806,15 @@
             "best_rmse": 0.4158671130604679,
             "best_mae": 0.32983651041604534,
             "best_r2": 0.8252729696094967
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_transformed_data_train_standard.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_transformed_data_train_standard.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_transformed_data_train_standard.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_transformed_data_train_standard.csv",
+        "original_metrics": {
+            "rmse": 2.2302352161295023,
+            "mae": 1.823071989156229,
+            "r2": 0.8136391207077687
         }
     },
     "linearregression_most_important_train_standard": {
@@ -581,6 +833,15 @@
             "best_rmse": 0.5522875194466172,
             "best_mae": 0.42408539320575855,
             "best_r2": 0.6927135396739128
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_most_important_train_standard.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_most_important_train_standard.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_most_important_train_standard.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_most_important_train_standard.csv",
+        "original_metrics": {
+            "rmse": 2.851829577601991,
+            "mae": 2.282796787926298,
+            "r2": 0.6952802871196475
         }
     },
     "ridge_most_important_train_standard": {
@@ -604,6 +865,15 @@
             "best_rmse": 0.5518821962890559,
             "best_mae": 0.42377473869417387,
             "best_r2": 0.6931702576035518
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_most_important_train_standard.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_most_important_train_standard.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_most_important_train_standard.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_most_important_train_standard.csv",
+        "original_metrics": {
+            "rmse": 2.8526029926027907,
+            "mae": 2.2835879032732507,
+            "r2": 0.6951149849877909
         }
     },
     "randomforest_most_important_train_standard": {
@@ -627,6 +897,15 @@
             "best_rmse": 0.4621108619765798,
             "best_mae": 0.3628620835259727,
             "best_r2": 0.7860714886073336
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_most_important_train_standard.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_most_important_train_standard.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_most_important_train_standard.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_most_important_train_standard.csv",
+        "original_metrics": {
+            "rmse": 2.3856776813012535,
+            "mae": 1.957124485593468,
+            "r2": 0.786755937439841
         }
     },
     "xgboost_most_important_train_standard": {
@@ -649,6 +928,15 @@
             "best_rmse": 0.3938239351387438,
             "best_mae": 0.31299428417276,
             "best_r2": 0.8431803943449856
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_most_important_train_standard.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_most_important_train_standard.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_most_important_train_standard.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_most_important_train_standard.csv",
+        "original_metrics": {
+            "rmse": 2.0778283841190364,
+            "mae": 1.6810651630238822,
+            "r2": 0.8382393952812203
         }
     },
     "linearregression_pca_data_train_standard": {
@@ -667,6 +955,15 @@
             "best_rmse": 0.6692635204571304,
             "best_mae": 0.5354502800654877,
             "best_r2": 0.5513779765596785
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_pca_data_train_standard.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_pca_data_train_standard.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_pca_data_train_standard.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_pca_data_train_standard.csv",
+        "original_metrics": {
+            "rmse": 3.900939400859082,
+            "mae": 3.204910425648008,
+            "r2": 0.42984646655175107
         }
     },
     "ridge_pca_data_train_standard": {
@@ -690,6 +987,15 @@
             "best_rmse": 0.668346477611799,
             "best_mae": 0.534979213749104,
             "best_r2": 0.5526399229538461
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_pca_data_train_standard.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_pca_data_train_standard.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_pca_data_train_standard.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_pca_data_train_standard.csv",
+        "original_metrics": {
+            "rmse": 3.9011552554029216,
+            "mae": 3.206668112545323,
+            "r2": 0.4297833670655927
         }
     },
     "randomforest_pca_data_train_standard": {
@@ -713,6 +1019,15 @@
             "best_rmse": 0.7502827664293855,
             "best_mae": 0.6114582760311561,
             "best_r2": 0.43462951712139236
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_pca_data_train_standard.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_pca_data_train_standard.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_pca_data_train_standard.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_pca_data_train_standard.csv",
+        "original_metrics": {
+            "rmse": 4.369409650700522,
+            "mae": 3.5555307793667175,
+            "r2": 0.2846823524032924
         }
     },
     "xgboost_pca_data_train_standard": {
@@ -735,6 +1050,15 @@
             "best_rmse": 0.7483478495395587,
             "best_mae": 0.6105653007735753,
             "best_r2": 0.43771150347853094
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_pca_data_train_standard.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_pca_data_train_standard.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_pca_data_train_standard.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_pca_data_train_standard.csv",
+        "original_metrics": {
+            "rmse": 4.235448977281112,
+            "mae": 3.4542162162840446,
+            "r2": 0.327871484234476
         }
     },
     "linearregression_transformed_data_train_boxcox": {
@@ -753,6 +1077,15 @@
             "best_rmse": 0.5457515449734816,
             "best_mae": 0.42009516897333804,
             "best_r2": 0.7001294979978278
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_transformed_data_train_boxcox.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_transformed_data_train_boxcox.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_transformed_data_train_boxcox.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_transformed_data_train_boxcox.csv",
+        "original_metrics": {
+            "rmse": 2.7524447234246026,
+            "mae": 2.2535474473513526,
+            "r2": 0.7162348094612146
         }
     },
     "ridge_transformed_data_train_boxcox": {
@@ -776,6 +1109,15 @@
             "best_rmse": 0.5450030496871581,
             "best_mae": 0.42038497082683185,
             "best_r2": 0.7010801937888875
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_transformed_data_train_boxcox.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_transformed_data_train_boxcox.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_transformed_data_train_boxcox.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_transformed_data_train_boxcox.csv",
+        "original_metrics": {
+            "rmse": 2.7643973826204573,
+            "mae": 2.26930099246101,
+            "r2": 0.71376492294694
         }
     },
     "randomforest_transformed_data_train_boxcox": {
@@ -799,6 +1141,15 @@
             "best_rmse": 0.5149847854012626,
             "best_mae": 0.4092679089689669,
             "best_r2": 0.7338894147942862
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_transformed_data_train_boxcox.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_transformed_data_train_boxcox.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_transformed_data_train_boxcox.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_transformed_data_train_boxcox.csv",
+        "original_metrics": {
+            "rmse": 2.8088262439059055,
+            "mae": 2.285301933502115,
+            "r2": 0.7044903577264592
         }
     },
     "xgboost_transformed_data_train_boxcox": {
@@ -821,6 +1172,15 @@
             "best_rmse": 0.4158857636278651,
             "best_mae": 0.32844340214154927,
             "best_r2": 0.8259556550143374
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_transformed_data_train_boxcox.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_transformed_data_train_boxcox.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_transformed_data_train_boxcox.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_transformed_data_train_boxcox.csv",
+        "original_metrics": {
+            "rmse": 2.184840157780499,
+            "mae": 1.7505135648764927,
+            "r2": 0.8212025803436633
         }
     },
     "linearregression_most_important_train_boxcox": {
@@ -839,6 +1199,15 @@
             "best_rmse": 0.5405335066009572,
             "best_mae": 0.41610705396015507,
             "best_r2": 0.705475521281273
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_most_important_train_boxcox.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_most_important_train_boxcox.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_most_important_train_boxcox.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_most_important_train_boxcox.csv",
+        "original_metrics": {
+            "rmse": 2.7498996100734927,
+            "mae": 2.216452452765175,
+            "r2": 0.716759347274782
         }
     },
     "ridge_most_important_train_boxcox": {
@@ -862,6 +1231,15 @@
             "best_rmse": 0.540013660852023,
             "best_mae": 0.41577438151345447,
             "best_r2": 0.7060528832140309
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_most_important_train_boxcox.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_most_important_train_boxcox.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_most_important_train_boxcox.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_most_important_train_boxcox.csv",
+        "original_metrics": {
+            "rmse": 2.7510407483106576,
+            "mae": 2.2178796672278547,
+            "r2": 0.7165242231987512
         }
     },
     "randomforest_most_important_train_boxcox": {
@@ -885,6 +1263,15 @@
             "best_rmse": 0.4626966240124452,
             "best_mae": 0.3632928933695392,
             "best_r2": 0.7855389902587292
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_most_important_train_boxcox.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_most_important_train_boxcox.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_most_important_train_boxcox.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_most_important_train_boxcox.csv",
+        "original_metrics": {
+            "rmse": 2.3985214514226088,
+            "mae": 1.9654116657805687,
+            "r2": 0.7845189308932802
         }
     },
     "xgboost_most_important_train_boxcox": {
@@ -907,6 +1294,15 @@
             "best_rmse": 0.39057865797036556,
             "best_mae": 0.3090171345324089,
             "best_r2": 0.8460074045743209
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_most_important_train_boxcox.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_most_important_train_boxcox.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_most_important_train_boxcox.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_most_important_train_boxcox.csv",
+        "original_metrics": {
+            "rmse": 2.0707219322676074,
+            "mae": 1.6899738838235627,
+            "r2": 0.8393926285086762
         }
     },
     "linearregression_pca_data_train_boxcox": {
@@ -925,6 +1321,15 @@
             "best_rmse": 0.6460843952279444,
             "best_mae": 0.5156964814356754,
             "best_r2": 0.5815870941155871
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_pca_data_train_boxcox.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_pca_data_train_boxcox.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_pca_data_train_boxcox.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_pca_data_train_boxcox.csv",
+        "original_metrics": {
+            "rmse": 3.83315862187927,
+            "mae": 3.096517911285763,
+            "r2": 0.4496544103987199
         }
     },
     "ridge_pca_data_train_boxcox": {
@@ -948,6 +1353,15 @@
             "best_rmse": 0.645202141317983,
             "best_mae": 0.514843923533998,
             "best_r2": 0.5827365637693986
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_pca_data_train_boxcox.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_pca_data_train_boxcox.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_pca_data_train_boxcox.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_pca_data_train_boxcox.csv",
+        "original_metrics": {
+            "rmse": 3.8331874043048866,
+            "mae": 3.096629119870798,
+            "r2": 0.4496461454965702
         }
     },
     "randomforest_pca_data_train_boxcox": {
@@ -971,6 +1385,15 @@
             "best_rmse": 0.7488625964001536,
             "best_mae": 0.6090794970192263,
             "best_r2": 0.43709493421249734
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_pca_data_train_boxcox.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_pca_data_train_boxcox.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_pca_data_train_boxcox.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_pca_data_train_boxcox.csv",
+        "original_metrics": {
+            "rmse": 4.201987549385495,
+            "mae": 3.4194878311657555,
+            "r2": 0.33864988993142686
         }
     },
     "xgboost_pca_data_train_boxcox": {
@@ -993,6 +1416,15 @@
             "best_rmse": 0.7347190151420392,
             "best_mae": 0.5819535177934878,
             "best_r2": 0.4588746941141939
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_pca_data_train_boxcox.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_pca_data_train_boxcox.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_pca_data_train_boxcox.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_pca_data_train_boxcox.csv",
+        "original_metrics": {
+            "rmse": 3.987018511612678,
+            "mae": 3.275653680402425,
+            "r2": 0.40458686396854293
         }
     },
     "linearregression_transformed_data_train_yeojohnson": {
@@ -1011,6 +1443,15 @@
             "best_rmse": 0.5447242981552497,
             "best_mae": 0.4197308806995187,
             "best_r2": 0.701318911804057
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_transformed_data_train_yeojohnson.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_transformed_data_train_yeojohnson.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_transformed_data_train_yeojohnson.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_transformed_data_train_yeojohnson.csv",
+        "original_metrics": {
+            "rmse": 2.757293721375578,
+            "mae": 2.254718323728708,
+            "r2": 0.7152341071771917
         }
     },
     "ridge_transformed_data_train_yeojohnson": {
@@ -1034,6 +1475,15 @@
             "best_rmse": 0.5439859925119734,
             "best_mae": 0.41984756122991945,
             "best_r2": 0.702251662440794
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_transformed_data_train_yeojohnson.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_transformed_data_train_yeojohnson.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_transformed_data_train_yeojohnson.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_transformed_data_train_yeojohnson.csv",
+        "original_metrics": {
+            "rmse": 2.769404047421267,
+            "mae": 2.2700754533200866,
+            "r2": 0.7127271699529496
         }
     },
     "randomforest_transformed_data_train_yeojohnson": {
@@ -1057,6 +1507,15 @@
             "best_rmse": 0.5150051467176981,
             "best_mae": 0.4093264945319189,
             "best_r2": 0.7338665618914304
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_transformed_data_train_yeojohnson.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_transformed_data_train_yeojohnson.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_transformed_data_train_yeojohnson.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_transformed_data_train_yeojohnson.csv",
+        "original_metrics": {
+            "rmse": 2.809309776583804,
+            "mae": 2.2874157821111725,
+            "r2": 0.7043886064216605
         }
     },
     "xgboost_transformed_data_train_yeojohnson": {
@@ -1079,6 +1538,15 @@
             "best_rmse": 0.4158857636278651,
             "best_mae": 0.32844340214154927,
             "best_r2": 0.8259556550143374
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_transformed_data_train_yeojohnson.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_transformed_data_train_yeojohnson.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_transformed_data_train_yeojohnson.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_transformed_data_train_yeojohnson.csv",
+        "original_metrics": {
+            "rmse": 2.175344397310232,
+            "mae": 1.7390701679964664,
+            "r2": 0.8227533829810141
         }
     },
     "linearregression_most_important_train_yeojohnson": {
@@ -1097,6 +1565,15 @@
             "best_rmse": 0.5393207138861206,
             "best_mae": 0.4152442632217218,
             "best_r2": 0.706881706522502
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_most_important_train_yeojohnson.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_most_important_train_yeojohnson.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_most_important_train_yeojohnson.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_most_important_train_yeojohnson.csv",
+        "original_metrics": {
+            "rmse": 2.755726698601256,
+            "mae": 2.216108805203779,
+            "r2": 0.7155576910116621
         }
     },
     "ridge_most_important_train_yeojohnson": {
@@ -1120,6 +1597,15 @@
             "best_rmse": 0.538810581940633,
             "best_mae": 0.41478791190126973,
             "best_r2": 0.7074470461258228
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_most_important_train_yeojohnson.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_most_important_train_yeojohnson.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_most_important_train_yeojohnson.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_most_important_train_yeojohnson.csv",
+        "original_metrics": {
+            "rmse": 2.7568002967070284,
+            "mae": 2.2175748229576695,
+            "r2": 0.7153360172079116
         }
     },
     "randomforest_most_important_train_yeojohnson": {
@@ -1143,6 +1629,15 @@
             "best_rmse": 0.462849620771942,
             "best_mae": 0.36347396938348153,
             "best_r2": 0.7853955635995431
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_most_important_train_yeojohnson.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_most_important_train_yeojohnson.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_most_important_train_yeojohnson.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_most_important_train_yeojohnson.csv",
+        "original_metrics": {
+            "rmse": 2.393881670783695,
+            "mae": 1.9636866350158317,
+            "r2": 0.7853517922238511
         }
     },
     "xgboost_most_important_train_yeojohnson": {
@@ -1165,6 +1660,15 @@
             "best_rmse": 0.39057865797036556,
             "best_mae": 0.3090171345324089,
             "best_r2": 0.8460074045743209
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_most_important_train_yeojohnson.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_most_important_train_yeojohnson.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_most_important_train_yeojohnson.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_most_important_train_yeojohnson.csv",
+        "original_metrics": {
+            "rmse": 2.0648099743838078,
+            "mae": 1.6689817793303992,
+            "r2": 0.8403083947191021
         }
     },
     "linearregression_pca_data_train_yeojohnson": {
@@ -1183,6 +1687,15 @@
             "best_rmse": 0.6469401707856736,
             "best_mae": 0.5163611386265126,
             "best_r2": 0.5805270282940321
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_linearregression_pca_data_train_yeojohnson.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_linearregression_pca_data_train_yeojohnson.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_linearregression_pca_data_train_yeojohnson.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_linearregression_pca_data_train_yeojohnson.csv",
+        "original_metrics": {
+            "rmse": 3.8444577422492965,
+            "mae": 3.109929409099507,
+            "r2": 0.44640508690731207
         }
     },
     "ridge_pca_data_train_yeojohnson": {
@@ -1206,6 +1719,15 @@
             "best_rmse": 0.6460606992610799,
             "best_mae": 0.5155600384451822,
             "best_r2": 0.5816765769780001
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_ridge_pca_data_train_yeojohnson.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_ridge_pca_data_train_yeojohnson.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_ridge_pca_data_train_yeojohnson.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_ridge_pca_data_train_yeojohnson.csv",
+        "original_metrics": {
+            "rmse": 3.844472480146173,
+            "mae": 3.110137120087308,
+            "r2": 0.44640084243855926
         }
     },
     "randomforest_pca_data_train_yeojohnson": {
@@ -1229,6 +1751,15 @@
             "best_rmse": 0.7474975363186621,
             "best_mae": 0.6056197609700892,
             "best_r2": 0.4392524020867198
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_randomforest_pca_data_train_yeojohnson.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_randomforest_pca_data_train_yeojohnson.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_randomforest_pca_data_train_yeojohnson.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_randomforest_pca_data_train_yeojohnson.csv",
+        "original_metrics": {
+            "rmse": 4.275516347967627,
+            "mae": 3.4650331759610133,
+            "r2": 0.3153020140618421
         }
     },
     "xgboost_pca_data_train_yeojohnson": {
@@ -1251,6 +1782,15 @@
             "best_rmse": 0.7353794551887034,
             "best_mae": 0.5849352097781996,
             "best_r2": 0.4571134633422453
+        },
+        "predictions_test_csv_path": "data/C_test_data/predictions/raw/preds_xgboost_pca_data_train_yeojohnson.csv",
+        "predictions_bind_csv_path": "data/D_blind_data/predictions/raw/preds_xgboost_pca_data_train_yeojohnson.csv",
+        "predictions_original_scale_test_csv_path": "data/C_test_data/predictions/transformed/preds_xgboost_pca_data_train_yeojohnson.csv",
+        "predictions_original_scale_blind_csv_path": "data/D_blind_data/predictions/transformed/preds_xgboost_pca_data_train_yeojohnson.csv",
+        "original_metrics": {
+            "rmse": 4.016503762150638,
+            "mae": 3.2339424045986704,
+            "r2": 0.39574776721102245
         }
     }
 }

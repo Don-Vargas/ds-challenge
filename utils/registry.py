@@ -128,14 +128,24 @@ def add_trained_model_record(model_name,
     print(f"[INFO] Registro de modelo entrenado '{key}' actualizado.")
 
 
-def add_predictions_data_path_to_registry(model_key, predictions_csv_path):
+def add_predictions_test_data_path_to_registry(model_key, predictions_csv_path):
     _update_registry_entry(TRAINED_REGISTRY_FILE, model_key, {
-        'predictions_transformed_scale_csv_path': predictions_csv_path
+        'predictions_test_csv_path': predictions_csv_path
     })
 
-def add_predictions_original_scale_data_path_to_registry(model_key, predictions_csv_path):
+def add_predictions_blind_data_path_to_registry(model_key, predictions_csv_path):
     _update_registry_entry(TRAINED_REGISTRY_FILE, model_key, {
-        'predictions_original_scale_csv_path': predictions_csv_path
+        'predictions_bind_csv_path': predictions_csv_path
+    })
+
+def add_predictions_test_original_scale_data_path_to_registry(model_key, predictions_csv_path):
+    _update_registry_entry(TRAINED_REGISTRY_FILE, model_key, {
+        'predictions_original_scale_test_csv_path': predictions_csv_path
+    })
+
+def add_predictions_blind_original_scale_data_path_to_registry(model_key, predictions_csv_path):
+    _update_registry_entry(TRAINED_REGISTRY_FILE, model_key, {
+        'predictions_original_scale_blind_csv_path': predictions_csv_path
     })
 
 def add_original_metrics_path_to_registry(model_key, metrics):
